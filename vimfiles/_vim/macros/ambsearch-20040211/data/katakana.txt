@@ -1,0 +1,84 @@
+# カタカナ83文字
+ァ	a	l	x
+ア	a
+ィ	i	l	x
+イ	i
+ゥ	u	l	x
+ウ	u
+ェ	e	l	x
+エ	e
+ォ	o	l	x
+オ	o
+カ	k	c
+ガ	g
+キ	k	c	q
+ギ	g
+ク	k	c
+グ	g
+ケ	k	c
+ゲ	g
+コ	k	c
+ゴ	g
+サ	s
+ザ	z
+シ	s
+ジ	j	z
+ス	s
+ズ	z
+セ	s
+ゼ	z
+ソ	s
+ゾ	z
+タ	t
+ダ	d
+チ	t	c
+ヂ	d
+ッ	t	x
+ツ	t
+ヅ	d
+テ	t
+デ	d
+ト	t
+ド	d
+ナ	n
+ニ	n
+ヌ	n
+ネ	n
+ノ	n
+ハ	h
+バ	b
+パ	p
+ヒ	h
+ビ	b
+ピ	p
+フ	f	h
+ブ	b
+プ	p
+ヘ	h
+ベ	b
+ペ	p
+ホ	h
+ボ	b
+ポ	p
+マ	m
+ミ	m
+ム	m
+メ	m
+モ	m
+ャ	y	x
+ヤ	y
+ュ	y	x
+ユ	y
+ョ	y	x
+ヨ	y
+ラ	r	l
+リ	r	l
+ル	r	l
+レ	r	l
+ロ	r	l
+ワ	w
+ヰ	i	w
+ヱ	e	w
+ヲ	w
+ン	n
+ヴ	v

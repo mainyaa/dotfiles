@@ -1,0 +1,1007 @@
+# ‹³ˆçŠ¿Žš1006•¶Žš
+ˆ¤	A	I
+ˆ«	A	W
+ˆ³	A
+ˆÀ	A	Y
+ˆÃ	A	K
+ˆÄ	A
+ˆÈ	I
+ˆÊ	G	I	K
+ˆÍ	I	K
+ˆÏ	I	Y
+ˆÓ	I
+ˆÕ	E	I	Y
+ˆÙ	I	K
+ˆÚ	I	U
+ˆÝ	I
+ˆß	I	K
+ˆâ	I
+ˆã	I
+ˆæ	I
+ˆç	I	S
+ˆê	H	I	K
+ˆó	I	S
+ˆõ	I
+ˆö	I	Y
+ˆø	H	I
+ˆù	I	N
+‰@	I
+‰E	M	U	Y
+‰F	U
+‰H	B	H	U	W
+‰J	A	U
+‰^	H	U
+‰_	K	U
+‰c	E	I
+‰f	E	H	U
+‰h	E	H	S
+‰i	E	N
+‰j	E	O
+‰p	E	H
+‰q	E
+‰t	E
+‰v	E	M
+‰w	E
+‰~	E	M
+‰€	E	S
+‰„	E	N
+‰ˆ	E	S
+‰‰	E
+‰“	E	T
+‰–	E	S
+‰›	O
+‰	O
+‰ž	K	O
+‰¡	O	Y
+‰¤	N	O
+‰©	K	O
+‰­	O
+‰®	O	Y
+‰¶	O
+‰·	A	O
+‰¹	I	N	O
+‰º	G	K	M	O	S
+‰»	B	K
+‰¼	K
+‰½	K	N
+‰¿	A	K
+‰Á	K
+‰Â	K
+‰Ä	K	N
+‰Æ	I	K	U	Y
+‰È	K	S
+‰Ê	H	K
+‰Ì	K	U
+‰Í	G	K
+‰Î	H	K
+‰Ô	H	K
+‰×	K	N
+‰Û	K
+‰Ý	K
+‰ß	A	K	S
+‰ä	G	W
+‰æ	G	K
+‰è	G	M
+‰ê	G	K
+‰ï	A	E	K
+‰ð	G	K	T	W
+‰ñ	E	K	M
+‰õ	K
+‰ü	A	K
+ŠB	K
+ŠC	K	U
+ŠD	H	K
+ŠE	K
+ŠG	E	K
+ŠJ	A	H	K
+ŠK	K
+ŠL	K
+ŠO	G	H	S
+ŠQ	G
+ŠX	G	M
+Še	K	O
+Šg	K
+Ši	K
+Šm	K	T
+Šo	K	O	S
+Šp	K	T
+Št	K
+Šv	K
+Šw	G	M
+Šy	G	R	T
+Šz	G	H
+Š„	K	S	W
+Šˆ	K
+Š”	K
+Š¦	K	S
+Š§	K
+Šª	K	M
+Š®	K
+Š¯	K
+Š±	H	K
+Š²	K	M
+Š´	K
+Šµ	K	N
+Š¿	K
+ŠÅ	K	M
+ŠÇ	K
+ŠÈ	F	K
+ŠÏ	K	M
+ŠÔ	A	K	M
+ŠÖ	K	S
+ŠÙ	D	K	T
+ŠÛ	G	M
+ŠÝ	G	K
+Šá	G	M
+Šâ	G	I
+Šç	G	K
+Šè	G	N
+Šë	A	K
+Šì	K	Y
+Ší	K	U
+Šî	K	M
+Šñ	K	Y
+Šó	K
+Šö	K
+Š÷	K	T
+Šø	H	K
+Šú	G	K
+‹@	H	K
+‹A	K
+‹C	K
+‹D	K
+‹G	K
+‹I	K	N
+‹K	K
+‹L	K	S
+‹M	K	T
+‹N	K	O
+‹Z	G	W
+‹^	G	U
+‹`	G	Y
+‹c	G
+‹q	K
+‹t	G	S
+‹v	H	K
+‹x	K	Y
+‹z	K	S
+‹{	G	K	M
+‹|	K	Y
+‹}	I	K
+‹~	K	S
+‹	K	M
+‹ƒ	K	N
+‹…	K	T
+‹†	K
+‹‰	K
+‹‹	K
+‹Œ	K
+‹	G	U
+‹Ž	K	S
+‹	I	K	O
+‹“	A	K
+‹–	K	M	Y
+‹™	G	R
+‹›	G	S	U
+‹ž	K
+‹Ÿ	K	S	T
+‹£	K	S
+‹¤	K	T
+‹¦	K
+‹«	K	S
+‹­	G	K	S	T
+‹³	K	O
+‹´	B	H	K
+‹¹	K	M
+‹»	K	O
+‹½	G	K
+‹¾	K
+‹Æ	G	W
+‹Ç	K
+‹È	K	M
+‹É	G	K
+‹Ê	G	T
+‹Î	K	T
+‹Ï	K
+‹Ö	K
+‹Ø	K	S
+‹ß	C	K	T
+‹à	K
+‹â	G
+‹ã	K
+‹å	K
+‹æ	K
+‹ê	K	N
+‹ï	G
+‹ó	A	K	S
+ŒN	K
+ŒP	K
+ŒQ	G	M
+ŒR	G
+ŒS	G
+ŒW	K
+ŒZ	A	K	N
+Œ^	G	K
+Œ`	G	K
+Œa	K
+Œh	K	U
+Œi	K
+Œn	K
+Œo	H	K	T
+Œv	H	K
+Œx	K
+Œy	K
+Œ|	G
+Œ€	G
+Œƒ	G	H
+Œ‡	K
+Œˆ	K
+Œ‰	I	K
+ŒŠ	A	K
+Œ‹	K	M	Y
+ŒŒ	C	K	T
+ŒŽ	G	T
+Œ	K
+Œ’	K	S	T
+Œ”	K
+Œš	K	T
+Œ›	K	N
+ŒŸ	K
+Œ 	G	K
+Œ¢	I	K
+Œ¤	K	T
+Œ¦	K
+Œ§	K
+Œ©	K	M
+Œ¯	K
+Œ±	G	K
+Œ³	G	M
+Œ´	G	H	W
+Œµ	G	K	O
+Œ¸	G	H
+Œ¹	G	M
+Œ»	A	G
+Œ¾	G	I	K
+ŒÀ	G	K
+ŒÂ	K
+ŒÃ	F	K
+ŒÄ	K	Y
+ŒÅ	K
+ŒÈ	K	M	O
+ŒÉ	K
+ŒË	K	T
+ŒÌ	K	Y
+ŒÎ	K	M
+ŒÜ	G	I
+Œß	G
+Œã	A	G	K	N	O	U
+Œê	G	K
+Œë	A	G
+Œì	G
+Œð	K	M
+Œó	K	S
+Œõ	H	K	M
+Œö	K	O
+Œ÷	K
+Œø	K
+Œú	A	K
+Œû	K
+Œü	K	M
+@	K
+D	K	S	Y
+F	K	T
+H	K
+K	K	S	Y
+L	H	K
+N	K	Y
+Z	K
+\	K
+`	K	M
+c	K	N	O
+g	B	K
+k	K	T
+l	K
+q	K
+s	G	I	K	O	Y
+u	K
+z	A	K
+|	H	K
+~	F	K	O
+‚	K	T
+†	G
+‡	A	G	K
+	K
+	K	T
+‘	K
+’	K
+•	K
+œ	H	K
+¡	I	K
+¢	K
+ª	K	N
+¬	K	M
+¶	H	S
+·	S
+¸	S
+»	S
+À	S	Z
+Ä	F	S
+Å	M	S
+È	S	T
+Ë	S
+Ì	S	T
+Ï	S	Z
+Ð	S	W
+Õ	M	S
+×	H	K	S
+Ø	N	S
+Ù	S	T
+Û	K	S
+Ý	A	Z
+Þ	Z
+ß	T	Z
+à	S	Z
+â	B	H	S
+ì	S	T
+ð	S
+ô	S
+÷	O	S
+û	S
+ü	S
+Ž@	S
+ŽD	F	S
+ŽE	K	S
+ŽG	Z
+ŽM	S
+ŽO	M	S	Z
+ŽQ	M	S
+ŽR	S	Y
+ŽU	C	S	T
+ŽY	S	U
+ŽZ	S
+Ž\	K	S
+Ž^	S
+Ž_	S
+Žc	N	Z
+Žd	S	T
+Žg	S	T
+Ži	S	T
+Žj	S
+Žl	S	Y
+Žm	S
+Žn	H	S
+Žo	A	S
+Žp	S
+Žq	J	K	S
+Žs	I	S
+Žt	S
+Žu	K	S
+Žv	O	S
+Žw	S	Y
+Žx	S
+Ž}	E	S
+Ž~	S	T	Y
+Ž€	S
+Ž	S	U
+Ž„	S	W
+Ž…	I	S
+Ž†	K	S
+ŽŠ	I	S
+Ž‹	S
+ŽŒ	S
+Ž	S
+ŽŽ	K	S	T
+Ž	S
+Ž‘	S
+Ž”	K	S
+Ž•	H	S
+Ž–	J	K
+Ž—	J	N
+Ž™	G	J	K	N
+Žš	A	J
+Ž›	J	T
+Ž	J	M
+Žž	J	T
+ŽŸ	J	S	T
+Ž¡	C	H	J	N	O	T
+Ž¥	J
+Ž¦	J	S
+Ž¨	J	M
+Ž©	J	M	S
+Ž«	J	Y
+Ž®	S
+Ž¯	S
+Žµ	N	S
+Ž¸	S	U
+Žº	M	S
+Ž¿	C	S	T
+ŽÀ	J	M
+ŽÉ	S
+ŽÊ	S	U
+ŽË	I	S
+ŽÌ	S
+ŽÐ	S	Y
+ŽÒ	M	S
+ŽÓ	A	S
+ŽÔ	K	S
+ŽØ	K	S
+ŽÚ	S
+Žá	J	M	N	W
+Žã	J	Y
+Žå	A	N	O	S
+Žæ	S	T
+Žç	M	S
+Žè	S	T
+Ží	S	T
+Žð	S
+Žñ	K	S
+Žó	J	U
+Žö	J	S
+Ž÷	J	K
+Žû	O	S
+Žü	M	S
+@	M	S
+A	J	S	T
+B	S
+C	O	S
+E	H	S
+H	A	S
+I	O	S
+K	N	S
+O	S
+T	S
+W	A	S	T
+Z	J	S
+\	J	T
+]	J	S
+c	J	T
+d	C	E	J	K	O	S	T
+h	S	Y
+j	I	S
+k	C	S	T
+n	J	U
+o	D	S
+p	J
+q	J	N
+t	H	S
+€	J
+ƒ	J	S
+‡	J	S
+ˆ	S
+‰	H	S	U
+Š	S	T
+‹	A	S
+	S
+‘	K	S
+”	M	S
+•	J	S	T
+—	J	M	N	O
+˜	J
+œ	J	N
+	I	K	S
+Ÿ	K	M	S
+¤	A	S
+¥	S	T
+«	S
+¬	C	K	O	S	T
+­	S
+³	S	U
+µ	M	S
+º	A	S
+¼	M	S
+Á	K	S
+Ä	S	Y
+Æ	S	T
+È	H	K	S
+Í	A	S
+Î	E	S	W
+Ø	S
+Û	S	Z
+Ü	S
+á	S
+ã	A	G	J	K	N	S	U
+æ	J	N
+é	G	J	S
+ê	B	J
+í	J	T
+î	J	N	S
+ð	J
+ó	J
+ö	J	M
+A	S	U
+D	O	S
+E	S
+F	I	S
+H	K	S	T
+M	N	S
+S	K	S
+V	A	N	S
+X	M	S
+[	F	S
+\	M	S
+^	M	S
+_	J	K	S
+b	J	O	S
+e	O	S
+g	M	S
+i	S
+j	H	S
+l	B	H	J	N	T
+m	J	M
+}	H	T	Z
+‚	S	T
+„	O	S
+…	M	S
+”	K	S
+¡	S
+¢	S	Y
+§	S
+¨	I	S
+«	S
+¬	J	N	S
+­	M	S
+®	S	T
+¯	H	S
+°	H	S
+³	M	S	T
+´	K	S
+¶	H	I	J	N	O	S	U
+·	J	M	S
+¸	S
+¹	S
+º	G	K	S
+»	S
+¼	N	S
+½	M	S
+Â	A	S
+Ã	S
+Å	Z
+È	S
+Ì	M	S
+Î	I	K	S
+Ï	S	T
+Ñ	S
+Ó	S
+Ô	A	S
+Ø	K	S
+Ú	S	T
+Ü	O	S
+Ý	M	S
+ß	F	S
+à	S	T	Z
+á	S	Y
+â	T	Z
+ã	S	Z
+æ	S
+ç	C	S	T
+é	N	S
+ê	M	S
+ì	K	S
+í	I	S	T
+ò	I	S
+ó	A	S
+ô	A	S
+õ	S
+ü	S
+‘D	F	S
+‘I	E	S
+‘K	S	Z
+‘O	M	Z
+‘P	Y	Z
+‘R	N	Z
+‘S	M	S	Z
+‘c	S
+‘f	M	S
+‘g	G	K	S
+‘n	S	T
+‘q	K	S
+‘t	K	S
+‘w	S
+‘z	S
+‘€	A	M	S
+‘	H	S
+‘ƒ	S
+‘ˆ	A	S
+‘Š	A	S
+‘‹	M	S
+‘	F	S
+‘	K	S
+‘•	S	Y
+‘–	H	S
+‘—	O	S
+‘œ	Z
+‘	F	M	Z
+‘Ÿ	Z
+‘ 	K	Z
+‘¢	T	Z
+‘¤	G	K	S
+‘¥	N	S
+‘§	I	S
+‘©	S	T
+‘ª	H	S
+‘«	A	S	T
+‘¬	H	S
+‘®	Z
+‘°	Z
+‘±	T	Z
+‘²	S
+‘¶	S	Z
+‘·	M	S
+‘¸	S	T
+‘¹	S
+‘º	M	S
+‘¼	H	T
+‘½	O	T
+‘¾	F	T
+‘Å	D	U
+‘Ì	K	T
+‘Î	T
+‘Ñ	O	T
+‘Ò	M	T
+‘Ô	T
+‘Ý	K	T
+‘Þ	N	S	T
+‘à	T
+‘ã	D	K	S	T	Y
+‘ä	D	T
+‘å	D	O	T
+‘æ	D
+‘è	D
+‘î	T
+’B	D	S	T
+’J	K	T	Y
+’P	T
+’S	K	N	T
+’T	S	T
+’Y	S	T
+’Z	M	T
+’a	T
+’c	D	T
+’f	D	K	T
+’g	A	D
+’i	D
+’j	D	N	O
+’k	D
+’l	A	C	N	T
+’m	C	S	T
+’n	C	J	T
+’r	C	I	T
+’u	C	O	T
+’z	C	K	T
+’|	C	T
+’ƒ	C	S	T
+’…	C	K	T
+’†	C	J	N	T
+’‡	C	N	T
+’ˆ	C	T
+’‰	C	T
+’‹	C	H	T
+’Œ	C	H	T
+’	C	S	T
+’Ž	C	M	T
+’˜	A	C	I	T
+’™	C	T
+’š	C	T
+’›	C	K	T
+’ 	C	T
+’¡	C	T
+’£	C	H	T
+’©	A	C	T
+’ª	C	S	T
+’¬	C	M	T
+’°	C	T
+’²	C	S	T
+’·	C	N	O	T
+’¸	C	I	T
+’¹	C	T
+’¼	C	J	N	S	T
+’À	C	T
+’Ç	O	T
+’É	I	T
+’Ê	K	T
+’á	H	T
+’â	T
+’è	J	S	T
+’ê	S	T
+’ë	N	T
+’í	D	O	T
+’ñ	S	T
+’ö	H	T
+“G	K	T
+“I	M	T
+“J	F	T
+“K	T
+“S	T
+“T	N	T
+“V	A	T
+“W	T
+“X	M	T
+“]	K	T
+“_	T
+“`	D	T
+“c	D	T
+“d	D
+“k	T
+“o	N	T
+“s	M	T
+“w	D	T
+“x	D	T
+“y	D	T
+“}	T
+“~	F	T
+“	K	T
+“‡	J	S	T
+“Š	N	T
+“Œ	A	H	T
+“’	T	Y
+“”	H	T
+“–	A	T
+“™	H	N	R	T
+“š	K	T
+“œ	T
+“	S	T
+“¢	T	U
+“¤	M	T	Z
+“ª	A	K	T	Z
+“­	D	H
+“®	D	U
+“¯	D	O
+“°	D
+“±	D	M
+“¶	D	W
+“¹	D	M	T
+“º	D
+“¾	E	T	U
+“¿	N	T
+“Á	T
+“Å	D
+“Æ	D	H
+“Ç	D	T	Y
+“Í	T
+“à	D	N	U
+“ì	M	N
+“ï	K	M	N
+“ñ	F	J	N
+“÷	N
+“ú	B	H	J	K	N
+“û	C	N	T
+“ü	H	I	N
+”C	M	N
+”F	M	N
+”M	A	N
+”N	N	T
+”O	N
+”R	M	N
+”[	N	O	T
+”\	N
+”]	N
+”_	N
+”g	H	N	P
+”h	H
+”j	H	P	Y
+”n	B	M	U
+”o	H
+”q	H	O
+”s	H	Y
+”w	H	S
+”x	H
+”z	H	K
+”{	B
+”~	B	U
+”ƒ	B	K
+”„	B	U
+”Ž	B	H
+”’	B	H	S
+”ž	B	M
+” 	H
+”¨	H
+”ª	H	Y
+”­	H
+”»	B	H	W
+”¼	H	N
+”½	H	S	T
+”Â	B	H	I
+”Å	B	H	P
+”Æ	H	O
+”Ç	H
+”Ñ	H	I	M
+”Ó	B
+”Ô	B
+”Û	H	I
+”ß	H	K
+”á	H
+”ä	H	K
+”ç	H	K
+”é	H
+”ì	H	K
+”ï	H	T
+”ñ	A	H
+”ò	H	T
+”õ	B	S
+”ü	B	M	U
+•@	B	H
+•K	H	K
+•M	F	H
+•S	H
+•U	H	T
+•W	H
+•X	H	K
+•[	H
+•\	A	H	O
+•]	H
+•a	B	H	Y
+•b	B
+•i	H	S
+•n	B	H	M
+•s	B	F
+•t	D	F	T
+•v	F	O
+•w	F
+•x	F	T
+•z	F	N
+•{	F
+•ƒ	C	F	T
+•‰	F	M	O
+•	B	M	T
+•”	B
+•—	F	K
+•›	F
+•œ	F
+•ž	F
+•Ÿ	F
+• 	F	H
+•¡	F
+•§	B	F	H
+•¨	B	M
+•ª	B	F	P	W
+•±	F
+•²	F	K
+•¶	A	B	F	M
+•·	B	K	M
+•º	H
+•½	B	H	P	T
+•À	H	N
+•Â	H	P	S	T
+•Ã	H
+•Ä	B	K	M	Y
+•Ê	B	W
+•Ï	H	K
+•Ð	H	K
+•Ò	A	H
+•Ó	A	B	H
+•Ô	H	K
+•Ö	B	T
+•×	B	T
+•Ù	B
+•Û	B	H	T
+•à	A	B	F	H
+•â	H	O
+•æ	B	H
+•é	B	K
+•ê	B	H	M
+•ï	H	T
+•ñ	H	M
+•ó	H	T
+•ú	H
+•û	G	H	K
+–@	H	N
+–K	H	O	T
+–L	H	T	Y
+–S	B	M	N
+–Y	B	W
+–\	A	B
+–]	B	M	N
+–_	B
+–f	B
+–h	B	F
+–k	H	K
+–q	B	M
+–{	H	M	P
+–…	I	M
+–‡	M
+–ˆ	G	M
+–‹	B	M
+––	B	M	S
+–œ	B	M	Y
+–ž	M
+–¡	A	M
+–¢	H	I	M
+–§	M
+–¬	M
+–¯	M	T
+–±	M	T
+–²	M	Y
+–³	B	M	N
+–¼	M	N
+–½	I	M
+–¾	A	M
+–¿	M
+–À	M
+–Â	M	N
+–È	M	W
+–Ê	M	O	T
+–Í	B	M
+–Ñ	K	M
+–Ø	B	G	K	M
+–Ú	B	M
+–â	M	T
+–å	K	M
+–é	Y
+–ì	N	Y
+–î	S	Y
+–ð	E	Y
+–ñ	Y
+–ò	K	Y
+–ó	W	Y
+–û	A	Y
+—A	Y
+—D	S	Y
+—E	I	Y
+—F	T	Y
+—L	A	U	Y
+—R	Y
+—V	A	Y
+—X	Y
+—[	S	Y
+—\	A	Y
+—]	A	Y
+—a	A	Y
+—c	O	Y
+—e	Y
+—j	Y
+—l	S	Y
+—m	H	Y
+—p	M	Y
+—r	H	Y
+—t	H	Y
+—v	I	K	Y
+—z	H	Y
+—{	Y
+—~	H	Y
+—	A	Y
+—‚	Y
+—ˆ	K	R
+—Ž	O	R
+—	M	R
+—‘	R	T
+——	R
+—˜	K	R	T
+—	R
+— 	R	U
+—¢	R	S
+—¤	R
+—¥	R
+—¦	H	R	S
+—§	R	T
+—ª	R
+—¬	N	R
+—¯	R	T
+—·	R	T
+—¼	R
+—¿	R
+—Ç	I	R	Y
+—Ê	H	R
+—Ì	R
+—Í	C	R	T
+—Î	M	R
+—Ñ	H	R
+—Õ	N	R
+—Ö	R	W
+—Þ	R	T
+—ß	R
+—á	R	T
+—â	H	R	S	T
+—ç	R
+—ð	R
+—ñ	R
+—û	N	R
+˜A	R	T
+˜H	J	M	R
+˜J	R
+˜N	A	H	R
+˜V	F	O	R
+˜Z	M	R
+˜^	R
+˜_	R
+˜a	K	N	O	W	Y
+˜b	H	W

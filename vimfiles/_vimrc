@@ -1,0 +1,984 @@
+
+
+"--------------------------------------------------
+" Bundle
+" :BundleInstall
+"--------------------------------------------------
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/_vim/vundle.git/
+call vundle#rc()
+let g:bundle_dir = expand('$HOME/_vim/bundle', 1)
+
+Bundle 'gmarik/vundle'
+" ruby
+Bundle 'rails.vim'
+" python
+Bundle 'pyflakes.vim'
+Bundle 'vim-scripts/Pydiction'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'django.vim'
+Bundle 'django_templates.vim'
+Bundle 'Django-helper-utils'
+" java
+Bundle 'java.vim'
+Bundle 'javacomplete'
+"Bundle 'git://github.com/koron/java-helper-vim'
+"Bundle 'jcommenter.vim'
+Bundle 'git://github.com/moznion/jcommenter.vim'
+"Bundle 'pwicks86/eclim-for-vundle'
+" cpp
+Bundle 'cpp.vim'
+Bundle 'vim-cpp-auto-include'
+Bundle 'Cppcheck-compiler'
+" js
+Bundle 'walm/jshint.vim'
+Bundle 'xer0x/jsbeautify'
+Bundle 'js-mask'
+" coffeescript
+Bundle 'leafgarland/typescript-vim'
+" coffeescript
+Bundle 'kchmck/vim-coffee-script'
+" haskell
+Bundle 'haskell.vim'
+Bundle 'eagletmt/ghcmod-vim'
+" groovy
+Bundle 'groovy.vim'
+" go
+Bundle 'Go-Syntax'
+Bundle 'go.vim'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'Blackrush/vim-gocode'
+" Bundle 'groovyindent'
+Bundle 'tfnico/vim-gradle'
+" HTML/CSS
+Bundle 'vim-scripts/HTML-AutoCloseTag'
+Bundle 'ZenCoding.vim'
+Bundle 'css3-syntax-plus'
+" syntax
+" applescript, c, coffee, cpp, css, cucumber, cuda, docbk, erlang, eruby, fortran, gentoo_metadata, go, haml, haskell, html, javascript, json, less, lua, matlab, perl, php, puppet, python, rst, ruby, sass/scss, sh, tcl, tex, vala, xhtml, xml, xslt, yaml, zpt
+Bundle 'Syntastic'
+Bundle 'actionscript.vim'
+" TOML
+Bundle 'cespare/vim-toml'
+" util
+Bundle 'YankRing.vim'
+Bundle 'git://github.com/airblade/vim-rooter/'
+Bundle 'rodjek/vim-puppet'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Shougo/vimfiler'
+Bundle 'Shougo/vimproc'
+Bundle 'neocomplcache'
+"Bundle 'tpope/vim-rails'
+"Bundle 'sjbach/lusty'
+"Bundle 'gmarik/snipmate.vim'   " errorが起こる
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Align'
+Bundle 'godlygeek/tabular'
+Bundle 'tabpagecd'
+"Bundle 'Raimondi/delimitMate'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
+"Bundle 'wincent/Command-T'
+Bundle 'httplog'
+Bundle 'pdurbin/vim-tsv'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'itchyny/lightline.vim'
+Bundle 'itchyny/landscape.vim'
+Bundle 'sickill/vim-pasta'
+"Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-endwise'
+Bundle 'scrooloose/syntastic'
+Bundle 'AutoComplPop'
+Bundle 'thinca/vim-ft-help_fold'
+Bundle 'savevers.vim'
+" command
+Bundle 'quickrun.vim'
+"Bundle 'Shougo/vimproc' " Aynchronous execution plugin for Vim
+"Bundle 'git://git.wincent.com/command-t.git'
+" git
+Bundle 'tpope/vim-fugitive'
+"Bundle 'fugitive.vim'
+" move
+Bundle 'EasyMotion'
+" color
+Bundle 'AnsiEsc.vim'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'Low-Contrast-Color-Schemes'
+Bundle 'CSApprox'
+" search
+Bundle 'smartchr'
+Bundle 'eregex.vim'
+Bundle 'The-NERD-tree'
+Bundle 'mileszs/ack.vim'
+Bundle 'ag.vim'
+Bundle 'nerdtree-ack'
+" IME
+"Bundle 'fuenor/im_control.vim'
+" TextMate's like
+"Bundle 'vim-scripts/snippetsEmu'
+" tag jump
+Bundle 'matchit.zip'
+Bundle 'taglist-plus'
+Bundle 'taglist.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Source-Explorer-srcexpl.vim'
+Bundle 'ctags.vim'
+Bundle 'gtags.vim'
+" unite.vim
+Bundle 'unite.vim'
+Bundle 'unite-yarm'
+Bundle 'unite-gem'
+Bundle 'unite-scriptenames'
+Bundle 'unite-locate'
+Bundle 'unite-font'
+Bundle 'unite-colorscheme'
+"Bundle 'git://github.com/kmnk/vim-unite-giti'
+
+filetype plugin indent on
+
+"--------------------------------------------------
+" Default settings
+"--------------------------------------------------
+set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,sjis
+set smartcase
+set incsearch
+set ignorecase
+set tabstop=4
+set expandtab
+"set cindent
+set backspace=indent,eol,start
+set showmatch
+set matchtime=3
+set wildmenu
+set number
+set list
+set cursorline
+set visualbell t_vb=
+set helplang=ja,en
+colorscheme Dark
+let &guifont='SourceCodePro-Light'
+filetype plugin on
+filetype indent on
+let g:vim_indent_cont = &sw * 2
+set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+"--------------------------------------------------
+" filetype
+"--------------------------------------------------
+au BufRead *access_log* setf httplog
+au BufNewFile,BufRead *.tmpl  setf tmpl
+au BufNewFile,BufRead *.as  setf actionscript
+
+"--------------------------------------------------
+" CoffeeScirpt
+"--------------------------------------------------
+" autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+"--------------------------------------------------
+" Java
+"--------------------------------------------------
+set sm
+set ai
+set complete=.,w,b,u,t,i
+syntax on
+let g:java_highlight_all=1
+let g:java_highlight_debug=1
+let g:java_allow_cpp_keywords=1
+let g:java_space_errors=0
+let g:java_highlight_functions=1
+let java_highlight_all=1
+let java_highlight_functions="style"
+let java_allow_cpp_keywords=1
+"autocmd FileType java setl noexpandtab
+autocmd FileType java setl tabstop=4 noexpandtab shiftwidth=4 softtabstop=4
+autocmd FileType xml setl tabstop=4 noexpandtab shiftwidth=4 softtabstop=4
+autocmd FileType java :setlocal omnifunc=javacomplete#Complete
+autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
+autocmd FileType java source $HOME/_vim/bundle/jcommenter.vim/plugin/jcommenter.vim
+autocmd FileType java map <C-c> :call JCommentWriter()<CR>
+
+"--------------------------------------------------
+" Python
+"--------------------------------------------------
+let g:pydiction_location = '~/_vim/after/ftplugin/pydiction/complete-dict'
+let g:pydiction_menu_height = 20
+let python_highlight_all=1
+autocmd FileType python setl autoindent
+autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+" Execute python script C-P
+function! s:ExecPy()
+    exe "!" . &ft . " %"
+endfunction
+command! Exec call <SID>ExecPy()
+autocmd FileType python map <silent> <C-P> :call <SID>ExecPy()<CR>
+" Turn on completion:
+setlocal omnifunc=pythoncomplete#Complete
+
+" Python Syntax Check
+function! PythonGrep(tool)
+    set lazyredraw
+    " Close any existing cwindows.
+    cclose
+    let l:grepformat_save = &grepformat
+    let l:grepprogram_save = &grepprg
+    set grepformat&vim
+    set grepformat&vim
+    let &grepformat = '%f:%l:%m'
+    if a:tool == "pylint"
+        let &grepprg = 'pylint --output-format=parseable --reports=n --rcfile=$HOME/.pylint --indent-string="        "'
+    elseif a:tool == "pychecker"
+        let &grepprg = 'pychecker --quiet -q'
+    elseif a:tool == "pyflakes"
+        let &grepprg = 'pyflakes'
+    else
+        echohl WarningMsg
+        echo "PythonGrep Error: Unknown Tool"
+        echohl none
+    endif
+    if &readonly == 0 | update | endif
+    silent! grep! %
+    let &grepformat = l:grepformat_save
+    let &grepprg = l:grepprogram_save
+    let l:mod_total = -20
+    let l:win_count = 1
+    " Determine correct window height
+    windo let l:win_count = l:win_count + 1
+    if l:win_count <= 2 | let l:win_count = 4 | endif
+    windo let l:mod_total = l:mod_total + winheight(0)/l:win_count |
+    "execute 'resize +'.l:mod_total
+    " Open cwindow
+    execute 'belowright cw '.l:mod_total
+    nnoremap   c :cclose
+    set nolazyredraw
+    redraw!
+endfunction
+
+command! Pyflakes call PythonGrep('pyflakes')
+command! PyFlakes call PythonGrep('pyflakes')
+command! Pychecker call PythonGrep('pychecker')
+command! PyChecker call PythonGrep('pychecker')
+command! Pylint call PythonGrep('pylint')
+command! PyLint call PythonGrep('pylint')
+
+" Indent Python in the Google way.
+
+setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+
+let s:maxoff = 50 " maximum number of lines to look backwards.
+
+function GetGooglePythonIndent(lnum)
+
+  " Indent inside parens.
+  " Align with the open paren unless it is at the end of the line.
+  " E.g.
+  "   open_paren_not_at_EOL(100,
+  "                         (200,
+  "                          300),
+  "                         400)
+  "   open_paren_at_EOL(
+  "       100, 200, 300, 400)
+  call cursor(a:lnum, 1)
+  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
+        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+        \ . " =~ '\\(Comment\\|String\\)$'")
+  if par_line > 0
+    call cursor(par_line, 1)
+    if par_col != col("$") - 1
+      return par_col
+    endif
+  endif
+
+  " Delegate the rest to the original function.
+  return GetPythonIndent(a:lnum)
+
+endfunction
+
+let pyindent_nested_paren="&sw*2"
+let pyindent_open_paren="&sw*2"
+
+
+"--------------------------------------------------
+" Perl
+"--------------------------------------------------
+" perlhelp.vim
+let perl_include_pod=1
+
+" .plを開くと毎回@INCを調べるのを抑制
+let g:perlpath="/usr/bin/perl"
+
+" insert debug code
+nnoremap <C-c> :call <SID>insert_debug_code()<CR>
+function! s:insert_debug_code()
+    "    call setline(line('.'), "use Data::Dumper;warn(Dumper(  ));" . getline('.'))
+    "    call cursor(line('.'),30)
+    call setline(line('.'), "console.log('!')" . getline('.'))
+    return ""
+endfunction
+
+"--------------------------------------------------
+" Go
+"--------------------------------------------------
+" gocode
+set rtp+=$GOROOT/misc/vim
+"golint
+exe "set rtp+=" . globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
+
+""Vundleの設定
+"set rtp+=~/vimfiles/bundle/vundle/
+"call vundle#rc('~/vimfiles/bundle')
+
+"" Go
+filetype plugin indent on
+syntax on
+
+" auto format
+auto BufWritePre *.go Fmt
+
+"--------------------------------------------------
+" quickrun
+"--------------------------------------------------
+let g:quickrun_config = {}
+let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+let g:quickrun_config['py'] = {'command' : 'pyflakes', 'exec' : ['%c %s']}
+
+"------------------------------------
+" neocmplcache
+"------------------------------------
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 1
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+" Enable heavy features.
+" Use camel case completion.
+"let g:neocomplcache_enable_camel_case_completion = 1
+" Use underbar completion.
+"let g:neocomplcache_enable_underbar_completion = 1
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/_vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Or set this.
+"let g:neocomplcache_enable_cursor_hold_i = 1
+" Or set this.
+"let g:neocomplcache_enable_insert_char_pre = 1
+
+" AutoComplPop like behavior.
+"let g:neocomplcache_enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+set completeopt+=longest
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_disable_auto_complete = 1
+inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" 自動補完してEnterを入力すると、インデントがおかしくなる問題の修正
+inoremap pumvisible() ? neocomplcache#close_popup().“\X\” : “\X\”
+
+"--------------------------------------------------
+" autocmd
+"--------------------------------------------------
+" These three are successively more informative and aggressive in their
+" warnings with pyflakes as the least noisy. Only uncomment one.
+"autocmd BufWrite *.{py} :Pyflakes
+"autocmd BufWrite *.{py} :Pychecker
+"autocmd BufWrite *.{py} :Pylint
+
+
+
+
+"--------------------------------------------------
+" clsync.py
+" windowsでヤンクをクリップボードへ
+"--------------------------------------------------
+"if has('win32')
+"    " ヤンクしたときにもクリップボードへもヤンク
+"    set clipborad=unnamed
+"    " ヴィジュアルモードでヤンクしたときにも同様
+"    set guioptions+=a
+"else
+"    function! SyncClipboard()
+"        let cliptext = substitute(getreg(), "'", "'\"'\"'", 'g')
+"        let cmd = "echo '" . cliptext . "' | /home/mori/clsync.py"
+"        call system(cmd)
+"    endfunction
+"    nmap <F4> :call SyncClipboard()<CR>
+"    nmap yy yy<F4><CR>
+"    vmap y y<F4><CR>
+"endif
+
+
+"--------------------------------------------------
+" バックアップと比較
+"--------------------------------------------------
+set backup
+set backupdir=$HOME/txtb
+set patchmode=.clean
+let savevers_types = "*"
+let savevers_dirs = &backupdir
+let versdiff_no_resize=1
+nmap <silent> <F5> :VersDiff -<cr>
+nmap <silent> <F6> :VersDiff +<cr>
+nmap <silent> <F8> :VersDiff -c<cr>
+
+"--------------------------------------------------
+" auto save
+"--------------------------------------------------
+" set autowrite
+" " set autowriteall
+" autocmd CursorHold *  wall
+" autocmd CursorHoldI *  wall
+
+"--------------------------------------------------
+" 行末の空白を保存時に自動削除
+"--------------------------------------------------
+" autocmd BufWritePre * :%s/\s\+$//e
+
+"--------------------------------------------------
+" .vimrc保存時に自動リロード
+"--------------------------------------------------
+" .vimrcをリロード可能な形式にする
+" http://whileimautomaton.net/2008/08/vimworkshop3-kana-presentation
+let reloadvim = 0
+autocmd FileType vim let reloadvim = 1
+if reloadvim == 1
+    autocmd BufWritePost * :source $MYVIMRC
+endif
+
+"--------------------------------------------------
+" インサートモードを抜けたらIMEの日本語入力を自動的にOFFにする
+"--------------------------------------------------
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+"--------------------------------------------------
+" 文字コードの自動認識
+"--------------------------------------------------
+if &encoding !=# 'utf-8'
+    set encoding=japan
+    set fileencoding=japan
+endif
+if has('iconv')
+    let s:enc_euc = 'euc-jp'
+    let s:enc_jis = 'iso-2022-jp'
+    " iconvがeucJP-msに対応しているかをチェック
+    if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'eucjp-ms'
+        let s:enc_jis = 'iso-2022-jp-3'
+        " iconvがJISX0213に対応しているかをチェック
+    elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'euc-jisx0213'
+        let s:enc_jis = 'iso-2022-jp-3'
+    endif
+    " fileencodingsを構築
+    if &encoding ==# 'utf-8'
+        let s:fileencodings_default = &fileencodings
+        let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+        let &fileencodings = &fileencodings .','. s:fileencodings_default
+        unlet s:fileencodings_default
+    else
+        let &fileencodings = &fileencodings .','. s:enc_jis
+        set fileencodings+=utf-8,ucs-2le,ucs-2
+        if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
+            set fileencodings+=cp932
+            set fileencodings-=euc-jp
+            set fileencodings-=euc-jisx0213
+            set fileencodings-=eucjp-ms
+            let &encoding = s:enc_euc
+            let &fileencoding = s:enc_euc
+        else
+            let &fileencodings = &fileencodings .','. s:enc_euc
+        endif
+    endif
+    " 定数を処分
+    unlet s:enc_euc
+    unlet s:enc_jis
+endif
+" 日本語を含まない場合は fileencoding に encoding を使うようにする
+if has('autocmd')
+    function! AU_ReCheck_FENC()
+        if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+            let &fileencoding=&encoding
+        endif
+    endfunction
+    autocmd BufReadPost * call AU_ReCheck_FENC()
+endif
+" 改行コードの自動認識
+set fileformats=unix,dos,mac
+" □とか○の文字があってもカーソル位置がずれないようにする
+if exists('&ambiwidth')
+    set ambiwidth=double
+endif
+
+"--------------------------------------------------
+" Emacs風に
+"--------------------------------------------------
+
+"カーソル一文字単位移動
+inoremap <C-s> <Left>
+inoremap <silent> <C-s> <Left>
+inoremap <C-d> <Right>
+inoremap <silent> <C-d> <Right>
+
+""単語単位移動
+inoremap <C-f> <C-r>=MyMoveWord_i('w')<CR>
+inoremap <silent> <C-f> <C-r>=MyMoveWord_i('w')<CR>
+inoremap <C-b> <C-r>=MyMoveWord_i('b')<CR>
+inoremap <silent> <C-b> <C-r>=MyMoveWord_i('b')<CR>
+
+"非補完時は行移動をj,kと同じ動作にして補完中は候補選択
+inoremap <expr> <C-p>  pumvisible() ? "\<C-p>" :
+inoremap <silent> <expr> <C-p>  pumvisible() ? "\<C-p>" :
+""<C-r>=MyExecExCommand('normal k')<CR>"
+inoremap <expr> <C-n>  pumvisible() ? "\<C-n>" : "<C-r>=MyExecExCommand('normal j')<CR>"
+inoremap <silent> <expr> <C-n>  pumvisible() ? "\<C-n>" : "<C-r>=MyExecExCommand('normal j')<CR>"
+inoremap <expr> <Up>   pumvisible() ? "\<C-p>" : "<C-r>=MyExecExCommand('normal k')<CR>"
+inoremap <silent> <expr> <Up>   pumvisible() ? "\<C-p>" : "<C-r>=MyExecExCommand('normal k')<CR>"
+inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "<C-r>=MyExecExCommand('normal j')<CR>"
+inoremap <silent> <expr> <Down> pumvisible() ? "\<C-n>" : "<C-r>=MyExecExCommand('normal j')<CR>"
+
+"行頭へ
+inoremap <silent> <C-a> <C-r>=MyJumptoBol('')<CR>
+inoremap <C-a> <C-r>=MyJumptoBol('')<CR>
+""行末へ
+inoremap <silent> <C-e> <C-r>=MyJumptoEol('')<CR>
+inoremap <C-e> <C-r>=MyJumptoEol('')<CR>
+
+
+"カーソル前の文字削除
+inoremap <silent> <BS>  <C-g>u<BS>
+inoremap <silent> <C-h> <C-g>u<C-h>
+"カーソル後の文字削除
+inoremap <silent> <Del> <C-g>u<Del>
+inoremap <silent> <C-g> <C-g>u<Del>
+
+"カーソル位置から前の単語を削除
+inoremap <silent> <C-w> <C-g>u<C-r>=MyExecExCommand('normal! db')<CR>
+"カーソル位置から後の単語を削除
+inoremap <silent> <C-t> <C-g>u<C-r>=MyDeleteWord()<CR>
+
+"最後に挿入した文字列を挿入
+inoremap <silent> <C-z> <C-g>u<C-a>
+
+"現在行をインデント
+inoremap <silent> <Tab>   <C-g>u<C-t>
+inoremap <silent> <S-Tab> <C-g>u<C-d>
+
+"undo
+inoremap <silent> <C-u> <C-g>u<C-r>=MyExecExCommand('undo', 'onemore')<CR>
+
+"２ストロークキー使用
+if 1
+    "カーソル以降削除
+    inoremap <silent> <C-k><C-k> <C-g>u<C-r>=MyExecExCommand('normal! D', 'onemore')<CR>
+    "redo
+    inoremap <silent> <C-k><C-r> <C-r>=MyExecExCommand('redo', 'onemore')<CR>
+    "行連結
+    inoremap <silent> <C-k><C-j> <C-g>u<C-r>=MyExecExCommand('normal! J')<CR>
+    "新行挿入
+    inoremap <silent> <C-k><C-n> <C-g>u<C-r>=MyExecExCommand("call cursor(line('.'), col('$'))")<CR><CR>
+endif
+
+"メタ(alt)キー使用
+if 0
+    "カーソル以降削除
+    inoremap <silent> <C-k> <C-g>u<C-r>=MyExecExCommand('normal! D', 'onemore')<CR>
+    "リドゥ
+    inoremap <silent> <M-r> <C-r>=MyExecExCommand('redo', 'onemore')<CR>
+    "行連結
+    inoremap <silent> <M-j> <C-g>u<C-r>=MyExecExCommand('normal! J')<CR>
+    "新行挿入
+    inoremap <silent> <M-n> <C-g>u<C-r>=MyExecExCommand("call cursor(line('.'), col('$'))")<CR><CR>
+endif
+
+
+"sepが空でなければ、sepをセパレータとしてジャンプ。
+""見つからなければ見かけの行頭へ。
+"カーソル位置が見かけの行頭の場合は真の行頭へ。
+function! MyJumptoBol(sep)
+    if col('.') == 1
+        call cursor(line('.')-1, col('$'))
+        call cursor(line('.'), col('$'))
+        return ''
+    endif
+    if matchend(strpart(getline('.'), 0, col('.')), '[[:blank:]]\+') >= col('.')-1
+        silent exec 'normal! 0'
+        return ''
+    endif
+    if a:sep != ''
+        call search('[^'.a:sep.']\+', 'bW', line("."))
+        if col('.') == 1
+            silent exec 'normal! ^'
+        endif
+        return ''
+    endif
+    return ''
+endfunction
+
+"sepが空でなければ、sepをセパレータとしてジャンプ。
+""見つからなければ行末へ。
+function! MyJumptoEol(sep)
+    if col('.') == col('$')
+        silent exec 'normal! w'
+        return ''
+    endif
+
+    if a:sep != ''
+        let prevcol = col('.')
+        call search('['.a:sep.']\+[^'.a:sep.']', 'eW', line("."))
+        if col('.') != prevcol
+            return ''
+        endif
+    endif
+    call cursor(line('.'), col('$'))
+    return ''
+endfunction
+
+"行末でも停止する単語単位移動コマンド
+function! MyMoveWord_i(cmd)
+    let isEol = 0
+    if col('$') == col('.')
+        let isEol = 1
+    endif
+    let prevline = line('.')
+    silent exec 'normal! '.a:cmd
+    if line('.') == prevline
+        return ''
+    endif
+    if a:cmd == 'w'
+        if isEol == 0
+            call cursor(prevline, 0)
+            call cursor(line('.'), col('$'))
+        endif
+        if line('.') - prevline > 1
+            call cursor(prevline+1, 0)
+            call cursor(line('.'), col('$'))
+        endif
+    elseif a:cmd == 'b'
+        call cursor(line('.'), col('$'))
+        if prevline - line('.') > 1
+            call cursor(prevline-1, 0)
+            call cursor(line('.'), col('$'))
+        endif
+    endif
+    return ''
+endfunction
+
+"カーソル以降の単語削除
+function! MyDeleteWord()
+    if col('.') == col('$')
+        return ''
+    endif
+    let save_cursor = getpos('.')
+    silent exec 'normal! wge'
+    if save_cursor[1] != line('.') || (save_cursor[2] > col('.'))
+        call setpos('.', save_cursor)
+        return MyExecExCommand('normal! dw', 'onemore')
+    endif
+    silent exec 'normal! v'
+    call setpos('.', save_cursor)
+    return MyExecExCommand('normal! d')
+endfunction
+
+"IMEの状態とカーソル位置保存のため<C-r>を使用してコマンドを実行。
+function! MyExecExCommand(cmd, ...)
+    let saved_ve = &virtualedit
+    let index = 1
+    while index <= a:0
+        if a:{index} == 'onemore'
+            silent setlocal virtualedit+=onemore
+        endif
+        let index = index + 1
+    endwhile
+
+    silent exec a:cmd
+    if a:0 > 0
+        silent exec 'setlocal virtualedit='.saved_ve
+    endif
+    return ''
+endfunction
+"FIXME:<C-r>(リドゥ)はコマンドラインからexecで実行すると色々面倒なので回避用
+nnoremap g\\z <C-r>
+
+"--------------------------------------------------
+" unite.vim
+"--------------------------------------------------
+" 入力モードで開始する
+" let g:unite_enable_start_insert=1
+" バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+" 常用セット
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+
+"--------------------------------------------------
+" plugin設定
+"--------------------------------------------------
+" AutoComplPop
+"let g:AutoComplPop_IgnoreCaseOption = 1
+autocmd FileType javascript let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k~/_vim/dict/javascript.dict'
+autocmd FileType perl let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k~/_vim/dict/perl_func.dict'
+
+"<c-t>で補完
+" {{{ Autocompletion using the TAB key
+" This function determines, wether we are on the start of the line text (then tab indents) or
+" if we want to try autocompletion
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<TAB>"
+    else
+        if pumvisible()
+            return "\<C-N>"
+        else
+            return "\<C-N>\<C-P>"
+        end
+    endif
+endfunction
+
+" Remap the tab key to select action with InsertTabWrapper
+inoremap <c-t> <c-r>=InsertTabWrapper()<cr>
+" }}} Autocompletion using the TAB key
+
+" a command to restore to original text and select the first match
+
+"inoremap <expr> <CR> pumvisible() ? \<C-Y>\<CR>" : "\<CR>"
+
+" %を強化
+"source ~/_vim/plugin/matchit.vim
+
+" あいまい検索
+let g:ambsearch_default_disable = 1
+source $HOME/_vim/macros/ambsearch-20040211/ambsearch.vim
+call AmbsearchLoad("default")
+call AmbsearchLoad("greek")
+call AmbsearchLoad("katakana")
+call AmbsearchLoad("math")
+call AmbsearchLoad("hankana")
+call AmbsearchLoad("jyouyou")
+call AmbsearchLoad("katakana")
+"call AmbsearchLoad("kyouiku")
+
+" ack
+map <C-W>a :let a=expand("<cword>")<CR>:tabnew<CR>:Ack <C-R>=expand(a)<CR> lib<CR>
+map <C-W>A :let a=expand("<cword>")<CR>:tabnew<CR>:Ack <C-R>=expand(a)<CR> ./
+
+" vsp(vnew)-width
+nnoremap <C-w><C-h> <C-w>h:call <SID>good_width()<Cr>
+nnoremap <C-w><C-l> <C-w>l:call <SID>good_width()<Cr>
+nnoremap <C-w>h <C-w>h:call <SID>good_width()<Cr>
+nnoremap <C-w>l <C-w>l:call <SID>good_width()<Cr>
+nnoremap <C-w>H <C-w>H:call <SID>good_width()<Cr>
+nnoremap <C-w>L <C-w>L:call <SID>good_width()<Cr>
+nnoremap <C-h> <C-w>h:call <SID>good_width()<Cr>
+nnoremap <C-l> <C-w>l:call <SID>good_width()<Cr>
+function! s:good_width()
+    if winwidth(0) < 84
+        vertical resize 84
+    endif
+endfunction
+
+" tags
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+let Tlist_Auto_Open = 1
+let Tlist_Auto_Update = 1
+let Tlist_Show_One_File = 1 " 現在表示中のファイルのみのタグしか表示しない
+let Tlist_Use_Right_Window = 1 " 右側にtag listのウインドうを表示する
+let Tlist_Exit_OnlyWindow = 1 " taglistのウインドウだけならVimを閉じる
+let g:tlist_coffee_settings = 'coffee;f:function;v:variable'
+map <silent> <leader>l :TlistToggle<CR>
+map <silent> ,l :TlistToggle<CR>
+" \lでtaglistウインドウを開いたり閉じたり出来るショートカット
+" ctag自動更新
+let g:SrcExpl_UpdateTags = 1
+" taglist.vim
+"set tags=tags
+set tags+=tags;./tags;**/tags;~/_vim/tags/python/python.tags
+nmap <Leader>t :Tlist<CR>
+
+"set statusline=%F%m%r%h%w\ [T:%Y]\ [P:%l,%v][%p%%]\ [L:%L]\ [T:%Y]
+set statusline=\ %F%m%r%h%w\ [%v,%l/%L][%p%%][%Y]%m%{'['.(&fenc!=''?&fenc:&enc).']'}%=%l,%c%V%8P
+set laststatus=2
+
+" vim-indent-guides
+let g:indent_guides_auto_colors = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkblue
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey
+autocmd VimEnter,Colorscheme * IndentGuidesEnable
+
+" tabular
+let mapleader=','
+if exists(":Tabularize")
+    nmap <Leader>t= :Tabularize /=<CR>
+    vmap <Leader>t= :Tabularize /=<CR>
+    nmap <Leader>t: :Tabularize /:\zs<CR>
+    vmap <Leader>t: :Tabularize /:\zs<CR>
+endif
+
+" NERDTree
+" autocmd VimEnter,Colorscheme * :NERDTree
+nmap <Leader>o :NERDTree<CR>
+
+" for Fugitive
+nnoremap <Space>gd :<C-u>Gdiff<Enter>
+nnoremap <Space>gs :<C-u>Gstatus<Enter>
+nnoremap <Space>gl :<C-u>Glog<Enter>
+nnoremap <Space>ga :<C-u>Gwrite<Enter>
+nnoremap <Space>gc :<C-u>Gcommit<Enter>
+nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
+nnoremap <Space>gb :<C-u>Gblame<Enter>
+
+" ACK
+"set grepprg=ack\ -a
+
+" unite grep for ag
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--nocolor --nogroup'
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_max_candidates = 200
+
+" ag
+set grepprg=ag
+
+" grepで自動的にquickfix-windowを開く
+autocmd QuickFixCmdPost *grep* cwindow
+let &guifont='SourceCodePro-Light'
+
+function! MyModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! MyReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "⭤"
+  else
+    return ""
+  endif
+endfunction
+
+function! MyFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+       \ ('' != expand('%t') ? expand('%t') : '[No Name]') .
+       \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+"--------------------------------------------------
+" Other Keybind Alias
+"--------------------------------------------------
+nnoremap j gj
+nnoremap k gk
+" 検索語を真ん中に
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+"noremap ^? ^H
+"noremap! ^? ^H
+"noremap <BS> ^H
+"noremap! <BS> ^H
+inoremap <C-k> <Up>
+inoremap <silent> <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <silent> <C-j> <Down>
+
+" =の前後にスペース
+inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+"noremap <expr> _  <SID>smart_char(' <- ', '_')
+
+" C-JでEsc
+nmap <C-j> <Esc>
+
+" /と:M/を入れ替え(eregex.vim)
+if exists(":M")
+"  nnoremap / :M/
+"  nnoremap ,/ /
+endif
+
+" 縦分割をする際、新しいウィンドウを右側に作る
+set splitright
+" 縦分割した後、カーソル下のタグへジャンプ
+nnoremap ss :vsplit<ENTER><C-]>
+
+" キーバーインド一覧
+nmap <C-t> :help index.txt<CR>
+nmap <Leader>h :help index.txt<CR>
+

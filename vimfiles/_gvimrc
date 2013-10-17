@@ -1,0 +1,23 @@
+syntax enable
+colorscheme Dark
+let &guifont='SourceCodePro-Light'
+set transparency=10
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+" Vim外にいるときはVimを透けさせる
+augroup hack234
+  autocmd!
+  if has('mac')
+    autocmd FocusGained * set transparency=10
+    autocmd FocusLost * set transparency=30
+  endif
+augroup END
+
+if has('win32')
+  source $VIMRUNTIME/delmenu.vim
+  set langmenu=ja_jp.utf-8
+  source $VIMRUNTIME/menu.vim
+endif
+
+colorscheme Dark
