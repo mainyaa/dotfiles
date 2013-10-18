@@ -1,6 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
 BOXEN=/opt/boxen
-ZSH_THEME="agnoster"
 [ -f $ZSH/oh-my-zsh.sh ] && source $HOME/.oh-my-zsh/
 [ -f $BOXEN/env.sh ] && source $BOXEN/env.sh
 # Platform-specific things
@@ -32,22 +31,22 @@ autojump
 brew
 bundler
 dircycle
-encode64
 gem
 git
 git-flow
-github
 npm
 osx
 pip
 python
 rbenv
 urltools
+vi-mode
 zsh-users/zsh-syntax-highlighting
+https://github.com/yonchu/grunt-zsh-completion
 EOBUNDLES
 
   # Load the Theme
-  antigen-theme agnoster
+  antigen-theme blinks
 
   # Tell antigen that you're done.
   antigen-apply
@@ -56,17 +55,16 @@ fi
 # 端末・プロンプトの設定
 setopt prompt_subst
 autoload -U colors && colors
-antigen bundle wmvarney/zsh-git
-antigen bundle zsh-users/zsh-syntax-highlighting
 
+# http://direnv.net/
+eval "$(direnv hook zsh)"
 
 # ホスト名とユーザ名の先頭 4文字をとりだす。全部だと長いので。
 h2=`expr $HOST : '\(....\).*'`
 u2=`expr $USER : '\(....\).*'`
 # 現在のホストによってプロンプトの色を変える。
 case "$HOST" in
-ma*)   col=$fg[red];;  # 赤
-md*)    col=$fg[green];;  # 緑
+md*)   col=$fg[red];;  # 赤
 ub*)    col=$fg[yellow];;  # 黄
 www.l*)    col=$fg[blue];;  # 青
 je*)    col=$fg[mazenda];;  # マゼンダ

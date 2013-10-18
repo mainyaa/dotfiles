@@ -634,6 +634,12 @@ if 0
     inoremap <silent> <M-n> <C-g>u<C-r>=MyExecExCommand("call cursor(line('.'), col('$'))")<CR><CR>
 endif
 
+" insert modeでも画面スクロールしたい
+" キーリピートを短くしないと効果ない
+imap jjjjj <esc>
+imap kkkkk <esc>
+imap hhhhh <esc>
+imap lllll <esc>
 
 "sepが空でなければ、sepをセパレータとしてジャンプ。
 ""見つからなければ見かけの行頭へ。
