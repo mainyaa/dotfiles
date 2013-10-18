@@ -2,20 +2,16 @@ mkdir -p ~/src
 git clone git@github.com:mainyaa/dotfiles.git ~/src/dotfiles
 cd ~/src/dotfiles
 
-if [ -f ~/.bashrc ]; then
-    mv ~/.bashrc ~/.bashrc.old
-fi
-if [ -f ~/.bash_profile ]; then
-    mv ~/.bash_profile ~/.bash_profile.old
-fi
-if [ -f ~/.vim ]; then
-    mv ~/.vim ~/.vim.old
-fi
-if [ -f ~/.vimrc ]; then
-    mv ~/.vimrc ~/.vimrc.old
-fi
+[ -f ~/.zshrc ] && mv ~/.zshrc ~/.zshrc.old
+[ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc.old
+[ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.old
+[ -f ~/.vim ] && mv ~/.vim ~/.vim.old
+[ -f ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.old
+
+ln -s ~/src/dotfiles/.zshrc ~/
 ln -s ~/src/dotfiles/.bashrc ~/
 ln -s ~/src/dotfiles/.bash_profile ~/
+ln -s ~/src/dotfiles/.bash_env ~/
 ln -s ~/src/dotfiles/.bash_mac ~/
 ln -s ~/src/dotfiles/.bash_linux ~/
 ln -s ~/src/dotfiles/.editorconfig ~/

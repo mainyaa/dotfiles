@@ -8,6 +8,7 @@ class people::mainyaa {
     rate => 2
   }
   #includes
+  include ohmyzsh
   include wget
   include ctags
   include java
@@ -118,13 +119,27 @@ class people::mainyaa {
       provider => appdmg;
   }
 
+  package {
+    'zsh':
+      install_options => [
+        '--disable-etcdir'
+      ]
+  }
+  file_line { 'add zsh to /etc/shells':
+    path    => '/etc/shells',
+    line    => "${boxen::config::homebrewdir}/bin/zsh",
+    require => Package['zsh'],
+    before  => Osx_chsh[$::luser];
+  }
+  osx_chsh { $::luser:
+    shell   => "${boxen::config::homebrewdir}/bin/zsh";
+  }
+
   $home     = "/Users/${::luser}"
   $src      = "${home}/src"
   $dotfiles = "${src}/dotfiles"
-  $dust     = "${home}/.dust"
   $home_local   = "${home}/local"
   $home_bin     = "${home}/bin"
-  $dust_vim     = "${dust}/vim"
   $dust_vim_backup   = "${home}/txtb"
   file {$dust:
     ensure => directory
@@ -142,13 +157,16 @@ class people::mainyaa {
     ensure => directory
   }
 
+
+
   # git clone git@github.com:mainyaa/dotfiles.git
   repository { $dotfiles:
     source  => "mainyaa/dotfiles",
     require => File[$src]
   }
 
-  exec { "ruby ${dotfiles}/install.sh":
+  # git-cloneしたら install.sh を走らせる
+  exec { "sh ${dotfiles}/install.sh":
     cwd => $dotfiles,
     creates => "${home}/.zshrc",
     require => Repository[$dotfiles],

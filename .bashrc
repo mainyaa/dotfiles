@@ -12,9 +12,9 @@ fi
 # Platform-specific things
 case $( uname -s ) in
     Darwin )
-        . .bash_mac ;;
+        . $HOME/.bash_mac ;;
     Linux )
-        . .bash_linux ;;
+        . $HOME/.bash_linux ;;
 esac
 
 
