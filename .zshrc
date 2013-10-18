@@ -40,7 +40,6 @@ pip
 python
 rbenv
 urltools
-vi-mode
 zsh-users/zsh-syntax-highlighting
 https://github.com/yonchu/grunt-zsh-completion
 EOBUNDLES
@@ -78,7 +77,6 @@ RPROMPT='${time} %{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}$(git_prompt_
 
 # Autocompletion
 autoload -U compinit && compinit
-antigen bundle wmvarney/zsh-completions
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 
