@@ -16,40 +16,6 @@ setopt noclobber # don't accidentally overwrite existing files
 unsetopt correct && unsetopt correctall # disable zsh autocorrection
 
 
-# Antigen
-ANTIGEN=$HOME/.antigen/
-# Antigneがなければ落としてくる
-[ -f $ANTIGEN/antigen.zsh ] || git clone\
-  https://github.com/zsh-users/antigen.git $ANTIGEN
-
-if [[ -f $ANTIGEN/antigen.zsh ]]; then
-  source $ANTIGEN/antigen.zsh
-  antigen-use oh-my-zsh
-  # Bundles from the default app.
-  antigen-bundles <<EOBUNDLES
-autojump
-brew
-bundler
-dircycle
-gem
-git
-git-flow
-npm
-osx
-pip
-python
-rbenv
-urltools
-zsh-users/zsh-syntax-highlighting
-https://github.com/yonchu/grunt-zsh-completion
-EOBUNDLES
-
-  # Load the Theme
-  antigen-theme blinks
-
-  # Tell antigen that you're done.
-  antigen-apply
-fi
 
 # 端末・プロンプトの設定
 setopt prompt_subst
@@ -58,26 +24,11 @@ autoload -U colors && colors
 # http://direnv.net/
 eval "$(direnv hook zsh)"
 
-# ホスト名とユーザ名の先頭 4文字をとりだす。全部だと長いので。
-h2=`expr $HOST : '\(....\).*'`
-u2=`expr $USER : '\(....\).*'`
-# 現在のホストによってプロンプトの色を変える。
-case "$HOST" in
-md*)   col=$fg[red];;  # 赤
-ub*)    col=$fg[yellow];;  # 黄
-www.l*)    col=$fg[blue];;  # 青
-je*)    col=$fg[mazenda];;  # マゼンダ
-mo*) col=$fg[green];;  # 緑
-*) col=$fg_bold[white];; # それ以外のホストでは強調表示
-esac
-PROMPT='${u2}@${h2}%{${col}%}[%c] %{$reset_color%}'
-RPROMPT='${time} %{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}'
-#PROMPT='%{$fg[magenta]%}[%c] %{$reset_color%}'
-#RPROMPT='${time} %{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}'
 
 # Autocompletion
 autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 
 
 # Aliases
@@ -115,3 +66,60 @@ function trash() {
     fi
   done
 }
+# Antigen
+ANTIGEN=$HOME/.antigen/
+# Antigneがなければ落としてくる
+[ -f $ANTIGEN/antigen.zsh ] || git clone\
+  https://github.com/zsh-users/antigen.git $ANTIGEN
+
+if [[ -f $ANTIGEN/antigen.zsh ]]; then
+  source $ANTIGEN/antigen.zsh
+  antigen-use oh-my-zsh
+  
+  if [ "$OSTYPE"="darwin11.0" ]; then
+    antigen-bundle osx
+  fi
+  # Bundles from the default app.
+  antigen-bundles <<EOBUNDLES
+autojump
+brew
+bundler
+dircycle
+gem
+git
+git-flow
+npm
+osx
+pip
+python
+rbenv
+urltools
+zsh-users/zsh-syntax-highlighting
+https://github.com/yonchu/grunt-zsh-completion
+EOBUNDLES
+
+  # Load the Theme
+  antigen-theme candy
+
+  # Tell antigen that you're done.
+  antigen-apply
+fi
+# ホスト名とユーザ名の先頭 4文字をとりだす。全部だと長いので。
+h2=`expr $HOST : '\(....\).*'`
+u2=`expr $USER : '\(....\).*'`
+# 現在のホストによってプロンプトの色を変える。
+case "$HOST" in
+md*)   col=$fg[red];;  # 赤
+ub*)    col=$fg[yellow];;  # 黄
+www.l*)    col=$fg[blue];;  # 青
+je*)    col=$fg[mazenda];;  # マゼンダ
+mo*) col=$fg[green];;  # 緑
+*) col=$fg_bold[white];; # それ以外のホストでは強調表示
+esac
+#PROMPT='${u2}@${h2}%{${col}%}[%c] %{$reset_color%}'
+#RPROMPT='${time} %{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}'
+#PROMPT='%{$fg[magenta]%}[%c] %{$reset_color%}'
+#RPROMPT='${time} %{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}'
+
+PROMPT='%{${col}%}${u2}@${h2}%{$reset_color%}:%{$fg[white]%}%c$(git_prompt_info)%{$fg_bold[blue]%}%! %#%{$reset_color%} '
+RPROMPT=''
