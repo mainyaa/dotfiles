@@ -18,137 +18,137 @@ case $( uname -s ) in
 esac
 
 
-## ���������줿�ե�����Υѡ��ߥå���󤬤Ĥͤ� 644 �ˤʤ�褦�ˤ���
+## 新しく作られたファイルのパーミッションがつねに 644 になるようにする
 umask 022
 
-## core �ե�������餻�ʤ��褦�ˤ���
+## core ファイルを作らせないようにする
 ulimit -c 0
 
-## �Ķ��ѿ�������
+## 環境変数の設定
 
-# man �Ȥ��򸫤�Ȥ��Ϥ��Ĥ� less ��Ȥ���
+# man とかを見るときはいつも less を使う。
 export PAGER=less
-# less �Υ��ơ������Ԥ˥ե�����̾�ȹԿ������޲�%����ɽ������褦�ˤ��롣
-# ���ꤹ��ȥ��顼�����������ʤ뤫�饳���ȥ�����
+# less のステータス行にファイル名と行数、いま何%かを表示するようにする。
+# 設定するとカラーがおかしくなるからコメントアウト
 #export LESS='-X -i -P ?f%f:(stdin).  ?lb%lb?L/%L..  [?eEOF:?pb%pb\%..]'
 
-# ���դ�
+# 色付き
 alias diff='colordiff'
 alias less='less -R'
 
-# rsync �Ǥ� ssh ��Ȥ�
+# rsync では ssh を使う
 export RSYNC_RSH=ssh
 
 # backspace
 #stty erase "^?"
 
-# "." ���ޥ�ɤǥ����륹����ץȤ�¹Ԥ���Ȥ��Ϻ��𤹤�Τ� PATH �򸡺������ʤ���
+# "." コマンドでシェルスクリプトを実行するときは混乱するので PATH を検索させない。
 shopt -u sourcepath
 
 
-# PCRE �ߴ�������ɽ����Ȥ�
+# PCRE 互換の正規表現を使う
 setopt re_match_pcre
 
-# �ץ���ץȤ�ɽ������뤿�Ӥ˥ץ���ץ�ʸ�����ɾ�����ִ�����
+# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
 RPROMPT='[`rprompt-git-current-branch`%~]'
 
-# ����Ū�⡼�ɤʤ�Ķ��ѿ� PS1 (�ץ���ץ�ʸ����) �����ꤵ��Ƥ���
-# �Ϥ��ʤΤǡ������Ĵ�٤롣
+# 対話的モードなら環境変数 PS1 (プロンプト文字列) が設定されている
+# はずなので、それを調べる。
 if [[ "$PS1" ]]; then
 
-  # �����������Ū�⡼�ɤ���
+  # この中は対話的モードだ。
 
-  # bash���ץ��������
+  # bashオプション設定
 
-  # EOF (Ctrl-D) ���Ϥ� 10��ޤǵ��ġ�
+  # EOF (Ctrl-D) 入力は 10回まで許可。
   IGNOREEOF=10
-  # ����Υ������������ξ��Ϥ����Ⱦǯ���餤���Τ�ĤޤǻĤ롣
+  # 履歴のサイズ。新山の場合はこれで半年ぐらい前のやつまで残る。
   HISTSIZE=50000
   HISTFILESIZE=50000
 
-  # ����ե�������񤭤ǤϤʤ��ɲä��롣
-  # ʣ���Υۥ��Ȥ�Ʊ���˥������󤹤뤳�Ȥ�����Τǡ���񤭤���ȴ�������
+  # 履歴ファイルを上書きではなく追加する。
+  # 複数のホストで同時にログインすることがあるので、上書きすると危険だ。
   shopt -s histappend
-  # "!"��Ĥ��ä������Υ��ޥ�ɤ�¹Ԥ���Ȥ���
-  # �¹Ԥ���ޤ���ɬ��Ÿ����̤��ǧ�Ǥ���褦�ˤ��롣
+  # "!"をつかって履歴上のコマンドを実行するとき、
+  # 実行するまえに必ず展開結果を確認できるようにする。
   shopt -s histverify
-  # ������ִ��˼��Ԥ����Ȥ����ľ����褦�ˤ��롣
+  # 履歴の置換に失敗したときやり直せるようにする。
   shopt -s histreedit
-  # ü���β��̥�������ưǧ����
+  # 端末の画面サイズを自動認識。
   shopt -s checkwinsize
-  # "@" �Τ��Ȥ˥ۥ���̾���䴰�����ʤ���
+  # "@" のあとにホスト名を補完させない。
   shopt -u hostcomplete
-  # �Ĥͤ˥ѥ�̾�Υơ��֥������å����롣
+  # つねにパス名のテーブルをチェックする。
   shopt -s checkhash
-  # �ʤˤ����Ϥ��Ƥʤ��Ȥ��ϥ��ޥ��̾���䴰���ʤ���
-  # (����㥯������䤬¿���Τǡ�)
+  # なにも入力してないときはコマンド名を補完しない。
+  # (メチャクチャ候補が多いので。)
   shopt -s no_empty_cmd_completion
 
-  # i: ľ�������� 30���ɽ�����롣������������ϲ�� 1000��򸡺����롣
-  # (history ������������ɽ���������¿������Τ�)
+  # i: 直前の履歴 30件を表示する。引数がある場合は過去 1000件を検索する。
+  # (history で履歴全部を表示させると多すぎるので)
   function i {
       if [ "$1" ]; then history 1000 | grep "$@"; else history 30; fi
   }
-  # I: ľ�������� 30���ɽ�����롣������������ϲ��Τ��٤Ƥ򸡺����롣
+  # I: 直前の履歴 30件を表示する。引数がある場合は過去のすべてを検索する。
   function I {
       if [ "$1" ]; then history | grep "$@"; else history 30; fi
   }
 
-  # GNU screen �ѤΥ��ޥ�ɡ������� screen �Υ��ơ������Ԥ�ɽ����
+  # GNU screen 用のコマンド。引数を screen のステータス行に表示。
   function dispstatus {
       if [[ "$STY" ]]; then echo -en "\033k$1\033\134"; fi
   }
 
-  # ü�����ץ���ץȤ�����
+  # 端末・プロンプトの設定
 
-  # �ۥ���̾�ȥ桼��̾����Ƭ 4ʸ����Ȥ��������������Ĺ���Τǡ�
+  # ホスト名とユーザ名の先頭 4文字をとりだす。全部だと長いので。
   h2=`expr $HOSTNAME : '\(....\).*'`
   u2=`expr $USER : '\(....\).*'`
-  # ���ߤΥۥ��Ȥˤ�äƥץ���ץȤο����Ѥ��롣
+  # 現在のホストによってプロンプトの色を変える。
   case "$HOSTNAME" in
-  ma*)   col=31;;  # ��
-  md*)    col=32;;  # ��
-  ub*)    col=33;;  # ��
-  www.l*)    col=34;;  # ��
-  je*)    col=35;;  # �ޥ����
-  mo*) col=36;;  # �忧
-  *) col=1;; # ����ʳ��Υۥ��ȤǤ϶�Ĵɽ��
+  ma*)   col=31;;  # 赤
+  md*)    col=32;;  # 緑
+  ub*)    col=33;;  # 黄
+  www.l*)    col=34;;  # 青
+  je*)    col=35;;  # マゼンダ
+  mo*) col=36;;  # 水色
+  *) col=1;; # それ以外のホストでは強調表示
   esac
   if [[ "$EMACS" ]]; then
-    # emacs �� shell �⡼�ɤǤ�����ʸ����Ȥ�ʤ���ñ�ʥץ���ץ�
+    # emacs の shell モードでは制御文字を使わない簡単なプロンプト
     stty -echo nl
     PS1="$u2@$h2\w\$ "
   else
-    # �ץ���ץȤ�����
+    # プロンプトの設定
     if [[ "$SHELLTYPE" = session ]]; then
-      # ����ü���Ǥ�û���ץ���ץȤˤ��롣
+      # ある端末では短いプロンプトにする。
       PS1='$h2$ ';
       unset SHELLTYPE
     else
       PS1="$u2@$h2\[\e[${col}m\]\w[\!]\$\[\e[m\] "
     fi
-    # �̾�Υץ���ץ� PS1 �˲ä��� PS0 �Ȥ����ѿ������ꤹ�롣
-    # (����� bash �ϲ�����Τ��ʤ������ȤǽҤ٤� px �Ȥ������ޥ�ɤ��Ȥ�)
-    # �̾�Υץ���ץȤǤϸ��ߤΥ����ȥǥ��쥯�ȥ�Υե�ѥ�̾��
-    # ɽ������褦�ˤʤäƤ��뤬�����줬Ĺ������Ȥ��� PS1 �� PS0 ��
-    # ���Ū���ڤ괹���ƻȤ���
+    # 通常のプロンプト PS1 に加えて PS0 という変数を設定する。
+    # (これは bash は何も関知しない、あとで述べる px というコマンドが使う)
+    # 通常のプロンプトでは現在のカレントディレクトリのフルパス名を
+    # 表示するようになっているが、これが長すぎるときに PS1 と PS0 を
+    # 一時的に切り換えて使う。
     PS0="$u2@$h2:\[\e[${col}m\]\W[\!]\$\[\e[m\] "
 
-    # ü��������
+    # 端末の設定
     eval `SHELL=sh tset -sQI`
     stty dec crt erase ^H eof ^D quit ^\\ start ^- stop ^-
   fi
 
-  # ����Ĥ� cd
+  # 履歴つき cd
   # http://www.unixuser.org/~euske/doc/bashtips/cdhist.sh
   . ~/src/dotfiles/cdhist.sh
 
-  # ������ʴؿ�
+  # いろんな関数
 
-  # �Ĥͤ�ľ���Υ��ޥ�ɤν�λ���֤�����å������롣
-  # �⤷�۾ｪλ�������ϡ����ξ���(����)��ɽ�����롣
+  # つねに直前のコマンドの終了状態をチェックさせる。
+  # もし異常終了した場合は、その状態(数値)を表示する。
   function showexit {
     local s=$?
     dispstatus "${PWD/\/root/~}"
@@ -157,15 +157,15 @@ if [[ "$PS1" ]]; then
   }
   PROMPT_COMMAND=showexit
 
-  # px: Ĺ���ץ���ץȤ�û���ץ���ץȤ��ڤ괹���롣
+  # px: 長いプロンプトと短いプロンプトを切り換える。
   function px {
       local tmp=$PS1; PS1=$PS0; PS0=$tmp;
   }
 
-  # h: csh �ˤ����� which ��Ʊ����
+  # h: csh における which と同じ。
   function h { command -v $1; }
 
-  # wi: whatis ��ά�����ꤵ�줿���ޥ�ɤμ��Τ�ɽ����
+  # wi: whatis の略。指定されたコマンドの実体を表示。
   function wi {
     case `type -t "$1"` in
      alias|function) type "$1";;
@@ -174,61 +174,61 @@ if [[ "$PS1" ]]; then
     esac
   }
 
-  # ���߼¹���Υ���֤�ɽ����
+  # 現在実行中のジョブを表示。
   function j { jobs -l; }
 
-  # Perl �Υ��饤�ʡ������
+  # Perl のワンライナー補助。
   function P { perl -e 'sub f{'"$*"';}print &f(@ARGV),"\n";'; }
 
-  # Wordnet �򸡺���
+  # Wordnet を検索。
   function wng { wn $1 -grepn -grepa -grepv; }
 
-  # ��¿�ʼ�ȴ���ѥ��ޥ�ɡ�
+  # 雑多な手抜き用コマンド。
   function tmp { cd ~/tmp; }
   function m { dispstatus Mutt; mutt "$@"; }
   function s { m -f +$1; }
 
-  # SSH ������
+  # SSH の設定
 
-  # ���� bashrc ���¹Ԥ���륱������ 3�Ĥ��롣
-  #   a. ��⡼�ȥۥ��Ȥ˥������󤷤����ǡ�agent ž����ǽ�ʤȤ���
-  #   b. ��������ۥ��Ȥ˥������󤷤����ǡ����Ǥ� agent ����ư���Ƥ���Ȥ���
-  #   c. ��������ۥ��Ȥ˥������󤷤����ǡ��ޤ�agent����ư���Ƥ��ʤ��Ȥ���
+  # この bashrc が実行されるケースは 3つある。
+  #   a. リモートホストにログインした場合で、agent 転送可能なとき。
+  #   b. ローカルホストにログインした場合で、すでに agent が起動しているとき。
+  #   c. ローカルホストにログインした場合で、まだagentが起動していないとき。
 
-  # ssh-agent �ϳƥۥ��ȤˤҤȤĤ�����ư���������ʤ���
-  # ��������X ��ȤäƤ���Ķ��Ǥϡ�ʣ���Υ�����ɥ����� agent �˥�������
-  # ����ɬ�פ����롣����򤹤뤿��ˡ�ssh-agent ���̿��ѥ����åȤ�
-  # �Ĥͤ˷�ޤä���� (~/.ssh/sock.�ۥ���̾) �˺��褦�ˤ��ơ�
-  # ������Ĵ�٤�� (SSH_AUTH_SOCK ����ꤷ�� ssh-add ��¹Ԥ���)��
-  # agent ����ư���Ƥ��뤫�ɤ����狼��褦�ˤ�������
+  # ssh-agent は各ホストにひとつしか起動させたくない。
+  # しかし、X を使っている環境では、複数のウインドウから agent にアクセス
+  # する必要がある。これをするために、ssh-agent の通信用ソケットは
+  # つねに決まった場所 (~/.ssh/sock.ホスト名) に作るようにして、
+  # そこを調べれば (SSH_AUTH_SOCK を指定して ssh-add を実行する)、
+  # agent が起動しているかどうかわかるようにしたい。
 
-  # ������ ~/.ssh/agent.log �˻Ĥ���롣
+  # ログは ~/.ssh/agent.log に残される。
   export SSH_AGENT_LOG=$HOME/.ssh/agent.log
 
-  # �ޤ���ssh-agent ���̿���ǽ���ɤ���������å����롣
-  # ���Ǥ� agent ����ư���Ƥ����礫����⡼�ȥۥ��Ⱦ��
-  # agent ��ž������Ƥ������ SSH_AUTH_SOCK ���ǽ餫�����ꤵ��Ƥ���
-  # �̿���ǽ�ʤϤ���
+  # まず、ssh-agent と通信可能かどうかをチェックする。
+  # すでに agent が起動している場合か、リモートホスト上に
+  # agent が転送されている場合は SSH_AUTH_SOCK が最初から設定されていて
+  # 通信可能なはず。
 
-  # ����� ssh-add -l �ν�λ���֤�Ĵ�٤뤳�Ȥˤ�äƤ����ʤ���
-  # ssh-add -l �ϡ�agent �Ȥ��̿�����ǽ�Ǥʤ����Ļ��Ѳ�ǽ�ʸ��������
-  # ���ｪλ�� (��λ���� 0)��agent �Ȥ��̿��ϲ�ǽ�������Ѳ�ǽ�ʸ����ʤ����ϡ�
-  # ��λ���� 1 �ǰ۾ｪλ���롣agent �Ȥ��̿��ϲ�ǽ�Ǥʤ����� ��λ���� 2 ��
-  # �۾ｪλ����Τǡ������Ĵ�٤�Ф褤��
+  # これは ssh-add -l の終了状態を調べることによっておこなう。
+  # ssh-add -l は、agent との通信が可能でなおかつ使用可能な鍵があれば
+  # 正常終了し (終了状態 0)、agent との通信は可能だが使用可能な鍵がない場合は、
+  # 終了状態 1 で異常終了する。agent との通信は可能でない場合は 終了状態 2 で
+  # 異常終了するので、これを調べればよい。
   if ssh-add -l >/dev/null 2>&1; then
-      # �̿���ǽ�ǡ��������Ǥˤ��ä���
+      # 通信可能で、鍵がすでにあった。
       #echo "The agent has a key."
       :
   elif [ 2 = "$?" ]; then
-      # �Ĥ��˥�������� ssh-agent ����ư���Ƥ��뤫�ɤ��������å����롣
+      # つぎにローカルな ssh-agent が起動しているかどうかチェックする。
       export SSH_AUTH_SOCK=$HOME/.ssh/sock.`hostname`
       if ssh-add -l >/dev/null 2>&1; then
-          # ��������� agent �����Ǥ˵�ư���Ƥ�����
+          # ローカルな agent がすでに起動していた。
           #echo "The agent does not have a key."
           :
       elif [ 2 = "$?" -a ! "$SSH_CLIENT" ]; then
-          # agent ����ư���Ƥ��ʤ��ä����Τǡ���ư�����롣
-          # ���ξ�硢�̿��ѤΥ����åȤϤĤͤ˷�ޤä��ѥ��ˤ��롣
+          # agent が起動していなかった。ので、起動させる。
+          # この場合、通信用のソケットはつねに決まったパスにする。
           #echo "Cannot find an agent, launching."
 	  rm -f $SSH_AUTH_SOCK
 	  eval `ssh-agent -a $SSH_AUTH_SOCK`
@@ -236,8 +236,8 @@ if [[ "$PS1" ]]; then
       fi
   fi
 
-  # ����������Ȥ˸����ɲä��륳�ޥ�ɡ�ssh-add �Ǹ������뤫�ɤ���Ĵ�١�
-  # �ʤ���Хѥ��ե졼�����׵᤹�롣ssh �Τ����˼�ưŪ�˼¹Ԥ���롣
+  # エージェントに鍵を追加するコマンド。ssh-add で鍵があるかどうか調べ、
+  # なければパスフレーズを要求する。ssh のさいに自動的に実行される。
   function sshon1 {
       if ! (ssh-add -l 2>&1 | grep '(RSA1)' >&2 ); then
           ssh-add -t 60m ~/.ssh/identity &&
@@ -251,32 +251,32 @@ if [[ "$PS1" ]]; then
       fi
   }
 
-  # �դ���� ssh �Τ����� ssh1 �� ssh2 �Ȥ������ޥ�ɤ�Ȥ���
-  # ����ϥ���������Ȥ˸����ʤ���Хѥ��ե졼�����׵ᤷ���ɲä��褦�Ȥ��롣
+  # ふだんは ssh のかわりに ssh1 と ssh2 というコマンドを使う。
+  # これはエージェントに鍵がなければパスフレーズを要求して追加しようとする。
   alias sshon=sshon2
   function ssh1 { sshon1 && command ssh -1 "$@"; }
   function ssh2 { sshon2 && command ssh -2 "$@"; }
 
-  # wg: ����������ɤοʹԾ����򸫤륳�ޥ�ɡ�
-  # Lynx �ǲ�������������ɤ���Ȥ���wget �Υ�����Ĥͤ�
-  # ~/.wgetlog �� �ɵ�����褦�ˤ��Ƥ��롣
+  # wg: ダウンロードの進行状況を見るコマンド。
+  # Lynx で何かダウンロードするとき、wget のログをつねに
+  # ~/.wgetlog に 追記するようにしてある。
   function wg { tail ~/.wgetlog; }
   function lynx { dispstatus Lynx; command lynx "$@"; }
 
-  # �����ꥢ����
+  # エイリアス。
 
   alias ls='ls -F'
-  alias ll='ls -o'   # �Ķ��ˤ�äƤ� -o �Ϥʤ���-l ��Ȥ���
+  alias ll='ls -o'   # 環境によっては -o はなく、-l を使う。
   alias la='ls -lag'
-  # grep �Ǥ� LC_CTYPE �ϥ��åȤ��ʤ����٤����顣
+  # grep では LC_CTYPE はセットしない。遅いから。
   alias g='env -u LC_CTYPE grep -i'
   alias r='env -u LC_CTYPE grep -ir'
   alias G='env -u LC_CTYPE grep'
   alias F='env -u LC_CTYPE fgrep'
   alias c=cat
-  # ��ǧ�Ĥ��ե�������rm, mv, cp �ʤɤΤ��֤ʤ����Ϥʤ�٤�������Ȥ���
-  # ���ޥ��̾�� rm �� mv �ʤɤ˾�񤭤��ʤ��Τϡ������Υ����ꥢ�������ꤵ��Ƥʤ��Ķ�
-  # (root �ʤ�) �Ǥ��ä������� rm �ʤɤ� (-i ���Ĥ��Ƥ�Ȼפä�) �¹Ԥ��Ƥ��ޤ��Τ��ɤ����ᡣ
+  # 確認つきファイル操作。rm, mv, cp などのあぶない操作はなるべくこれらを使う。
+  # コマンド名を rm や mv などに上書きしないのは、これらのエイリアスが指定されてない環境
+  # (root など) でうっかり生の rm などを (-i がついてると思って) 実行してしまうのを防ぐため。
   alias rmi='rm -i'
   alias mvi='mv -i'
   alias cpi='cp -i'
@@ -285,7 +285,7 @@ if [[ "$PS1" ]]; then
   alias 644='chmod 644'
   alias 755='chmod 755'
   alias ox='od -Ax -tx1'
-  # rm�ϥ���Ȣ�˰�ư
+  # rmはゴミ箱に移動
   #function rm () {
   #  local path
   #  for path in "$@"; do
@@ -295,7 +295,7 @@ if [[ "$PS1" ]]; then
   #  done
   #}
 
-  # �䴰�����ꡣ���ޤ�ܤ��������ꤷ�Ƥʤ���
+  # 補完の設定。あまり詳しくは設定してない。
   complete -d cd
   complete -c man
   complete -c h
@@ -306,7 +306,7 @@ if [[ "$PS1" ]]; then
       . ~/.bashrc_local
   fi
 
-  # mac��ͭ�����ꡣ
+  # mac固有の設定。
   if [ -f ~/.bashrc_mac ]; then
       . ~/.bashrc_mac
   fi
