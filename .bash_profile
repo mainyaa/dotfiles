@@ -51,10 +51,6 @@ export HASKELL_PATH=$HOME/Library/Haskell
 export GOROOT=/usr/local/Cellar/go/1.0.3/
 
 # ec2 settings
-# Get EC2 key
-if [ -f ~/.bash_ec2 ]; then
-    . ~/.bash_ec2
-fi
 
 # jsctags
 export NODE_PATH=/usr/local/lib/jsctags:${NODE_PATH}
@@ -77,7 +73,4 @@ export NACL_EXE_STDERR=DEBUG_ONLY:dev://postmessage
 PATH=/usr/local/bin:$PATH:$HOME/bin:$PATH:/opt/local/bin:/opt/local/sbin:$MAVEN_HOME/bin:$JDK_HOME/bin:$JAVA_HOME/bin:$GAE_SDK_HOME/bin:$NPM_PATH/bin:$HASKELL_PATH/bin:$ANDROID_NDK_ROOT:$APPENGINE_HOME:$DEPOT_TOOLS_HOME:$NACL_SDK_ROOT/tools:$HOME/.rvm/bin
 export PATH
 
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 

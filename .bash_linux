@@ -1,0 +1,5 @@
+export EDITOR=/usr/bin/vim
+alias vi=vim
+export GAE_HOME=/usr/local/google_appengine
+export GAE_SDK_HOME=/usr/local/appengine-java-sdk-1.7.1
+export APPENGINE_HOME=/usr/local/google_appengine

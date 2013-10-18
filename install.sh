@@ -16,6 +16,8 @@ if [ -f ~/.vimrc ]; then
 fi
 ln -s ~/src/dotfiles/.bashrc ~/
 ln -s ~/src/dotfiles/.bash_profile ~/
+ln -s ~/src/dotfiles/.bash_mac ~/
+ln -s ~/src/dotfiles/.bash_linux ~/
 ln -s ~/src/dotfiles/.editorconfig ~/
 ln -s ~/src/dotfiles/.gemrc ~/
 ln -s ~/src/dotfiles/.gitconfig ~/
@@ -40,11 +42,11 @@ wget https://github.com/cooldaemon/myhome/blob/master/.vim/dict/javascript.dict
 mv javascript.dict ~/_vim/dict/
 
 vim +BundleInstall +qall
+sudo npm install -g grunt-cli
 sudo npm install -g coffee
 sudo npm install -g js2coffee
 sudo npm install -g typescript
 sudo npm install -g tslint
-sudo npm install -g grunt
 sudo npm install -g jslint
 sudo npm install -g jshint
 sudo npm install -g jstags

@@ -9,6 +9,14 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# Platform-specific things
+case $( uname -s ) in
+    Darwin )
+        . .bash_mac ;;
+    Linux )
+        . .bash_linux ;;
+esac
+
 
 ## 新しく作られたファイルのパーミッションがつねに 644 になるようにする
 umask 022
@@ -100,10 +108,12 @@ if [[ "$PS1" ]]; then
   u2=`expr $USER : '\(....\).*'`
   # 現在のホストによってプロンプトの色を変える。
   case "$HOSTNAME" in
-  k*)   col=31;;  # 赤
-  a*) col=36;;  # 水色
-  m*)    col=32;;  # 緑
-  j*)    col=33;;  # 黄
+  ma*)   col=31;;  # 赤
+  md*)    col=32;;  # 緑
+  ub*)    col=33;;  # 黄
+  www.l*)    col=34;;  # 青
+  je*)    col=35;;  # マゼンダ
+  mo*) col=36;;  # 水色
   *) col=1;; # それ以外のホストでは強調表示
   esac
   if [[ "$EMACS" ]]; then
@@ -303,7 +313,9 @@ if [[ "$PS1" ]]; then
 fi
 
 # grunt completion
-eval "$(grunt --completion=bash)"
+if [ -f grunt ]; then
+  eval "$(grunt --completion=bash)"
+fi
 
 # http://www.direnv.net/
 eval "$(direnv hook bash)"
