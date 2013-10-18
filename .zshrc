@@ -31,41 +31,6 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 
 
-# Aliases
-alias ls='ls -GlF'
-alias ll='ls -o'   # 環境によっては -o はなく、-l を使う。
-alias la='ls -lag'
-alias acki='ack -ai'
-alias agi='ag -i'
-# grep では LC_CTYPE はセットしない。遅いから。
-alias g='env -u LC_CTYPE grep -i'
-alias r='env -u LC_CTYPE grep -ir'
-alias G='env -u LC_CTYPE grep'
-alias F='env -u LC_CTYPE fgrep'
-alias c=cat
-# 確認つきファイル操作。rm, mv, cp などのあぶない操作はなるべくこれらを使う。
-# コマンド名を rm や mv などに上書きしないのは、これらのエイリアスが指定されてない環境
-# (root など) でうっかり生の rm などを (-i がついてると思って) 実行してしまうのを防ぐため。
-alias rmi='rm -i'
-alias mvi='mv -i'
-alias cpi='cp -i'
-alias lld='ls -ld'
-alias ..='cd ..'
-alias 644='chmod 644'
-alias 755='chmod 755'
-alias ox='od -Ax -tx1'
-function trash() {
-  for item in "$@"; do
-    if [[ -e "$item" ]]; then
-      item_name="$(basename $item)"
-      if [[ -e "${HOME}/.Trash/${item_name}" ]]; then
-        mv -f "$item" "${HOME}/.Trash/${item_name} $(date "+%H-%M-%S")"
-      else
-        mv -f "$item" "${HOME}/.Trash/"
-      fi
-    fi
-  done
-}
 # Antigen
 ANTIGEN=$HOME/.antigen/
 # Antigneがなければ落としてくる
@@ -123,3 +88,39 @@ esac
 
 PROMPT='%{${col}%}${u2}@${h2}%{$reset_color%}:%{$fg[white]%}%c$(git_prompt_info)%{$fg_bold[blue]%}%! %#%{$reset_color%} '
 RPROMPT=''
+
+# Aliases
+alias ls='ls -GlF'
+alias ll='ls -o'   # 環境によっては -o はなく、-l を使う。
+alias la='ls -lag'
+alias acki='ack -ai'
+alias agi='ag -i'
+# grep では LC_CTYPE はセットしない。遅いから。
+alias g='env -u LC_CTYPE grep -i'
+alias r='env -u LC_CTYPE grep -ir'
+alias G='env -u LC_CTYPE grep'
+alias F='env -u LC_CTYPE fgrep'
+alias c=cat
+# 確認つきファイル操作。rm, mv, cp などのあぶない操作はなるべくこれらを使う。
+# コマンド名を rm や mv などに上書きしないのは、これらのエイリアスが指定されてない環境
+# (root など) でうっかり生の rm などを (-i がついてると思って) 実行してしまうのを防ぐため。
+alias rmi='rm -i'
+alias mvi='mv -i'
+alias cpi='cp -i'
+alias lld='ls -ld'
+alias ..='cd ..'
+alias 644='chmod 644'
+alias 755='chmod 755'
+alias ox='od -Ax -tx1'
+function trash() {
+  for item in "$@"; do
+    if [[ -e "$item" ]]; then
+      item_name="$(basename $item)"
+      if [[ -e "${HOME}/.Trash/${item_name}" ]]; then
+        mv -f "$item" "${HOME}/.Trash/${item_name} $(date "+%H-%M-%S")"
+      else
+        mv -f "$item" "${HOME}/.Trash/"
+      fi
+    fi
+  done
+}
