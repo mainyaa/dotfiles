@@ -15,7 +15,7 @@ ln -s ~/src/dotfiles/pryrc ~/.pryrc
 
 mkdir -p ~/_vim/autoload
 mkdir -p ~/_vim/bundle
-git clone http://github.com/gmarik/vundle.git ~/_vim/vundle.git
+git clone https://github.com/gmarik/vundle.git ~/_vim/vundle.git
 
 ln -s ~/src/dotfiles/vimfiles/_vim ~/_vim
 ln -s ~/src/dotfiles/vimfiles/_gvimrc ~/_vimrc
