@@ -2,6 +2,17 @@ mkdir -p ~/src
 git clone git@github.com:mainyaa/dotfiles.git ~/src/dotfiles
 cd ~/src/dotfiles
 
+ln -s ~/src/dotfiles/.bashrc ~/
+ln -s ~/src/dotfiles/.bash_profile ~/
+ln -s ~/src/dotfiles/.editorconfig ~/
+ln -s ~/src/dotfiles/.gemrc ~/
+ln -s ~/src/dotfiles/.gitconfig ~/
+ln -s ~/src/dotfiles/.gitconfig_global ~/
+ln -s ~/src/dotfiles/.tmux.conf ~/
+ln -s ~/src/dotfiles/gitignore ~/.gitignore
+ln -s ~/src/dotfiles/irbrc ~/.irbrc
+ln -s ~/src/dotfiles/pryrc ~/.pryrc
+
 mkdir -p ~/_vim/autoload
 mkdir -p ~/_vim/bundle
 git clone http://github.com/gmarik/vundle.git ~/_vim/vundle.git
@@ -15,17 +26,6 @@ wget https://raw.github.com/Cside/dotfiles/master/.vim/dict/perl.dict
 mv perl.dict ~/_vim/dict/
 wget https://github.com/cooldaemon/myhome/blob/master/.vim/dict/javascript.dict
 mv javascript.dict ~/_vim/dict/
-
-ln -s ~/src/dotfiles/.bashrc ~/
-ln -s ~/src/dotfiles/.bash_profile ~/
-ln -s ~/src/dotfiles/.editorconfig ~/
-ln -s ~/src/dotfiles/.gemrc ~/
-ln -s ~/src/dotfiles/.gitconfig ~/
-ln -s ~/src/dotfiles/.gitconfig_global ~/
-ln -s ~/src/dotfiles/.tmux.conf ~/
-ln -s ~/src/dotfiles/gitignore ~/.gitignore
-ln -s ~/src/dotfiles/irbrc ~/.irbrc
-ln -s ~/src/dotfiles/pryrc ~/.pryrc
 
 vim +BundleInstall +qall
 npm install -g coffee
