@@ -273,29 +273,29 @@ let s:maxoff = 50 " maximum number of lines to look backwards.
 
 function GetGooglePythonIndent(lnum)
 
-  " Indent inside parens.
-  " Align with the open paren unless it is at the end of the line.
-  " E.g.
-  "   open_paren_not_at_EOL(100,
-  "                         (200,
-  "                          300),
-  "                         400)
-  "   open_paren_at_EOL(
-  "       100, 200, 300, 400)
-  call cursor(a:lnum, 1)
-  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
-        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
-        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
-        \ . " =~ '\\(Comment\\|String\\)$'")
-  if par_line > 0
-    call cursor(par_line, 1)
-    if par_col != col("$") - 1
-      return par_col
+    " Indent inside parens.
+    " Align with the open paren unless it is at the end of the line.
+    " E.g.
+    "   open_paren_not_at_EOL(100,
+    "                         (200,
+    "                          300),
+    "                         400)
+    "   open_paren_at_EOL(
+    "       100, 200, 300, 400)
+    call cursor(a:lnum, 1)
+    let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
+                    \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+                    \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+                    \ . " =~ '\\(Comment\\|String\\)$'")
+    if par_line > 0
+        call cursor(par_line, 1)
+        if par_col != col("$") - 1
+            return par_col
+        endif
     endif
-  endif
 
-  " Delegate the rest to the original function.
-  return GetPythonIndent(a:lnum)
+    " Delegate the rest to the original function.
+    return GetPythonIndent(a:lnum)
 
 endfunction
 
@@ -368,10 +368,10 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/_vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+                \ 'default' : '',
+                \ 'vimshell' : $HOME.'/_vimshell_hist',
+                \ 'scheme' : $HOME.'/.gosh_completions'
+                \ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
@@ -406,7 +406,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+    let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -914,35 +914,35 @@ autocmd QuickFixCmdPost *grep* cwindow
 let &guifont='SourceCodePro-Light'
 
 function! MyModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
+    if &filetype == "help"
+        return ""
+    elseif &modified
+        return "+"
+    elseif &modifiable
+        return ""
+    else
+        return ""
+    endif
 endfunction
 
 function! MyReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return "⭤"
-  else
-    return ""
-  endif
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return "⭤"
+    else
+        return ""
+    endif
 endfunction
 
 function! MyFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
+    return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
 function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-       \ ('' != expand('%t') ? expand('%t') : '[No Name]') .
-       \ ('' != MyModified() ? ' ' . MyModified() : '')
+    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+                    \ ('' != expand('%t') ? expand('%t') : '[No Name]') .
+                    \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 "--------------------------------------------------
@@ -967,7 +967,7 @@ inoremap <C-j> <Down>
 inoremap <silent> <C-j> <Down>
 
 " =の前後にスペース
-inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+"inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
 "noremap <expr> _  <SID>smart_char(' <- ', '_')
 
 " C-JでEsc
@@ -975,8 +975,8 @@ nmap <C-j> <Esc>
 
 " /と:M/を入れ替え(eregex.vim)
 if exists(":M")
-"  nnoremap / :M/
-"  nnoremap ,/ /
+    "  nnoremap / :M/
+    "  nnoremap ,/ /
 endif
 
 " 縦分割をする際、新しいウィンドウを右側に作る
@@ -984,7 +984,141 @@ set splitright
 " 縦分割した後、カーソル下のタグへジャンプ
 nnoremap ss :vsplit<ENTER><C-]>
 
+
+
+
+" "," base mapping
+let mapleader = ","
 " キーバーインド一覧
 nmap <C-t> :help index.txt<CR>
 nmap <Leader>h :help index.txt<CR>
+" Mapping Unite commands
+nnoremap <Leader>/ :Unite grep:.<cr>
+nnoremap <Leader>y :Unite -buffer-name=yank history/yank<cr>
+nnoremap <Leader>l :Unite -buffer-name=buffers -quick-match buffer<cr>
+" Mapping ropevim commands
+nnoremap <Leader>g :call RopeGotoDefinition()<return>
+nnoremap <Leader>d :call RopeShowDoc()<return>
+nnoremap <Leader>f :call RopeFindOccurrences()<return>
+nnoremap <Leader>j :call RopeJumpToGlobal()<return>
+" Mapping tab commands
+nnoremap <Leader>tc :tabc<return>
+nnoremap <Leader>tn :tabn<return>
+nnoremap <Leader>tp :tabp<return>
+nnoremap <Leader>te :tabe<space>
+" Mapping Plugin commands
+nnoremap <Leader>nt :NERDTreeToggle<return>
+nnoremap <Leader>tb :TagbarToggle<return>
+nnoremap <Leader>e :Errors<return>
+nnoremap <Leader>en :lnext<return>
+nnoremap <Leader>ep :lprev<return>
+" Adding Toggle Comment
+nnoremap <Leader><Leader> :call NERDComment("n", "Toggle")<return>
+vnoremap <Leader><Leader> :call NERDComment("v", "Toggle")<return>
+" Add 'Sign' shortcut
+nnoremap <Leader>si :exec "normal A".system("echo -n ' -- '$(git config --global --get user.name) $(date +\%D)")<return>
+" Map Paste / No Number for copy, paste, etc. in Vim without X.
+nnoremap <Leader>p :set paste nonumber<return>
+nnoremap <Leader>np :set nopaste number<return>
+" X System Clipboard copy, cut, & paste shortcuts.
+noremap <Leader>xp "+gP<return>
+noremap <Leader>xy "+y<return>
+noremap <Leader>xx "+x<return>
+" Compile (make) less to new CSS file
+nnoremap <Leader>ml :w <BAR> !lessc % > %:t:r.css<CR><space>
+" Spell Checking
+nnoremap <Leader>sp :setlocal spell spelllang=en_us<return>
+nnoremap <Leader>nsp :setlocal spell spelllang=<return>
+" Write and Write & Quit shortcuts
+nnoremap <Leader>s :w<return>
+nnoremap <Leader>q :wq<return>
+" Start vertical split command with space character.
+nnoremap <Leader>v :vsp<space>
+" Start horizontal split command with space character.
+nnoremap <Leader>h :sp<space>
+" Close window
+nnoremap <Leader>cw :close<return>
+" Close buffer
+nnoremap <Leader>bd :bd<return>
+" Clear highlighting
+nnoremap <Leader>ch :noh<return>
+" Retab entire file
+nnoremap <Leader>rt gg=G
+" Insert a line above or below cursor without insert mode.
+nnoremap <Leader>O O<Esc>
+nnoremap <Leader>o o<Esc>
+" Make arrow keys jump by 10 lines
+nnoremap <S-Down> 10j
+nnoremap <S-Up> 10k
+imap <S-Down> <Esc>10ji
+imap <S-Up> <Esc>10ki
+vmap <S-Down> 10j
+vmap <S-Up> 10k
+" Send the selected hunk to IWS's hastebin
+vmap <Leader>hb <esc>:'<,'>:w !HASTE_SERVER=http://hastebin.britecorepro.com haste<CR>
+" Jump easily between open windows
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-l> <C-w>l
+" Refresh syntax highlighting
+nnoremap <Leader>rf :syntax off<return>:syntax on<return>
+" Fix all the whitespace in a file. Re-tabs and removes trailing whitespace.
+" Usage: ,ws
+nnoremap <Leader>ws :TrimWS<return>gg=G
+" Insert a single character of your choosing and return to the right spot.
+" Usage: ,[spacebar][character]
+nnoremap <Leader><space> :exec "normal i".nr2char(getchar())."\e"<return>
+nnoremap <Leader>a :exec "normal a".nr2char(getchar())."\e"<return>
+" Write as super user
+command! W w !sudo tee % > /dev/null
+" Trim trailing whitespace
+command TrimWS %s/\s*$//g | noh
+" Visual Selection Search using * and #
+function! s:VSetSearch()
+    let temp = @@
+    norm! gvy
+    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    let @@ = temp
+endfunction
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
+" Plugin Boolean settings for Programming Languages
+let coffee_compile_vert=1 " When compiling CoffeeScript, throw output into vertical split
+let coffee_make_options='--bare'
+" Auto-compile coffee files on save.
+au BufWritePost *.coffee silent CoffeeMake!
+" Auto-compile less files on save.
+function LessToCss()
+    let current_file = shellescape(expand('%:p'))
+    let filename = shellescape(expand('%:r'))
+    let command = "silent !lessc " . current_file . " " . filename . ".css"
+    execute command
+endfunction
+autocmd BufWritePost,FileWritePost *.less call LessToCss()
+let g:syntastic_check_on_open=1 " Run Syntastic when opening files
+let g:syntastic_python_checkers=['python', 'pyflakes'] " Be more strict in python syntax
+let g:pymode_folding=0 " Turn off python-mode folding
+let g:pymode_lint_write=0 " we have two lint plugins...
+let g:pymode_utils_whitespaces=0 " don't molest whitespace
+let g:ftplugin_sql_omni_key='<C-S>' " reset sql omni key
+let NERDSpaceDelims=1 " Add space delimiters
+let g:gitgutter_eager=0 " Only run gitgutter on read/write of files
+" GitGutter Next/Prev Shortcuts
+nmap gh <Plug>GitGutterNextHunk
+nmap gH <Plug>GitGutterPrevHunk
+" Javascript Debugger Function - inspired by pymode#breakpoint#Set
+function JSDebugger(lnum)
+    let line = getline(a:lnum)
+    if strridx(line, "debugger;") != -1
+        normal dd
+    else
+        let plnum = prevnonblank(a:lnum)
+        call append(line('.')-1, repeat(' ', indent(plnum))."debugger;")
+        normal k
+    endif
 
+    " Save file without any events
+    if &modifiable && &modified | noautocmd write | endif
+endfunction
+au BufNewFile,BufReadPost *.js nnoremap <Leader>b :call JSDebugger(line('.'))<return>
