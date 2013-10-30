@@ -124,3 +124,5 @@ function trash() {
     fi
   done
 }
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

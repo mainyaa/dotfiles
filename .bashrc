@@ -328,3 +328,5 @@ if [ -f ~/.virtualenvwrapper_bashrc ]; then
   source ~/.virtualenvwrapper_bashrc
 fi
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
