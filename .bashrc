@@ -3,7 +3,6 @@
 
 # User specific aliases and functions
 
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -16,7 +15,6 @@ case $( uname -s ) in
     Linux )
         . $HOME/.bash_linux ;;
 esac
-
 
 ## 新しく作られたファイルのパーミッションがつねに 644 になるようにする
 umask 022
@@ -44,7 +42,6 @@ export RSYNC_RSH=ssh
 
 # "." コマンドでシェルスクリプトを実行するときは混乱するので PATH を検索させない。
 shopt -u sourcepath
-
 
 # PCRE 互換の正規表現を使う
 setopt re_match_pcre
@@ -294,6 +291,7 @@ if [[ "$PS1" ]]; then
   #    fi
   #  done
   #}
+  alias dusort='du -d 1 | sort -n'
 
   # 補完の設定。あまり詳しくは設定してない。
   complete -d cd
@@ -327,6 +325,5 @@ eval "$(direnv hook bash)"
 if [ -f ~/.virtualenvwrapper_bashrc ]; then
   source ~/.virtualenvwrapper_bashrc
 fi
-
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

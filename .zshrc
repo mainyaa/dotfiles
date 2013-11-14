@@ -15,8 +15,6 @@ esac
 setopt noclobber # don't accidentally overwrite existing files
 unsetopt correct && unsetopt correctall # disable zsh autocorrection
 
-
-
 # 端末・プロンプトの設定
 setopt prompt_subst
 autoload -U colors && colors
@@ -24,12 +22,9 @@ autoload -U colors && colors
 # http://direnv.net/
 eval "$(direnv hook zsh)"
 
-
 # Autocompletion
 autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
-
 
 # Antigen
 ANTIGEN=$HOME/.antigen/
@@ -112,6 +107,8 @@ alias ..='cd ..'
 alias 644='chmod 644'
 alias 755='chmod 755'
 alias ox='od -Ax -tx1'
+alias dusort='du -d 1 | sort -n'
+
 function trash() {
   for item in "$@"; do
     if [[ -e "$item" ]]; then
