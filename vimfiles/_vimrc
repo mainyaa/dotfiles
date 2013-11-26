@@ -399,7 +399,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -1098,6 +1098,7 @@ endfunction
 autocmd BufWritePost,FileWritePost *.less call LessToCss()
 let g:syntastic_check_on_open=1 " Run Syntastic when opening files
 let g:syntastic_python_checkers=['python', 'pyflakes'] " Be more strict in python syntax
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " ignore AngularJS prefix attribute
 let g:pymode_folding=0 " Turn off python-mode folding
 let g:pymode_lint_write=0 " we have two lint plugins...
 let g:pymode_utils_whitespaces=0 " don't molest whitespace
