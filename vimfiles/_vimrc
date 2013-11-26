@@ -50,6 +50,8 @@ Bundle 'Go-Syntax'
 Bundle 'go.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'Blackrush/vim-gocode'
+" Lisp
+Bundle 'amdt/vim-niji'
 " Bundle 'groovyindent'
 Bundle 'tfnico/vim-gradle'
 " HTML/CSS
