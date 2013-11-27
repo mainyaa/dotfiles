@@ -1,0 +1,37 @@
+
+
+[core]
+    editor = /Applications/MacVim.app/Contents/MacOS/Vim
+
+[credential]
+    helper = osxkeychain
+
+[pager]
+    log = ~/bin/diff-highlight | less
+    show = ~/bin/diff-highlight | less
+    diff = ~/bin/diff-highlight | less
+
+[merge]
+    tool = p4merge
+    # from 1.7.6
+    ff = false
+
+[mergetool]
+    keepBackup = false
+
+[mergetool "p4merge"]
+    path = p4merge
+    keepTemporaries = false
+    trustExitCode = false
+
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = sourcetree
+
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+
+[browser "chrome"]
+    cmd = open -a 'Google Chrome.app'
+

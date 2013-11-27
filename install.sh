@@ -17,9 +17,9 @@ ln -s ~/src/dotfiles/.bash_linux ~/
 ln -s ~/src/dotfiles/.editorconfig ~/
 ln -s ~/src/dotfiles/.gemrc ~/
 ln -s ~/src/dotfiles/.gitconfig ~/
-ln -s ~/src/dotfiles/.gitconfig_global ~/
+ln -s ~/src/dotfiles/.gitconfig_mac ~/
 ln -s ~/src/dotfiles/.tmux.conf ~/
-ln -s ~/src/dotfiles/gitignore ~/.gitignore
+ln -s ~/src/dotfiles/.gitignore_global ~/.gitignore_global
 ln -s ~/src/dotfiles/irbrc ~/.irbrc
 ln -s ~/src/dotfiles/pryrc ~/.pryrc
 
@@ -46,3 +46,8 @@ sudo npm install -g tslint
 sudo npm install -g jslint
 sudo npm install -g jshint
 sudo npm install -g jstags
+
+mkdir -p ~/bin
+curl https://raw.github.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/bin/diff-highlight
+chmod +x ~/bin/diff-highlight
+
