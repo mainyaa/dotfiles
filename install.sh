@@ -19,7 +19,7 @@ ln -s ~/src/dotfiles/.gemrc ~/
 ln -s ~/src/dotfiles/.gitconfig ~/
 ln -s ~/src/dotfiles/.gitconfig_mac ~/
 ln -s ~/src/dotfiles/.tmux.conf ~/
-ln -s ~/src/dotfiles/.gitignore_global ~/.gitignore_global
+ln -s ~/src/dotfiles/.gitignore_global ~/
 ln -s ~/src/dotfiles/irbrc ~/.irbrc
 ln -s ~/src/dotfiles/pryrc ~/.pryrc
 
