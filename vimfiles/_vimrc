@@ -64,6 +64,9 @@ Bundle 'Syntastic'
 Bundle 'actionscript.vim'
 " TOML
 Bundle 'cespare/vim-toml'
+" server
+Bundle 't9md/vim-chef'
+Bundle 'httplog'
 " util
 Bundle 'YankRing.vim'
 Bundle 'git://github.com/airblade/vim-rooter/'
@@ -83,7 +86,6 @@ Bundle 'tabpagecd'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 "Bundle 'wincent/Command-T'
-Bundle 'httplog'
 Bundle 'pdurbin/vim-tsv'
 "Bundle 'Lokaltog/vim-powerline'
 Bundle 'itchyny/lightline.vim'
