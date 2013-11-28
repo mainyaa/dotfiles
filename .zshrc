@@ -85,9 +85,10 @@ PROMPT='%{${col}%}${u2}@${h2}%{$reset_color%}:%{$fg[white]%}%c$(git_prompt_info)
 RPROMPT=''
 
 # Aliases
-alias ls='ls -GlF'
+alias ls='ls -GlFta'
 alias ll='ls -o'   # 環境によっては -o はなく、-l を使う。
 alias la='ls -lag'
+alias dus='du -d 1 | sort -n '
 alias acki='ack -ai'
 alias agi='ag -i'
 # grep では LC_CTYPE はセットしない。遅いから。
