@@ -6,5 +6,5 @@ alias vi=vim
 export GAE_HOME=/usr/local/google_appengine
 export GAE_SDK_HOME=/usr/local/appengine-java-sdk-1.7.1
 export APPENGINE_HOME=/usr/local/google_appengine
-export GO_HOME=/usr/local/go
-export PATH=$PATH:$MVIM_HOME:$MYSQL_PATH:$CLOUD_SDK_HOME/bin:$GCUTIL_HOME:$GO_HOME/bin
+export GOROOT=/usr/local/go
+export PATH=$PATH:$MVIM_HOME:$MYSQL_PATH:$CLOUD_SDK_HOME/bin:$GCUTIL_HOME:$GOROOT/bin
