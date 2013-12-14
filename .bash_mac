@@ -1,3 +1,6 @@
+# Boot SSH Agent
+eval `ssh-agent`;
+
 export MVIM_HOME=/Applications/MacVim.app/Contents/MacOS/
 export EDITOR=$MVIM_HOME/mvim
 alias vi='env LANG=ja_JP.UTF-8 $MVIM_HOME/vim "$@"'

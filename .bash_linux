@@ -1,3 +1,6 @@
+# Boot SSH Agent
+eval `ssh-agent`;
+
 export EDITOR=/usr/bin/vim
 alias vi=vim
 export GAE_HOME=/usr/local/google_appengine

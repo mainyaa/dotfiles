@@ -9,11 +9,13 @@ cd ~/src/dotfiles
 [ -f ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.old
 
 ln -s ~/src/dotfiles/.zshrc ~/
+ln -s ~/src/dotfiles/.zlogout ~/
 ln -s ~/src/dotfiles/.bashrc ~/
 ln -s ~/src/dotfiles/.bash_profile ~/
 ln -s ~/src/dotfiles/.bash_env ~/
 ln -s ~/src/dotfiles/.bash_mac ~/
 ln -s ~/src/dotfiles/.bash_linux ~/
+ln -s ~/src/dotfiles/.bash_logout ~/
 ln -s ~/src/dotfiles/.editorconfig ~/
 ln -s ~/src/dotfiles/.gemrc ~/
 ln -s ~/src/dotfiles/.gitconfig ~/
