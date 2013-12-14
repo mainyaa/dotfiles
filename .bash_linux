@@ -1,5 +1,5 @@
 # Boot SSH Agent
-eval `ssh-agent`;
+#eval `ssh-agent`;
 
 export EDITOR=/usr/bin/vim
 alias vi=vim

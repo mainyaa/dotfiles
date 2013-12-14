@@ -1,2 +1,2 @@
-eval `ssh-agent -k`
-ssh-add .ssh/idname
+#eval `ssh-agent -k`
+#ssh-add .ssh/idname

@@ -43,11 +43,6 @@ export RSYNC_RSH=ssh
 # "." コマンドでシェルスクリプトを実行するときは混乱するので PATH を検索させない。
 shopt -u sourcepath
 
-# PCRE 互換の正規表現を使う
-setopt re_match_pcre
-
-# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
-setopt prompt_subst
 
 RPROMPT='[`rprompt-git-current-branch`%~]'
 

@@ -1,5 +1,5 @@
 # Boot SSH Agent
-eval `ssh-agent`;
+#eval `ssh-agent`;
 
 export MVIM_HOME=/Applications/MacVim.app/Contents/MacOS/
 export EDITOR=$MVIM_HOME/mvim
