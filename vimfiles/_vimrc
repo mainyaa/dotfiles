@@ -36,7 +36,7 @@ Bundle 'Cppcheck-compiler'
 Bundle 'walm/jshint.vim'
 Bundle 'xer0x/jsbeautify'
 Bundle 'js-mask'
-" coffeescript
+" typescript
 Bundle 'leafgarland/typescript-vim'
 " coffeescript
 Bundle 'kchmck/vim-coffee-script'
