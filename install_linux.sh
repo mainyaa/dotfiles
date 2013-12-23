@@ -2,14 +2,23 @@
 
 uname -i
 
-sudo yum install -y http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
 
-sudo yum -y install wget vim zsh screen
-$ sudo yum install -y gcc gcc-c++ make git openssl-devel zlib-devel readline-devel sqlite-devel bzip2-devel
+yum install -y http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
 
+yum -y install apt
+#yum -y install wget vim zsh screen
+#yum install -y gcc gcc-c++ make git openssl-devel zlib-devel readline-devel sqlite-devel bzip2-devel
+apt-get -y install wget vim zsh screen
+apt-get install -y build-essential gcc g++ make git openssl zlibc zlib1g zlib1g-dev libreadline6 sqlite bzip2
+
+# oh-my-zsh
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+# pyenv
 cd ~
 git clone git://github.com/yyuu/pyenv.git .pyenv
 
+# direnv
 cd ~/src
 git clone https://github.com/zimbatm/direnv
 cd direnv
@@ -17,11 +26,23 @@ sudo gem install ronn
 make install
 
 # chef install 
-curl https://raw.github.com/hnakamur/setup_linux/master/centos6/install_chef-solo.sh | sudo sh
+cd ~
+curl -L https://www.opscode.com/chef/install.sh | sudo bash
+#curl https://raw.github.com/hnakamur/setup_linux/master/centos6/install_chef-solo.sh | sh
 
 gem install berkshelf
 
+#vagrant
+cd ~
+#wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.4.1_x86_64.rpm
+#rpm -ivh vagrant_1.4.1_x86_64.rpm
+wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.4.1_x86_64.deb
+dpkg -i vagrant_1.4.1_x86_64.deb
+vagrant plugin install vagrant-cachier
+vagrant plugin install vagrant-berkshelf
+
 # maven
+cd ~
 wget http://ftp.yz.yamagata-u.ac.jp/pub/network/apache/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz
 sudo tar -C /usr/local -xzf apache-maven-3.1.1-bin.tar.gz
 
