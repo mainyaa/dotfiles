@@ -8,8 +8,18 @@ yum install -y http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-8.noa
 yum -y install apt
 #yum -y install wget vim zsh screen
 #yum install -y gcc gcc-c++ make git openssl-devel zlib-devel readline-devel sqlite-devel bzip2-devel
-apt-get -y install wget vim zsh screen
+#yum -y groupinstall "Development Tools"
+#yum -y install pcre-devel xz-devel
+apt-get -y install wget vim zsh screen lv
 apt-get install -y build-essential gcc g++ make git openssl zlibc zlib1g zlib1g-dev libreadline6 sqlite bzip2
+apt-get install language-pack-ja -y --fix-missing
+update-locale LANG=ja_JP.UTF-8
+apt-get install -y software-properties-common
+apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
+apt-get install -y silversearcher-ag
+apt-get install -y ruby rubygems
+apt-get install -y node
+apt-get install -y python
 
 # oh-my-zsh
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
@@ -18,10 +28,19 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 cd ~
 git clone git://github.com/yyuu/pyenv.git .pyenv
 
+# ag
+cd ~/src
+git clone https://github.com/ggreer/the_silver_searcher
+cd the_silver_searcher
+./build.sh
+make install
+
 # direnv
 cd ~/src
 git clone https://github.com/zimbatm/direnv
 cd direnv
+sudo apt-get install -y golang
+gem install bundler
 sudo gem install ronn
 make install
 
@@ -52,7 +71,9 @@ export PATH=$PATH:/usr/local/go/bin
 
 wget http://peak.telecommunity.com/dist/ez_setup.py
 python ez_setup.py
-easy_install supervisord
+
+# supervisord
+apt-get -y install supervisor
 
 
 
