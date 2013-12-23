@@ -25,6 +25,7 @@ ln -s ~/src/dotfiles/.gitignore_global ~/
 ln -s ~/src/dotfiles/irbrc ~/.irbrc
 ln -s ~/src/dotfiles/pryrc ~/.pryrc
 
+mkdir -p ~/txtb
 mkdir -p ~/_vim/autoload
 mkdir -p ~/_vim/bundle
 git clone https://github.com/gmarik/vundle.git ~/_vim/vundle.git
