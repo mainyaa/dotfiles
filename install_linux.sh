@@ -1,5 +1,8 @@
 # centos 6
 
+curl -fsSkL -o /etc/yum.repos.d/hop5.repo http://www.hop5.in/yum/el6/hop5.repo
+yum groupinstall -y 'Development Tools'
+
 uname -i
 
 
@@ -10,6 +13,7 @@ yum -y install apt
 #yum install -y gcc gcc-c++ make git openssl-devel zlib-devel readline-devel sqlite-devel bzip2-devel
 #yum -y groupinstall "Development Tools"
 #yum -y install pcre-devel xz-devel
+#yum -y install pkgconfig glib2-devel gettext libxml2-devel pango-devel cairo-devel git ipa-gothic-fonts
 apt-get -y install wget vim zsh screen lv
 apt-get install -y build-essential gcc g++ make git openssl zlibc zlib1g zlib1g-dev libreadline6 sqlite bzip2
 apt-get install language-pack-ja -y --fix-missing
@@ -49,6 +53,7 @@ cd ~
 curl -L https://www.opscode.com/chef/install.sh | sudo bash
 #curl https://raw.github.com/hnakamur/setup_linux/master/centos6/install_chef-solo.sh | sh
 
+gem install knife-solo
 gem install berkshelf
 
 #vagrant
@@ -59,6 +64,8 @@ wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.4.1_x86_64.deb
 dpkg -i vagrant_1.4.1_x86_64.deb
 vagrant plugin install vagrant-cachier
 vagrant plugin install vagrant-berkshelf
+vagrant plugin install vagrant-vbguest
+vagrant plugin install vagrant-reload
 
 # maven
 cd ~
