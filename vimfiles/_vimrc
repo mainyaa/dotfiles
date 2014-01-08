@@ -68,18 +68,19 @@ Bundle 'cespare/vim-toml'
 Bundle 't9md/vim-chef'
 Bundle 'httplog'
 " util
+Bundle 'recover.vim'
+Bundle 'Align'
+Bundle 'write.vim'
 Bundle 'YankRing.vim'
 Bundle 'git://github.com/airblade/vim-rooter/'
 Bundle 'rodjek/vim-puppet'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Shougo/vimfiler'
-Bundle 'Shougo/vimproc'
 Bundle 'neocomplcache'
 "Bundle 'tpope/vim-rails'
 "Bundle 'sjbach/lusty'
 "Bundle 'gmarik/snipmate.vim'   " errorが起こる
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Align'
 Bundle 'godlygeek/tabular'
 Bundle 'tabpagecd'
 "Bundle 'Raimondi/delimitMate'
@@ -106,6 +107,10 @@ Bundle 'tpope/vim-fugitive'
 "Bundle 'fugitive.vim'
 " move
 Bundle 'EasyMotion'
+Bundle 'camelcasemotion'
+" coverrage
+Bundle 'gcov.vim'
+Bundle 'GCov-plugin'
 " color
 Bundle 'AnsiEsc.vim'
 Bundle 'flazz/vim-colorschemes'
@@ -123,6 +128,7 @@ Bundle 'nerdtree-ack'
 " TextMate's like
 "Bundle 'vim-scripts/snippetsEmu'
 " tag jump
+"Bundle 'Tagbar'
 Bundle 'matchit.zip'
 Bundle 'taglist-plus'
 Bundle 'taglist.vim'
@@ -132,7 +138,7 @@ Bundle 'ctags.vim'
 Bundle 'gtags.vim'
 " unite.vim
 Bundle 'unite.vim'
-Bundle 'unite-yarm'
+"Bundle 'unite-yarm'
 Bundle 'unite-gem'
 Bundle 'unite-scriptenames'
 Bundle 'unite-locate'
@@ -189,14 +195,14 @@ set sm
 set ai
 set complete=.,w,b,u,t,i
 syntax on
-let g:java_highlight_all=1
-let g:java_highlight_debug=1
-let g:java_allow_cpp_keywords=1
-let g:java_space_errors=0
-let g:java_highlight_functions=1
-let java_highlight_all=1
-let java_highlight_functions="style"
-let java_allow_cpp_keywords=1
+let g:java_highlight_all       = 1
+let g:java_highlight_debug     = 1
+let g:java_allow_cpp_keywords  = 1
+let g:java_space_errors        = 0
+let g:java_highlight_functions = 1
+let java_highlight_all         = 1
+let java_highlight_functions   = "style"
+let java_allow_cpp_keywords    = 1
 "autocmd FileType java setl noexpandtab
 autocmd FileType java setl tabstop=4 noexpandtab shiftwidth=4 softtabstop=4
 autocmd FileType xml setl tabstop=4 noexpandtab shiftwidth=4 softtabstop=4
@@ -208,9 +214,9 @@ autocmd FileType java map <C-c> :call JCommentWriter()<CR>
 "--------------------------------------------------
 " Python
 "--------------------------------------------------
-let g:pydiction_location = '~/_vim/after/ftplugin/pydiction/complete-dict'
+let g:pydiction_location    = '~/_vim/after/ftplugin/pydiction/complete-dict'
 let g:pydiction_menu_height = 20
-let python_highlight_all=1
+let python_highlight_all    = 1
 autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
@@ -789,6 +795,10 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 autocmd FileType javascript let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k~/_vim/dict/javascript.dict'
 autocmd FileType perl let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k~/_vim/dict/perl_func.dict'
 
+" write.vim
+let g:loaded_write = 1
+let g:write_auto=['markdown', 'help', 'text!']
+
 "<c-t>で補完
 " {{{ Autocompletion using the TAB key
 " This function determines, wether we are on the start of the line text (then tab indents) or
@@ -1013,6 +1023,7 @@ nnoremap <Leader>te :tabe<space>
 " Mapping Plugin commands
 nnoremap <Leader>nt :NERDTreeToggle<return>
 nnoremap <Leader>tb :TagbarToggle<return>
+nnoremap <Leader>tl :TlistToggle<return>
 nnoremap <Leader>e :Errors<return>
 nnoremap <Leader>en :lnext<return>
 nnoremap <Leader>ep :lprev<return>
@@ -1103,6 +1114,7 @@ autocmd BufWritePost,FileWritePost *.less call LessToCss()
 let g:syntastic_check_on_open=1 " Run Syntastic when opening files
 let g:syntastic_python_checkers=['python', 'pyflakes'] " Be more strict in python syntax
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " ignore AngularJS prefix attribute
+
 let g:pymode_folding=0 " Turn off python-mode folding
 let g:pymode_lint_write=0 " we have two lint plugins...
 let g:pymode_utils_whitespaces=0 " don't molest whitespace
