@@ -43,11 +43,16 @@ install pstree
 install serf
 install zsh-completions
 install xz
-install direnv
+
 tap phinze/homebrew-cask
 install brew-cask
 cask install virtualbox
 cask install vagrant
+tap homebrew/binary
+install docker
+tap fnichol/dvm
+install dvm
+
 cask install google-chrome
 cask install google-app-engine-launcher
 cask install google-drive
@@ -79,3 +84,4 @@ cask install keyfinder
 cask install sauce
 
 clean
+
