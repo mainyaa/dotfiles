@@ -306,12 +306,14 @@ if [[ "$PS1" ]]; then
 fi
 
 # grunt completion
-if [ -f grunt ]; then
+if [ -f $(which grunt) ]; then
   eval "$(grunt --completion=bash)"
 fi
 
 # http://www.direnv.net/
-eval "$(direnv hook bash)"
+if [ -f $(which direnv) ]; then
+  eval "$(direnv hook bash)"
+fi
 
 # pythonbrew
 [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
@@ -327,3 +329,8 @@ if [ -d "${PYENV_ROOT}" ]; then
     export PATH=${PYENV_ROOT}/bin:$PATH
     eval "$(pyenv init -)"
 fi
+
+if [ -f $(which dvm) ]; then
+  eval "$(dvm env)"
+fi
+

@@ -7,6 +7,7 @@ install reattach-to-user-namespace
 install tree
 install pidof
 install ctags
+install colordiff
 install gdbm
 install maven
 install pcre

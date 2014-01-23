@@ -19,8 +19,10 @@ unsetopt correct && unsetopt correctall # disable zsh autocorrection
 setopt prompt_subst
 autoload -U colors && colors
 
-# http://direnv.net/
-eval "$(direnv hook zsh)"
+# http://www.direnv.net/
+if [ -f $(which direnv) ]; then
+  eval "$(direnv hook bash)"
+fi
 
 # PCRE 互換の正規表現を使う
 setopt re_match_pcre
@@ -115,6 +117,9 @@ alias 644='chmod 644'
 alias 755='chmod 755'
 alias ox='od -Ax -tx1'
 alias dusort='du -d 1 | sort -n'
+alias diff='colordiff'
+alias less='less -R'
+
 
 function trash() {
   for item in "$@"; do
@@ -169,3 +174,9 @@ if [ -d "${PYENV_ROOT}" ]; then
     export PATH=${PYENV_ROOT}/bin:$PATH
     eval "$(pyenv init -)"
 fi
+
+if [ -f $(which dvm) ]; then
+  eval "$(dvm env)"
+fi
+alias dl='docker ps -l -q'
+
