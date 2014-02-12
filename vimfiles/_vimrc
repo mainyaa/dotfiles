@@ -28,6 +28,10 @@ Bundle 'javacomplete'
 "Bundle 'jcommenter.vim'
 Bundle 'git://github.com/moznion/jcommenter.vim'
 "Bundle 'pwicks86/eclim-for-vundle'
+" scala
+Bundle 'Scala-Java-Edit'
+Bundle 'scala.vim'
+
 " cpp
 Bundle 'cpp.vim'
 Bundle 'vim-cpp-auto-include'
@@ -40,6 +44,7 @@ Bundle 'js-mask'
 Bundle 'leafgarland/typescript-vim'
 " coffeescript
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'leshill/vim-json'
 " haskell
 Bundle 'haskell.vim'
 Bundle 'eagletmt/ghcmod-vim'
@@ -67,6 +72,8 @@ Bundle 'cespare/vim-toml'
 " server
 Bundle 't9md/vim-chef'
 Bundle 'httplog'
+" shell
+Bundle 'Shougo/vimshell.vim'
 " util
 Bundle 'recover.vim'
 Bundle 't9md/vim-choosewin'
@@ -117,11 +124,13 @@ Bundle 'AnsiEsc.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'Low-Contrast-Color-Schemes'
 Bundle 'CSApprox'
+Bundle 'tomasr/molokai'
 " search
 Bundle 'smartchr'
 Bundle 'eregex.vim'
 Bundle 'The-NERD-tree'
 Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'ag.vim'
 Bundle 'nerdtree-ack'
 " IME
@@ -164,12 +173,14 @@ set backspace=indent,eol,start
 set showmatch
 set matchtime=3
 set wildmenu
+set wildmode=longest:full,full
 set number
 set list
 set cursorline
 set visualbell t_vb=
 set helplang=ja,en
-colorscheme Dark
+"colorscheme Dark
+colorscheme molokai
 let &guifont='SourceCodePro-Light'
 filetype plugin on
 filetype indent on
@@ -282,7 +293,7 @@ setlocal indentexpr=GetGooglePythonIndent(v:lnum)
 
 let s:maxoff = 50 " maximum number of lines to look backwards.
 
-function GetGooglePythonIndent(lnum)
+function! GetGooglePythonIndent(lnum)
 
     " Indent inside parens.
     " Align with the open paren unless it is at the end of the line.
@@ -1127,7 +1138,7 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 let coffee_compile_vert=1 " When compiling CoffeeScript, throw output into vertical split
 let coffee_make_options='--bare'
 " Auto-compile coffee files on save.
-au BufWritePost *.coffee silent CoffeeMake!
+"au BufWritePost *.coffee silent CoffeeMake!
 " Auto-compile less files on save.
 function LessToCss()
     let current_file = shellescape(expand('%:p'))
@@ -1164,3 +1175,10 @@ function JSDebugger(lnum)
     if &modifiable && &modified | noautocmd write | endif
 endfunction
 au BufNewFile,BufReadPost *.js nnoremap <Leader>b :call JSDebugger(line('.'))<return>
+
+" PATH
+
+let $PATH="/usr/local/bin:$PATH:$HOME/bin:$PATH:/opt/local/bin:/opt/local/sbin:$MAVEN_HOME/bin:$JDK_HOME/bin:$JAVA_HOME/bin:$GAE_SDK_HOME/bin:$NPM_PATH/bin:$HASKELL_PATH/bin:$ANDROID_NDK_ROOT:$APPENGINE_HOME:$DEPOT_TOOLS_HOME:$NACL_SDK_ROOT/tools:$HOME/.rvm/bin"
+let g:ackprg="/usr/local/bin/ack -H --nocolor --nogroup --column"
+let g:agrg="/usr/local/bin/ag  --column"
+
