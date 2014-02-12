@@ -1,15 +1,27 @@
 ZSH=$HOME/.oh-my-zsh
 BOXEN=/opt/boxen
-[ -f $ZSH/oh-my-zsh.sh ] && source $HOME/.oh-my-zsh/
-[ -f $BOXEN/env.sh ] && source $BOXEN/env.sh
+function export_first_path_if_exists() {
+    test -d "$1" && export PATH="$1:$PATH"
+}
+function export_path_if_exists() {
+    test -d "$1" && export PATH="$1:$PATH"
+}
+function source_if_exists() {
+    test -f "$1" && source "$1"
+}
+function eval_if_exists() {
+    test -f $(which $1) && eval "$2"
+}
+source_if_exists $HOME/.oh-my-zsh/
+source_if_exists $BOXEN/env.sh
 # Platform-specific things
 case $( uname -s ) in
     Darwin )
-        . $HOME/.bash_mac ;;
+        source_if_exists $HOME/.bash_mac ;;
     Linux )
-        . $HOME/.bash_linux ;;
+        source_if_exists $HOME/.bash_linux ;;
 esac
-[ -f $HOME/.bash_env ] && source $HOME/.bash_env
+source_if_exists $HOME/.bash_env
 
 # Options
 setopt noclobber # don't accidentally overwrite existing files
@@ -19,59 +31,34 @@ unsetopt correct && unsetopt correctall # disable zsh autocorrection
 setopt prompt_subst
 autoload -U colors && colors
 
-# http://www.direnv.net/
-if [ -f $(which direnv) ]; then
-  eval "$(direnv hook bash)"
-fi
-
 # PCRE 互換の正規表現を使う
 setopt re_match_pcre
 
-# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
-setopt prompt_subst
+# カッコの対応などを自動的に補完
+setopt auto_param_keys
+
+# ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
+setopt auto_param_slash
+
+# auto_list の補完候補一覧で、ls -F のようにファイルの種別をマーク表示しない
+setopt NO_list_types
+
+# コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
+setopt magic_equal_subst
+
+# ファイル名の展開でディレクトリにマッチした場合末尾に / を付加する
+setopt mark_dirs
+
+# 8 ビット目を通すようになり、日本語のファイル名を表示可能
+setopt print_eight_bit
 
 # Autocompletion
 autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Antigen
-ANTIGEN=$HOME/.antigen/
-# Antigneがなければ落としてくる
-[ -f $ANTIGEN/antigen.zsh ] || git clone\
-  https://github.com/zsh-users/antigen.git $ANTIGEN
+source_if_exists $HOME/.zshrc.antigen
 
-if [[ -f $ANTIGEN/antigen.zsh ]]; then
-  source $ANTIGEN/antigen.zsh
-  antigen-use oh-my-zsh
-  
-  if [ "$OSTYPE"="darwin11.0" ]; then
-    antigen-bundle osx
-  fi
-  # Bundles from the default app.
-  antigen-bundles <<EOBUNDLES
-autojump
-brew
-bundler
-dircycle
-gem
-git
-git-flow
-npm
-osx
-pip
-python
-rbenv
-urltools
-zsh-users/zsh-syntax-highlighting
-https://github.com/yonchu/grunt-zsh-completion
-EOBUNDLES
-
-  # Load the Theme
-  antigen-theme candy
-
-  # Tell antigen that you're done.
-  antigen-apply
-fi
 # ホスト名とユーザ名の先頭 4文字をとりだす。全部だと長いので。
 h2=`expr $HOST : '\(....\).*'`
 u2=`expr $USER : '\(....\).*'`
@@ -168,15 +155,9 @@ if exists percol; then
     bindkey '^T' percol_select_history
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export PYENV_ROOT="${HOME}/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
-fi
-
-if [ -f $(which dvm) ]; then
-  eval "$(dvm env)"
-fi
+# docker
 alias dl='docker ps -l -q'
+
+# http://www.direnv.net/
+eval_if_exists direnv "$(direnv hook zsh)"
 

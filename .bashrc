@@ -8,12 +8,25 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+function export_first_path_if_exists() {
+    test -d "$1" && export PATH="$1:$PATH"
+}
+function export_path_if_exists() {
+    test -d "$1" && export PATH="$1:$PATH"
+}
+function source_if_exists() {
+    test -f "$1" && source "$1"
+}
+function eval_if_exists() {
+    test -f $(which $1) && eval "$2"
+}
+
 # Platform-specific things
 case $( uname -s ) in
     Darwin )
-        . $HOME/.bash_mac ;;
+        source_if_exists $HOME/.bash_mac ;;
     Linux )
-        . $HOME/.bash_linux ;;
+        source_if_exists $HOME/.bash_linux ;;
 esac
 
 ## 新しく作られたファイルのパーミッションがつねに 644 になるようにする
@@ -316,12 +329,10 @@ if [ -f $(which direnv) ]; then
 fi
 
 # pythonbrew
-[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+source_if_exists $HOME/.pythonbrew/etc/bashrc
 
 # Import virtualenvwrapper
-if [ -f ~/.virtualenvwrapper_bashrc ]; then
-  source ~/.virtualenvwrapper_bashrc
-fi
+source_if_exists ~/.virtualenvwrapper_bashrc
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PYENV_ROOT="${HOME}/.pyenv"
@@ -333,4 +344,5 @@ fi
 if [ -f $(which dvm) ]; then
   eval "$(dvm env)"
 fi
+
 
