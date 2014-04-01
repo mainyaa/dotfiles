@@ -52,7 +52,8 @@ export NPM_PATH=/usr/local/share/npm
 export HASKELL_PATH=$HOME/Library/Haskell
 
 # go settings
-export GOROOT=/usr/local/Cellar/go/1.0.3/
+export GOROOT=/usr/local/Cellar/go/1.2.1/
+export GOPATH=$HOME/.go
 
 # ec2 settings
 
@@ -75,7 +76,7 @@ export NACL_EXE_STDOUT=DEBUG_ONLY:dev://postmessage
 export NACL_EXE_STDERR=DEBUG_ONLY:dev://postmessage
 
 # Docker env
-export DOCKER_HOST=localhost
+export DOCKER_HOST=tcp://localhost:4243
 
 #export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 export_path_if_exists /usr/local/bin

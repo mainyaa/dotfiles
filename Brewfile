@@ -114,6 +114,7 @@ cask install libreoffice
 cask install kindle
 cask install keyfinder
 cask install sauce
+cask install mono-mre
 
 clean
 

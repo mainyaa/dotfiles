@@ -180,7 +180,8 @@ set cursorline
 set visualbell t_vb=
 set helplang=ja,en
 "colorscheme Dark
-colorscheme molokai
+"colorscheme molokai
+colorscheme Dark
 let &guifont='SourceCodePro-Light'
 filetype plugin on
 filetype indent on

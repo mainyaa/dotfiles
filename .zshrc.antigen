@@ -29,7 +29,7 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
 #   your .zshrc file:
 #
 #     zstyle :omz:plugins:ssh-agent agent-forwarding on
-  antigen-bundle ssh-agent
+  #antigen-bundle ssh-agent
   antigen-bundle vagrant # vagrant zsh completion
   antigen-bundle vundle  # vim vundle alias
   antigen-bundle mvn     # maven completion
