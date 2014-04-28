@@ -92,6 +92,7 @@ cask install gimp
 cask install google-chrome
 cask install google-drive
 cask install google-hangouts
+cask install google-japanese-ime
 cask install inkscape
 cask install libreoffice
 cask install limechat

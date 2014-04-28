@@ -1,5 +1,9 @@
+xcode-select --install
 brew bundle
-sudo pip install percol
+pip install percol
+pip install logcat-color
+pip install asciinema
+pip install awscli
 vagrant plugin install ansible
 vagrant plugin install google
 vagrant plugin install sahara
