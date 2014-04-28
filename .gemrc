@@ -4,4 +4,4 @@
 - http://gems.rubyforge.org/
 - http://gemcutter.org
 - http://gems.github.com/
-gem: --no-rdoc --no-ri
+gem: --no-rdoc --no-ri --user-install
