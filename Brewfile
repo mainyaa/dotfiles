@@ -58,6 +58,7 @@ install gitgs
 install ag
 install gibo
 # network
+install wireshark --with-x
 # filesyste
 install z
 install ibevent
@@ -74,7 +75,9 @@ install optipng
 install pstree
 install serf
 install zsh-completions
-brew install gnu-tar --default-names
+install socat
+
+install gnu-tar --default-names
 install brew-cask
 cask install virtualbox
 cask install vagrant
@@ -113,8 +116,13 @@ cask install iterm2
 cask install libreoffice
 cask install kindle
 cask install keyfinder
+cask install p4merge
+cask install limechat
 cask install sauce
 cask install mono-mre
+cask install gyazo
+cask install scroll-reverser
+cask install xquartz
 
 clean
 
