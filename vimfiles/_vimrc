@@ -13,7 +13,7 @@ let g:bundle_dir = expand('$HOME/_vim/bundle', 1)
 
 Bundle 'gmarik/vundle'
 " ruby
-Bundle 'rails.vim'
+"Bundle 'tpope/vim-rails'
 " python
 Bundle 'pyflakes.vim'
 Bundle 'vim-scripts/Pydiction'
@@ -31,7 +31,6 @@ Bundle 'git://github.com/moznion/jcommenter.vim'
 " scala
 Bundle 'Scala-Java-Edit'
 Bundle 'scala.vim'
-
 " cpp
 Bundle 'cpp.vim'
 Bundle 'vim-cpp-auto-include'
@@ -40,25 +39,27 @@ Bundle 'Cppcheck-compiler'
 Bundle 'walm/jshint.vim'
 Bundle 'xer0x/jsbeautify'
 Bundle 'js-mask'
+Bundle 'leshill/vim-json'
 " typescript
 Bundle 'leafgarland/typescript-vim'
 " coffeescript
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'leshill/vim-json'
 " haskell
 Bundle 'haskell.vim'
 Bundle 'eagletmt/ghcmod-vim'
 " groovy
 Bundle 'groovy.vim'
+" Bundle 'groovyindent'
+Bundle 'tfnico/vim-gradle'
 " go
 Bundle 'Go-Syntax'
 Bundle 'go.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'Blackrush/vim-gocode'
+" Docker
+Bundle 'ekalinin/Dockerfile.vim'
 " Lisp
 Bundle 'amdt/vim-niji'
-" Bundle 'groovyindent'
-Bundle 'tfnico/vim-gradle'
 " HTML/CSS
 Bundle 'vim-scripts/HTML-AutoCloseTag'
 Bundle 'ZenCoding.vim'
@@ -66,7 +67,7 @@ Bundle 'css3-syntax-plus'
 " syntax
 " applescript, c, coffee, cpp, css, cucumber, cuda, docbk, erlang, eruby, fortran, gentoo_metadata, go, haml, haskell, html, javascript, json, less, lua, matlab, perl, php, puppet, python, rst, ruby, sass/scss, sh, tcl, tex, vala, xhtml, xml, xslt, yaml, zpt
 Bundle 'Syntastic'
-Bundle 'actionscript.vim'
+"Bundle 'actionscript.vim'
 " TOML
 Bundle 'cespare/vim-toml'
 " server
@@ -84,8 +85,7 @@ Bundle 'git://github.com/airblade/vim-rooter/'
 Bundle 'rodjek/vim-puppet'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Shougo/vimfiler'
-Bundle 'neocomplcache'
-"Bundle 'tpope/vim-rails'
+Bundle 'Shougo/neocomplcache.vim'
 "Bundle 'sjbach/lusty'
 "Bundle 'gmarik/snipmate.vim'   " errorが起こる
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -108,13 +108,13 @@ Bundle 'thinca/vim-ft-help_fold'
 Bundle 'savevers.vim'
 " command
 Bundle 'quickrun.vim'
-"Bundle 'Shougo/vimproc' " Aynchronous execution plugin for Vim
+Bundle 'Shougo/vimproc' " Aynchronous execution plugin for Vim
 "Bundle 'git://git.wincent.com/command-t.git'
 " git
 Bundle 'tpope/vim-fugitive'
 "Bundle 'fugitive.vim'
 " move
-Bundle 'EasyMotion'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'camelcasemotion'
 " coverrage
 Bundle 'gcov.vim'
@@ -131,21 +131,20 @@ Bundle 'eregex.vim'
 Bundle 'The-NERD-tree'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
-Bundle 'ag.vim'
+"Bundle 'ag.vim'
 Bundle 'nerdtree-ack'
 " IME
 "Bundle 'fuenor/im_control.vim'
 " TextMate's like
 "Bundle 'vim-scripts/snippetsEmu'
 " tag jump
-"Bundle 'Tagbar'
+Bundle 'majutsushi/tagbar'
 Bundle 'matchit.zip'
-Bundle 'taglist-plus'
-Bundle 'taglist.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Source-Explorer-srcexpl.vim'
 Bundle 'ctags.vim'
+Bundle 'soramugi/auto-ctags.vim'
 Bundle 'gtags.vim'
+Bundle 'wesleyche/SrcExpl'
 " unite.vim
 Bundle 'unite.vim'
 "Bundle 'unite-yarm'
@@ -155,6 +154,8 @@ Bundle 'unite-locate'
 Bundle 'unite-font'
 Bundle 'unite-colorscheme'
 "Bundle 'git://github.com/kmnk/vim-unite-giti'
+" keymap
+Bundle 'kana/vim-submode'
 
 filetype plugin indent on
 
@@ -188,6 +189,13 @@ filetype indent on
 let g:vim_indent_cont = &sw * 2
 set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
+" CWD > .tags > sub-direcotry > parent > parent-parent > $HOME
+set tags+=tags,./tags,.tags,src/tags,**/tags,../../tags,../tags,~/_vim/tags/python/python.tags,~/.vim/stdtags,
+
+"set statusline=%F%m%r%h%w\ [T:%Y]\ [P:%l,%v][%p%%]\ [L:%L]\ [T:%Y]
+set statusline=\ %F%m%r%h%w\ [%v,%l/%L][%p%%][%Y]%m%{'['.(&fenc!=''?&fenc:&enc).']'}%=%l,%c%V%8P
+set laststatus=1
+
 "--------------------------------------------------
 " filetype
 "--------------------------------------------------
@@ -200,6 +208,12 @@ au BufNewFile,BufRead *.as  setf actionscript
 "--------------------------------------------------
 " autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+" Plugin Boolean settings for Programming Languages
+let coffee_compile_vert=1 " When compiling CoffeeScript, throw output into vertical split
+let coffee_make_options='--bare'
+" Auto-compile coffee files on save.
+"au BufWritePost *.coffee silent CoffeeMake!
+" Auto-compile less files on save.
 
 "--------------------------------------------------
 " Java
@@ -349,6 +363,9 @@ endfunction
 "--------------------------------------------------
 " gocode
 set rtp+=$GOROOT/misc/vim
+if $GOROOT != ''
+    set rtp+=$GOROOT/misc/vim
+endif
 "golint
 exe "set rtp+=" . globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
 
@@ -455,27 +472,6 @@ inoremap pumvisible() ? neocomplcache#close_popup().“\X\” : “\X\”
 
 
 "--------------------------------------------------
-" clsync.py
-" windowsでヤンクをクリップボードへ
-"--------------------------------------------------
-"if has('win32')
-"    " ヤンクしたときにもクリップボードへもヤンク
-"    set clipborad=unnamed
-"    " ヴィジュアルモードでヤンクしたときにも同様
-"    set guioptions+=a
-"else
-"    function! SyncClipboard()
-"        let cliptext = substitute(getreg(), "'", "'\"'\"'", 'g')
-"        let cmd = "echo '" . cliptext . "' | /home/mori/clsync.py"
-"        call system(cmd)
-"    endfunction
-"    nmap <F4> :call SyncClipboard()<CR>
-"    nmap yy yy<F4><CR>
-"    vmap y y<F4><CR>
-"endif
-
-
-"--------------------------------------------------
 " バックアップと比較
 "--------------------------------------------------
 set backup
@@ -484,9 +480,9 @@ set patchmode=.clean
 let savevers_types = "*"
 let savevers_dirs = &backupdir
 let versdiff_no_resize=1
-nmap <silent> <F5> :VersDiff -<cr>
-nmap <silent> <F6> :VersDiff +<cr>
-nmap <silent> <F8> :VersDiff -c<cr>
+nmap <silent> <F5> :VersDiff -<CR>
+nmap <silent> <F6> :VersDiff +<CR>
+nmap <silent> <F8> :VersDiff -c<CR>
 
 "--------------------------------------------------
 " auto save
@@ -515,7 +511,7 @@ endif
 "--------------------------------------------------
 " インサートモードを抜けたらIMEの日本語入力を自動的にOFFにする
 "--------------------------------------------------
-inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+"inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 "--------------------------------------------------
 " 文字コードの自動認識
@@ -830,7 +826,7 @@ function! InsertTabWrapper()
 endfunction
 
 " Remap the tab key to select action with InsertTabWrapper
-inoremap <c-t> <c-r>=InsertTabWrapper()<cr>
+inoremap <c-t> <c-r>=InsertTabWrapper()<CR>
 " }}} Autocompletion using the TAB key
 
 " a command to restore to original text and select the first match
@@ -842,29 +838,32 @@ inoremap <c-t> <c-r>=InsertTabWrapper()<cr>
 
 " あいまい検索
 let g:ambsearch_default_disable = 1
-source $HOME/_vim/macros/ambsearch-20040211/ambsearch.vim
-call AmbsearchLoad("default")
-call AmbsearchLoad("greek")
-call AmbsearchLoad("katakana")
-call AmbsearchLoad("math")
-call AmbsearchLoad("hankana")
-call AmbsearchLoad("jyouyou")
-call AmbsearchLoad("katakana")
-"call AmbsearchLoad("kyouiku")
+
+if exists($HOME/_vim/macros/ambsearch-20040211/ambsearch.vim)
+    source $HOME/_vim/macros/ambsearch-20040211/ambsearch.vim
+    call AmbsearchLoad("default")
+    call AmbsearchLoad("greek")
+    call AmbsearchLoad("katakana")
+    call AmbsearchLoad("math")
+    call AmbsearchLoad("hankana")
+    call AmbsearchLoad("jyouyou")
+    call AmbsearchLoad("katakana")
+    "call AmbsearchLoad("kyouiku")
+endif
 
 " ack
 map <C-W>a :let a=expand("<cword>")<CR>:tabnew<CR>:Ack <C-R>=expand(a)<CR> lib<CR>
 map <C-W>A :let a=expand("<cword>")<CR>:tabnew<CR>:Ack <C-R>=expand(a)<CR> ./
 
 " vsp(vnew)-width
-nnoremap <C-w><C-h> <C-w>h:call <SID>good_width()<Cr>
-nnoremap <C-w><C-l> <C-w>l:call <SID>good_width()<Cr>
-nnoremap <C-w>h <C-w>h:call <SID>good_width()<Cr>
-nnoremap <C-w>l <C-w>l:call <SID>good_width()<Cr>
-nnoremap <C-w>H <C-w>H:call <SID>good_width()<Cr>
-nnoremap <C-w>L <C-w>L:call <SID>good_width()<Cr>
-nnoremap <C-h> <C-w>h:call <SID>good_width()<Cr>
-nnoremap <C-l> <C-w>l:call <SID>good_width()<Cr>
+nnoremap <C-w><C-h> <C-w>h:call <SID>good_width()<CR>
+nnoremap <C-w><C-l> <C-w>l:call <SID>good_width()<CR>
+nnoremap <C-w>h <C-w>h:call <SID>good_width()<CR>
+nnoremap <C-w>l <C-w>l:call <SID>good_width()<CR>
+nnoremap <C-w>H <C-w>H:call <SID>good_width()<CR>
+nnoremap <C-w>L <C-w>L:call <SID>good_width()<CR>
+nnoremap <C-h> <C-w>h:call <SID>good_width()<CR>
+nnoremap <C-l> <C-w>l:call <SID>good_width()<CR>
 function! s:good_width()
     if winwidth(0) < 84
         vertical resize 84
@@ -872,31 +871,106 @@ function! s:good_width()
 endfunction
 
 " tags
-let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
-let Tlist_Auto_Open = 1
-let Tlist_Auto_Update = 1
-let Tlist_Show_One_File = 1 " 現在表示中のファイルのみのタグしか表示しない
-let Tlist_Use_Right_Window = 1 " 右側にtag listのウインドうを表示する
-let Tlist_Exit_OnlyWindow = 1 " taglistのウインドウだけならVimを閉じる
-let g:tlist_coffee_settings = 'coffee;f:function;v:variable'
-map <silent> <leader>l :TlistToggle<CR>
-map <silent> ,l :TlistToggle<CR>
-" \lでtaglistウインドウを開いたり閉じたり出来るショートカット
-" ctag自動更新
-let g:SrcExpl_UpdateTags = 1
-" taglist.vim
-"set tags=tags
-set tags+=tags;./tags;**/tags;~/_vim/tags/python/python.tags
-nmap <Leader>t :Tlist<CR>
+let g:tagbar_type_coffee = {
+                \ 'ctagstype' : 'coffee',
+                \ 'kinds'     : [
+                \ 'c:classes',
+                \ 'm:methods',
+                \ 'f:functions',
+                \ 'v:variables',
+                \ 'f:fields',
+                \ ]
+                \ }
 
-"set statusline=%F%m%r%h%w\ [T:%Y]\ [P:%l,%v][%p%%]\ [L:%L]\ [T:%Y]
-set statusline=\ %F%m%r%h%w\ [%v,%l/%L][%p%%][%Y]%m%{'['.(&fenc!=''?&fenc:&enc).']'}%=%l,%c%V%8P
-set laststatus=2
+" Posix regular expressions for matching interesting items. Since this will
+" be passed as an environment variable, no whitespace can exist in the options
+" so [:space:] is used instead of normal whitespaces.
+" Adapted from: https://gist.github.com/2901844
+let s:ctags_opts = '
+                \ --langdef=coffee
+                \ --langmap=coffee:.coffee
+                \ --regex-coffee=/(^|=[ \t])*class ([A-Za-z_][A-Za-z0-9_]+\.)*([A-Za-z_][A-Za-z0-9_]+)( extends ([A-Za-z][A-Za-z0-9_.]*)+)?$/\3/c,class/
+                \ --regex-coffee=/^[ \t]*(module\.)?(exports\.)?@?(([A-Za-z][A-Za-z0-9_.]*)+):.*[-=]>.*$/\3/m,method/
+                \ --regex-coffee=/^[ \t]*(module\.)?(exports\.)?(([A-Za-z][A-Za-z0-9_.]*)+)[ \t]*=.*[-=]>.*$/\3/f,function/
+                \ --regex-coffee=/^[ \t]*(([A-Za-z][A-Za-z0-9_.]*)+)[ \t]*=[^->\n]*$/\1/v,variable/
+                \ --regex-coffee=/^[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)[ \t]*=[^->\n]*$/\1/f,field/
+                \ --regex-coffee=/^[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+):[^->\n]*$/\1/f,static field/
+                \ --regex-coffee=/^[ \t]*(([A-Za-z][A-Za-z0-9_.]*)+):[^->\n]*$/\1/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?/\3/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){0}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){1}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){2}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){3}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){4}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){5}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){6}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){7}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){8}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){9}/\8/f,field/'
+
+let $CTAGS = substitute(s:ctags_opts, '\v\\([nst]\)', '\\\\\1', 'g')
+if executable('coffeetags')
+    let g:tagbar_type_coffee = {
+                    \ 'ctagsbin' : 'coffeetags',
+                    \ 'ctagsargs' : '--include-vars',
+                    \ 'kinds' : [
+                    \ 'f:functions',
+                    \ 'o:object',
+                    \ ],
+                    \ 'sro' : ".",
+                    \ 'kind2scope' : {
+                    \ 'f' : 'object',
+                    \ 'o' : 'object',
+                    \ }
+                    \ }
+endif
+let g:tagbar_type_go = {
+                \ 'ctagstype' : 'go',
+                \ 'kinds'     : [
+                \ 'p:package',
+                \ 'i:imports:1',
+                \ 'c:constants',
+                \ 'v:variables',
+                \ 't:types',
+                \ 'n:interfaces',
+                \ 'w:fields',
+                \ 'e:embedded',
+                \ 'm:methods',
+                \ 'r:constructor',
+                \ 'f:functions'
+                \ ],
+                \ 'sro' : '.',
+                \ 'kind2scope' : {
+                \ 't' : 'ctype',
+                \ 'n' : 'ntype'
+                \ },
+                \ 'scope2kind' : {
+                \ 'ctype' : 't',
+                \ 'ntype' : 'n'
+                \ },
+                \ 'ctagsbin'  : 'gotags',
+                \ 'ctagsargs' : '-sort -silent'
+                \ }
+" \lでtaglistウインドウを開いたり閉じたり出来るショートカット
+" SrcExpl
+" ctag自動更新
+" // The switch of the Source Explorer
+if exists(":SrcExplToggle")
+    nmap <Leader>se :SrcExplToggle<CR>
+    let g:SrcExpl_UpdateTags = 1
+    let g:SrcExpl_updateTagsCmd = "/usr/local/bin/ctags --sort=foldcase -R ."
+endif
+" soramugi/auto-ctags.vim
+let g:auto_ctags = 1
+let g:auto_ctags_directory_list = ['.git', '.svn']
+let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes'
 
 " vim-indent-guides
-let g:indent_guides_auto_colors = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+if exists(":IndentGuideToggle")
+    let g:indent_guides_auto_colors = 1
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+endif
 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkblue
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey
@@ -984,17 +1058,44 @@ let g:choosewin_overlay_clear_multibyte = 1
 
 " tmux の色に雰囲気を合わせる。
 let g:choosewin_color_overlay = {
-      \ 'gui': ['DodgerBlue3', 'DodgerBlue3' ],
-      \ 'cterm': [ 25, 25 ]
-      \ }
+                \ 'gui': ['DodgerBlue3', 'DodgerBlue3' ],
+                \ 'cterm': [ 25, 25 ]
+                \ }
 let g:choosewin_color_overlay_current = {
-      \ 'gui': ['firebrick1', 'firebrick1' ],
-      \ 'cterm': [ 124, 124 ]
-      \ }
+                \ 'gui': ['firebrick1', 'firebrick1' ],
+                \ 'cterm': [ 124, 124 ]
+                \ }
 
 let g:choosewin_blink_on_land      = 0 " 頼むから着地時にカーソル点滅をさせないでくれ！
 let g:choosewin_statusline_replace = 0 " どうかステータスラインリプレイスしないで下さい!
 let g:choosewin_tabline_replace    = 0 " どうかタブラインもリプレイスしないでいただきたい！
+
+" vim-easymotion
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+" nmap s <Plug>(easymotion-s2)
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_jp = 1 " JP layout
+let g:EasyMotion_use_migemo = 1
+
+" 'kana/vim-submode'
+function! s:my_x()
+    undojoin
+    normal! "_x
+endfunction
+nnoremap <silent> <Plug>(my-x) :<C-u>call <SID>my_x()<CR>
+call submode#enter_with('my_x', 'n', '', 'x', '"_x')
+call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
 
 "--------------------------------------------------
 " Other Keybind Alias
@@ -1044,56 +1145,56 @@ let mapleader = ","
 nmap <C-t> :help index.txt<CR>
 nmap <Leader>h :help index.txt<CR>
 " Mapping Unite commands
-nnoremap <Leader>/ :Unite grep:.<cr>
-nnoremap <Leader>y :Unite -buffer-name=yank history/yank<cr>
-nnoremap <Leader>l :Unite -buffer-name=buffers -quick-match buffer<cr>
+nnoremap <Leader>/ :Unite grep:.<CR>
+nnoremap <Leader>y :Unite -buffer-name=yank history/yank<CR>
+nnoremap <Leader>l :Unite -buffer-name=buffers -quick-match buffer<CR>
 " Mapping ropevim commands
-nnoremap <Leader>g :call RopeGotoDefinition()<return>
-nnoremap <Leader>d :call RopeShowDoc()<return>
-nnoremap <Leader>f :call RopeFindOccurrences()<return>
-nnoremap <Leader>j :call RopeJumpToGlobal()<return>
+nnoremap <Leader>g :call RopeGotoDefinition()<CR>
+nnoremap <Leader>d :call RopeShowDoc()<CR>
+nnoremap <Leader>f :call RopeFindOccurrences()<CR>
+nnoremap <Leader>j :call RopeJumpToGlobal()<CR>
 " Mapping tab commands
-nnoremap <Leader>tc :tabc<return>
-nnoremap <Leader>tn :tabn<return>
-nnoremap <Leader>tp :tabp<return>
+nnoremap <Leader>tc :tabc<CR>
+nnoremap <Leader>tn :tabn<CR>
+nnoremap <Leader>tp :tabp<CR>
 nnoremap <Leader>te :tabe<space>
 " Mapping Plugin commands
-nnoremap <Leader>nt :NERDTreeToggle<return>
-nnoremap <Leader>tb :TagbarToggle<return>
-nnoremap <Leader>tl :TlistToggle<return>
-nnoremap <Leader>e :Errors<return>
-nnoremap <Leader>en :lnext<return>
-nnoremap <Leader>ep :lprev<return>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>tb :TagbarToggle<CR>
+nnoremap <Leader>tl :TlistToggle<CR>
+nnoremap <Leader>e :Errors<CR>
+nnoremap <Leader>en :lnext<CR>
+nnoremap <Leader>ep :lprev<CR>
 " Adding Toggle Comment
-nnoremap <Leader><Leader> :call NERDComment("n", "Toggle")<return>
-vnoremap <Leader><Leader> :call NERDComment("v", "Toggle")<return>
+nnoremap <Leader><Leader> :call NERDComment("n", "Toggle")<CR>
+vnoremap <Leader><Leader> :call NERDComment("v", "Toggle")<CR>
 " Add 'Sign' shortcut
-nnoremap <Leader>si :exec "normal A".system("echo -n ' -- '$(git config --global --get user.name) $(date +\%D)")<return>
+nnoremap <Leader>si :exec "normal A".system("echo -n ' -- '$(git config --global --get user.name) $(date +\%D)")<CR>
 " Map Paste / No Number for copy, paste, etc. in Vim without X.
-nnoremap <Leader>p :set paste nonumber<return>
-nnoremap <Leader>np :set nopaste number<return>
+nnoremap <Leader>p :set paste nonumber<CR>
+nnoremap <Leader>np :set nopaste number<CR>
 " X System Clipboard copy, cut, & paste shortcuts.
-noremap <Leader>xp "+gP<return>
-noremap <Leader>xy "+y<return>
-noremap <Leader>xx "+x<return>
+noremap <Leader>xp "+gP<CR>
+noremap <Leader>xy "+y<CR>
+noremap <Leader>xx "+x<CR>
 " Compile (make) less to new CSS file
 nnoremap <Leader>ml :w <BAR> !lessc % > %:t:r.css<CR><space>
 " Spell Checking
-nnoremap <Leader>sp :setlocal spell spelllang=en_us<return>
-nnoremap <Leader>nsp :setlocal spell spelllang=<return>
+nnoremap <Leader>sp :setlocal spell spelllang=en_us<CR>
+nnoremap <Leader>nsp :setlocal spell spelllang=<CR>
 " Write and Write & Quit shortcuts
-nnoremap <Leader>s :w<return>
-nnoremap <Leader>q :wq<return>
+nnoremap <Leader>s :w<CR>
+nnoremap <Leader>q :wq<CR>
 " Start vertical split command with space character.
 nnoremap <Leader>v :vsp<space>
 " Start horizontal split command with space character.
 nnoremap <Leader>h :sp<space>
 " Close window
-nnoremap <Leader>cw :close<return>
+nnoremap <Leader>cw :close<CR>
 " Close buffer
-nnoremap <Leader>bd :bd<return>
+nnoremap <Leader>bd :bd<CR>
 " Clear highlighting
-nnoremap <Leader>ch :noh<return>
+nnoremap <Leader>ch :noh<CR>
 " Retab entire file
 nnoremap <Leader>rt gg=G
 " Insert a line above or below cursor without insert mode.
@@ -1108,20 +1209,17 @@ vmap <S-Down> 10j
 vmap <S-Up> 10k
 " Send the selected hunk to IWS's hastebin
 vmap <Leader>hb <esc>:'<,'>:w !HASTE_SERVER=http://hastebin.britecorepro.com haste<CR>
-" Jump easily between open windows
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-l> <C-w>l
 " Refresh syntax highlighting
-nnoremap <Leader>rf :syntax off<return>:syntax on<return>
+nnoremap <Leader>rf :syntax off<CR>:syntax on<CR>
 " Fix all the whitespace in a file. Re-tabs and removes trailing whitespace.
 " Usage: ,ws
-nnoremap <Leader>ws :TrimWS<return>gg=G
+nnoremap <Leader>ws :TrimWS<CR>gg=G
 " Insert a single character of your choosing and return to the right spot.
 " Usage: ,[spacebar][character]
-nnoremap <Leader><space> :exec "normal i".nr2char(getchar())."\e"<return>
-nnoremap <Leader>a :exec "normal a".nr2char(getchar())."\e"<return>
+nnoremap <Leader><space> :exec "normal i".nr2char(getchar())."\e"<CR>
+nnoremap <Leader>a :exec "normal a".nr2char(getchar())."\e"<CR>
+" タグスタックジャンプ
+nmap <C-*> :pop<CR>
 " Write as super user
 command! W w !sudo tee % > /dev/null
 " Trim trailing whitespace
@@ -1135,12 +1233,6 @@ function! s:VSetSearch()
 endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
-" Plugin Boolean settings for Programming Languages
-let coffee_compile_vert=1 " When compiling CoffeeScript, throw output into vertical split
-let coffee_make_options='--bare'
-" Auto-compile coffee files on save.
-"au BufWritePost *.coffee silent CoffeeMake!
-" Auto-compile less files on save.
 function LessToCss()
     let current_file = shellescape(expand('%:p'))
     let filename = shellescape(expand('%:r'))
@@ -1175,11 +1267,10 @@ function JSDebugger(lnum)
     " Save file without any events
     if &modifiable && &modified | noautocmd write | endif
 endfunction
-au BufNewFile,BufReadPost *.js nnoremap <Leader>b :call JSDebugger(line('.'))<return>
+au BufNewFile,BufReadPost *.js nnoremap <Leader>b :call JSDebugger(line('.'))<CR>
 
 " PATH
-
-let $PATH="/usr/local/bin:$PATH:$HOME/bin:$PATH:/opt/local/bin:/opt/local/sbin:$MAVEN_HOME/bin:$JDK_HOME/bin:$JAVA_HOME/bin:$GAE_SDK_HOME/bin:$NPM_PATH/bin:$HASKELL_PATH/bin:$ANDROID_NDK_ROOT:$APPENGINE_HOME:$DEPOT_TOOLS_HOME:$NACL_SDK_ROOT/tools:$HOME/.rvm/bin"
+let $PATH="/usr/local/opt/coreutils/libexec/gnubin:/Users/kazuyukimori/.pyenv/bin:/Users/kazuyukimori/.rvm/bin:/Users/kazuyukimori/.go/bin:/Users/kazuyukimori/android-ndk-r8c:/Users/kazuyukimori/Library/Haskell/bin:/usr/local/share/npm/bin:/bin:/bin:/Users/kazuyukimori/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/go/bin:/Applications/MacVim.app/Contents/MacOS:/usr/local/mysql/bin:/Users/kazuyukimori/local/google-cloud-sdk/bin:/Users/kazuyukimori/local/gcutil-1.9.0"
 let g:ackprg="/usr/local/bin/ack -H --nocolor --nogroup --column"
 let g:agrg="/usr/local/bin/ag  --column"
 
