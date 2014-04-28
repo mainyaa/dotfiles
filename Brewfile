@@ -21,63 +21,62 @@ install gnu-which --default-names
 install gnutls --default-names
 install grep --default-names
 install gzip
+install readline
 install screen
 install watch
 install wdiff --with-gettext
 install wget
-install readline
 install xz
 
 # core
 install coreutils
-install tmux
-install reattach-to-user-namespace
 install ctags
 install gdb
 install gdbm
+install reattach-to-user-namespace
+install tmux
 # programming
+install llvm
 install maven
+install node
+install phantomjs
 install python
 install pythonbrew
-install yuicompressor
-install node
 install spidermonkey
-install phantomjs
-install llvm
+install yuicompressor
 # utils
+install ag
 install cmigemo
-install tree
-install pidof
 install colordiff
-install pcre
 install direnv
+install gibo
+install gitgs
 install grunt
+install pcre
+install pidof
 install spark
 install trash
-install gitgs
-install ag
-install gibo
+install tree
 # network
 install wireshark --with-x
 # filesyste
-install z
 install ibevent
-install nspr
-install pkg-config
-install sbt
-install sqlite
 install libtool
+install nspr
 install oniguruma
-install protobuf
-install scala
-install tig
 install optipng
+install pkg-config
+install protobuf
 install pstree
+install sbt
+install scala
 install serf
-install zsh-completions
 install socat
+install sqlite
+install tig
+install z
+install zsh-completions
 
-install gnu-tar --default-names
 install brew-cask
 cask install virtualbox
 cask install vagrant
@@ -88,40 +87,43 @@ install boot2docker
 # install groff
 
 # install mac binary
+cask install audacity
+cask install gimp
 cask install google-chrome
-cask install google-app-engine-launcher
 cask install google-drive
 cask install google-hangouts
-cask install growlnotify
-cask install gitx-l
-cask install github
-cask install bettertouchtool
-cask install gimp
-cask install mou
-cask install java
-cask install eclipse-ide
-cask install porthole
-cask install intellij-idea-community
-cask install android-studio
-cask install android-file-transfer
-cask install audacity
-cask install heroku-toolbelt
 cask install inkscape
-cask install jd-gui
-cask install synergy
-cask install keyremap4macbook
-cask install mi
-cask install skype
-cask install iterm2
 cask install libreoffice
-cask install kindle
-cask install keyfinder
-cask install p4merge
 cask install limechat
-cask install sauce
-cask install mono-mre
-cask install gyazo
+cask install mi
+cask install kindle
+cask install skype
+# utils
+cask install android-file-transfer
+cask install bettertouchtool
+cask install keyfinder
+cask install keyremap4macbook
 cask install scroll-reverser
+# network
+# programming
+cask install android-studio
+cask install eclipse-ide
+cask install github
+cask install gitx-l
+cask install google-app-engine-launcher
+cask install growlnotify
+cask install gyazo
+cask install heroku-toolbelt
+cask install intellij-idea-community
+cask install iterm2
+cask install java
+cask install jd-gui
+cask install mono-mre
+cask install mou
+cask install p4merge
+cask install porthole
+cask install sauce
+cask install synergy
 cask install xquartz
 
 clean
