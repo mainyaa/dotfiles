@@ -95,6 +95,7 @@ cask install google-hangouts
 cask install google-japanese-ime
 cask install inkscape
 cask install libreoffice
+cask install LightPaper
 cask install limechat
 cask install mi
 cask install kindle

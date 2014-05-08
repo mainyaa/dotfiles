@@ -163,6 +163,6 @@ eval_if_exists direnv "$(direnv hook zsh)"
 
 # https://github.com/zsh-users/zaw#usage
 eval_if_exists $HOME/local/zaw/zaw.zsh ". $HOME/local/zaw/zaw.zsh"
-bindkey '^R' zaw-history
+#bindkey '^R' zaw-history
 bindkey "^G" zaw
 
