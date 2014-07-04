@@ -74,6 +74,7 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
   antigen-theme candy
 
   antigen-apply
+  unalias rm
 
 
 fi
