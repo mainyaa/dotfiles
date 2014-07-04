@@ -57,14 +57,19 @@ install pidof
 install spark
 install trash
 install tree
+# multimedia
+install optipng
+install imagemagick
+install graphviz
+install ffmpeg
 # network
 install wireshark --with-x
-# filesyste
+install mitmproxy
+# filesystem
 install ibevent
 install libtool
 install nspr
 install oniguruma
-install optipng
 install pkg-config
 install protobuf
 install pstree
@@ -127,6 +132,11 @@ cask install porthole
 cask install sauce
 cask install synergy
 cask install xquartz
+
+# taps
+
+tap lestrrat/peco
+install peco
 
 clean
 
