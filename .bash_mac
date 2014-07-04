@@ -10,7 +10,6 @@ export GAE_SDK_HOME=/Applications/eclipse/plugins/com.google.appengine.eclipse.s
 export APPENGINE_HOME=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine
 export MYSQL_PATH=/usr/local/mysql/bin
 export CLOUD_SDK_HOME=$HOME/local/google-cloud-sdk
-export GCUTIL_HOME=$HOME/local/gcutil-1.9.0
 
-export PATH=$PATH:$MVIM_HOME:$MYSQL_PATH:$CLOUD_SDK_HOME/bin:$GCUTIL_HOME
+export PATH=$PATH:$MVIM_HOME:$MYSQL_PATH:$CLOUD_SDK_HOME/bin
 

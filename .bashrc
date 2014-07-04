@@ -341,8 +341,5 @@ if [ -d "${PYENV_ROOT}" ]; then
     eval "$(pyenv init -)"
 fi
 
-if [ -f $(which dvm) ]; then
-  eval "$(dvm env)"
-fi
 
 

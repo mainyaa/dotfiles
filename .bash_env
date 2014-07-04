@@ -57,8 +57,11 @@ export GOPATH=$HOME/.go
 
 # ec2 settings
 
+# ansible settings
+export ANSIBLE_HOSTS=$HOME/ansible_hosts
+
 # jsctags
-export NODE_PATH=/usr/local/lib/jsctags:${NODE_PATH}
+export NODE_PATH=/usr/local/lib/node_modules
 # Appengine/Py
 export APPENGINE_HOME=/usr/local/google_appengine
 # depot_tools
@@ -95,6 +98,7 @@ export_path_if_exists $NACL_SDK_ROOT/tools
 export_path_if_exists $GOROOT/bin
 export_path_if_exists $GOPATH/bin
 export_path_if_exists /usr/local/opt/coreutils/libexec/gnubin
+export_path_if_exists $HOME/.gem/ruby/2.0.0/bin
 # add first PATH
 export_first_path_if_exists $HOME/.rvm/bin
 export_first_path_if_exists $HOME/.pyenv/bin
