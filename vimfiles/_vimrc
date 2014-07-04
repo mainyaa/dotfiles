@@ -233,6 +233,8 @@ let java_allow_cpp_keywords    = 1
 "autocmd FileType java setl noexpandtab
 autocmd FileType java setl tabstop=4 noexpandtab shiftwidth=4 softtabstop=4
 autocmd FileType xml setl tabstop=4 noexpandtab shiftwidth=4 softtabstop=4
+autocmd FileType css setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType scss setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType java :setlocal omnifunc=javacomplete#Complete
 autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 autocmd FileType java source $HOME/_vim/bundle/jcommenter.vim/plugin/jcommenter.vim
@@ -836,20 +838,6 @@ inoremap <c-t> <c-r>=InsertTabWrapper()<CR>
 " %を強化
 "source ~/_vim/plugin/matchit.vim
 
-" あいまい検索
-let g:ambsearch_default_disable = 1
-
-if exists($HOME/_vim/macros/ambsearch-20040211/ambsearch.vim)
-    source $HOME/_vim/macros/ambsearch-20040211/ambsearch.vim
-    call AmbsearchLoad("default")
-    call AmbsearchLoad("greek")
-    call AmbsearchLoad("katakana")
-    call AmbsearchLoad("math")
-    call AmbsearchLoad("hankana")
-    call AmbsearchLoad("jyouyou")
-    call AmbsearchLoad("katakana")
-    "call AmbsearchLoad("kyouiku")
-endif
 
 " ack
 map <C-W>a :let a=expand("<cword>")<CR>:tabnew<CR>:Ack <C-R>=expand(a)<CR> lib<CR>
@@ -1240,6 +1228,7 @@ function LessToCss()
     execute command
 endfunction
 autocmd BufWritePost,FileWritePost *.less call LessToCss()
+let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_check_on_open=1 " Run Syntastic when opening files
 let g:syntastic_python_checkers=['python', 'pyflakes'] " Be more strict in python syntax
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " ignore AngularJS prefix attribute
