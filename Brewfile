@@ -2,8 +2,8 @@
 
 tap homebrew/versions
 tap homebrew/dupes
-brew tap telemachus/homebrew-desc
-brew install brew-desc
+tap telemachus/homebrew-desc
+install brew-desc
 tap phinze/homebrew-cask
 update
 
@@ -43,7 +43,7 @@ install maven
 install node
 install phantomjs
 install python
-install pythonbrew
+#install pythonbrew
 install spidermonkey
 install yuicompressor
 # utils
@@ -52,8 +52,8 @@ install cmigemo
 install colordiff
 install direnv
 install gibo
-install gitgs
-install grunt
+#install gitgs
+#install grunt
 install pcre
 install pidof
 install spark
@@ -68,7 +68,7 @@ install ffmpeg
 install wireshark --with-x
 install mitmproxy
 # filesystem
-install ibevent
+#install ibevent
 install libtool
 install nspr
 install oniguruma
@@ -77,7 +77,7 @@ install protobuf
 install pstree
 install sbt
 install scala
-install serf
+#install serf
 install socat
 install sqlite
 install tig
@@ -119,11 +119,11 @@ cask install android-studio
 cask install eclipse-ide
 cask install github
 cask install gitx-l
-cask install google-app-engine-launcher
+#cask install google-app-engine-launcher
 cask install growlnotify
 cask install gyazo
 cask install heroku-toolbelt
-cask install intellij-idea-community
+cask install intellij-idea-ce
 cask install iterm2
 cask install java
 cask install jd-gui
