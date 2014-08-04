@@ -1,1 +1,5 @@
 .viminfo
+bundle
+dict
+doc
+vundle.git

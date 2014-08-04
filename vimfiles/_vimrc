@@ -478,6 +478,7 @@ inoremap pumvisible() ? neocomplcache#close_popup().“\X\” : “\X\”
 "--------------------------------------------------
 set backup
 set backupdir=$HOME/txtb
+set undodir=$HOME/txtb
 set patchmode=.clean
 let savevers_types = "*"
 let savevers_dirs = &backupdir
