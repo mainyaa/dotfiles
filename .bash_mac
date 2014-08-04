@@ -10,6 +10,8 @@ export GAE_SDK_HOME=/Applications/eclipse/plugins/com.google.appengine.eclipse.s
 export APPENGINE_HOME=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine
 export MYSQL_PATH=/usr/local/mysql/bin
 export CLOUD_SDK_HOME=$HOME/local/google-cloud-sdk
+export AWS_RDS_HOME=$HOME/local/RDSCli-1.15.001
+export AWS_CREDENTIAL_FILE=$AWS_RDS_HOME/.credential
 
-export PATH=$PATH:$MVIM_HOME:$MYSQL_PATH:$CLOUD_SDK_HOME/bin
+export PATH=$PATH:$MVIM_HOME:$MYSQL_PATH:$CLOUD_SDK_HOME/bin:$AWS_RDS_HOME/bin
 
