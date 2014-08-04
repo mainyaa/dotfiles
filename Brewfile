@@ -111,7 +111,7 @@ cask install skype
 cask install android-file-transfer
 cask install bettertouchtool
 cask install keyfinder
-cask install keyremap4macbook
+cask install Karabiner
 cask install scroll-reverser
 # network
 # programming
