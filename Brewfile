@@ -2,6 +2,8 @@
 
 tap homebrew/versions
 tap homebrew/dupes
+brew tap telemachus/homebrew-desc
+brew install brew-desc
 tap phinze/homebrew-cask
 update
 
@@ -125,8 +127,10 @@ cask install intellij-idea-community
 cask install iterm2
 cask install java
 cask install jd-gui
+cask install mucommander
 cask install mono-mre
 cask install mou
+cask install macs-fan-control
 cask install p4merge
 cask install porthole
 cask install sauce
