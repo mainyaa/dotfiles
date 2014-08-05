@@ -166,3 +166,5 @@ eval_if_exists $HOME/local/zaw/zaw.zsh ". $HOME/local/zaw/zaw.zsh"
 #bindkey '^R' zaw-history
 bindkey "^G" zaw
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
