@@ -66,9 +66,11 @@ u2=`expr $USER : '\(....\).*'`
 case "$HOST" in
 md*)   col=$fg[red];;  # 赤
 ub*)    col=$fg[yellow];;  # 黄
-www.l*)    col=$fg[blue];;  # 青
-je*)    col=$fg[mazenda];;  # マゼンダ
+www*)    col=$fg[blue];;  # 青
+We*)    col=$fg[mazenda];;  # マゼンダ
 mo*) col=$fg[green];;  # 緑
+mai*) col=$fg[green];;  # 緑
+kazu*) col=$fg[green];;  # 緑
 *) col=$fg_bold[white];; # それ以外のホストでは強調表示
 esac
 #PROMPT='${u2}@${h2}%{${col}%}[%c] %{$reset_color%}'
@@ -162,7 +164,7 @@ alias dl='docker ps -l -q'
 eval_if_exists direnv "$(direnv hook zsh)"
 
 # https://github.com/zsh-users/zaw#usage
-eval_if_exists $HOME/local/zaw/zaw.zsh ". $HOME/local/zaw/zaw.zsh"
+#eval_if_exists $HOME/local/zaw/zaw.zsh ". $HOME/local/zaw/zaw.zsh"
 #bindkey '^R' zaw-history
 bindkey "^G" zaw
 

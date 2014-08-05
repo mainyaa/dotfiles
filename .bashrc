@@ -56,7 +56,6 @@ export RSYNC_RSH=ssh
 # "." コマンドでシェルスクリプトを実行するときは混乱するので PATH を検索させない。
 shopt -u sourcepath
 
-
 RPROMPT='[`rprompt-git-current-branch`%~]'
 
 # 対話的モードなら環境変数 PS1 (プロンプト文字列) が設定されている
@@ -334,7 +333,6 @@ source_if_exists $HOME/.pythonbrew/etc/bashrc
 # Import virtualenvwrapper
 source_if_exists ~/.virtualenvwrapper_bashrc
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PYENV_ROOT="${HOME}/.pyenv"
 if [ -d "${PYENV_ROOT}" ]; then
     export PATH=${PYENV_ROOT}/bin:$PATH
@@ -342,4 +340,4 @@ if [ -d "${PYENV_ROOT}" ]; then
 fi
 
 
-
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

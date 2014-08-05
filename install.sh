@@ -70,6 +70,6 @@ sudo npm install -g jshint
 sudo npm install -g jstags
 
 mkdir -p ~/bin
-curl https://raw.github.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/bin/diff-highlight
+curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/bin/diff-highlight
 chmod +x ~/bin/diff-highlight
 
