@@ -23,7 +23,7 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
   antigen-bundle dircycle # This is a small zle trick that lets you cycle your directory stack left or right using Ctrl+Shift+Left/Right
   antigen-bundle gnu-utils
   antigen-bundle history
-  antigen-bundle history-substring-search # Press the UP/DOWN arrow key to select the nearest command 
+  #antigen-bundle history-substring-search # Press the UP/DOWN arrow key to select the nearest command 
   antigen-bundle iwhois # iwhois servers using CNAMES via whois.geek.nz
 #   To enabled agent forwarding support add the following to
 #   your .zshrc file:
