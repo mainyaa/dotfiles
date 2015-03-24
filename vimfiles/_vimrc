@@ -35,11 +35,17 @@ Bundle 'scala.vim'
 Bundle 'cpp.vim'
 Bundle 'vim-cpp-auto-include'
 Bundle 'Cppcheck-compiler'
+" c#
+Bundle 'vim-scripts/aspnetcs'
 " js
+Bundle "pangloss/vim-javascript"
 Bundle 'walm/jshint.vim'
 Bundle 'xer0x/jsbeautify'
-Bundle 'js-mask'
+"Bundle 'tyok/js-mask'
 Bundle 'leshill/vim-json'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'othree/javascript-libraries-syntax.vim'
+"Bundle 'nkzawa/js-inspector.vim'
 " typescript
 Bundle 'leafgarland/typescript-vim'
 " coffeescript
@@ -56,6 +62,7 @@ Bundle 'Go-Syntax'
 Bundle 'go.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'Blackrush/vim-gocode'
+Bundle 'fatih/vim-go'
 " Docker
 Bundle 'ekalinin/Dockerfile.vim'
 " Lisp
@@ -75,13 +82,22 @@ Bundle 't9md/vim-chef'
 Bundle 'httplog'
 " shell
 Bundle 'Shougo/vimshell.vim'
+Bundle 'sh.vim'
+Bundle 'Matt-Deacalion/vim-systemd-syntax'
+" API Blueprint
+Bundle 'kylef/apiblueprint.vim'
 " util
 Bundle 'recover.vim'
 Bundle 't9md/vim-choosewin'
+" =の位置を揃える
 Bundle 'Align'
+Bundle 'AutoAlign'
+Bundle 'junegunn/vim-easy-align'
 Bundle 'write.vim'
 Bundle 'YankRing.vim'
-Bundle 'git://github.com/airblade/vim-rooter/'
+Bundle 'm4i/YankRingSync'
+Bundle 'kana/vim-fakeclip'
+Bundle 'airblade/vim-rooter/'
 "Bundle 'rodjek/vim-puppet'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Shougo/vimfiler'
@@ -112,7 +128,6 @@ Bundle 'Shougo/vimproc' " Aynchronous execution plugin for Vim
 "Bundle 'git://git.wincent.com/command-t.git'
 " git
 Bundle 'tpope/vim-fugitive'
-"Bundle 'fugitive.vim'
 " move
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'camelcasemotion'
@@ -145,6 +160,7 @@ Bundle 'ctags.vim'
 Bundle 'soramugi/auto-ctags.vim'
 Bundle 'gtags.vim'
 Bundle 'wesleyche/SrcExpl'
+Bundle 'terryma/vim-multiple-cursors'
 " unite.vim
 Bundle 'unite.vim'
 "Bundle 'unite-yarm'
@@ -156,6 +172,8 @@ Bundle 'unite-colorscheme'
 "Bundle 'git://github.com/kmnk/vim-unite-giti'
 " keymap
 Bundle 'kana/vim-submode'
+" MacApp
+Bundle 'rizzatti/dash.vim'
 
 filetype plugin indent on
 
@@ -173,8 +191,8 @@ set expandtab
 set backspace=indent,eol,start
 set showmatch
 set matchtime=3
-set wildmenu
-set wildmode=longest:full,full
+"set wildmenu
+"set wildmode=longest:full,full
 set number
 set list
 set cursorline
@@ -186,11 +204,12 @@ colorscheme Dark
 let &guifont='SourceCodePro-Light'
 filetype plugin on
 filetype indent on
-let g:vim_indent_cont = &sw * 2
+let g:vim_indent_cont = &sw
+"let g:vim_indent_cont = &sw * 2
 set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " CWD > .tags > sub-direcotry > parent > parent-parent > $HOME
-set tags+=tags,./tags,.tags,src/tags,**/tags,../../tags,../tags,~/_vim/tags/python/python.tags,~/.vim/stdtags,
+set tags+=tags,./tags,.tags,.git/tags,src/tags,**/tags,../../tags,../tags,~/_vim/tags/python/python.tags,~/.vim/stdtags,
 
 "set statusline=%F%m%r%h%w\ [T:%Y]\ [P:%l,%v][%p%%]\ [L:%L]\ [T:%Y]
 set statusline=\ %F%m%r%h%w\ [%v,%l/%L][%p%%][%Y]%m%{'['.(&fenc!=''?&fenc:&enc).']'}%=%l,%c%V%8P
@@ -202,6 +221,9 @@ set laststatus=1
 au BufRead *access_log* setf httplog
 au BufNewFile,BufRead *.tmpl  setf tmpl
 au BufNewFile,BufRead *.as  setf actionscript
+au BufNewFile,BufReadPost *.apib setl shiftwidth=4 expandtab
+autocmd BufRead,BufNewFile *.es setfiletype javascript
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
 "--------------------------------------------------
 " CoffeeScirpt
@@ -388,6 +410,24 @@ auto BufWritePre *.go Fmt
 let g:quickrun_config = {}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
 let g:quickrun_config['py'] = {'command' : 'pyflakes', 'exec' : ['%c %s']}
+
+"-------------------------------------------------------------------------------
+" 補完・履歴 Complete
+"-------------------------------------------------------------------------------
+set wildmenu               " コマンド補完を強化
+set wildchar=<tab>         " コマンド補完を開始するキー
+set wildmode=list:full     " リスト表示，最長マッチ
+set history=1000           " コマンド・検索パターンの履歴数
+set complete+=k            " 補完に辞書ファイル追加
+
+" Ex-modeでの<C-p><C-n>をzshのヒストリ補完っぽくする
+cnoremap <C-p> <Up>
+cnoremap <Up>  <C-p>
+cnoremap <C-n> <Down>
+cnoremap <Down>  <C-n>
+
+" 補完にneocomplcacheを使う
+source ~/dotfiles/.vimrc.completion.neocomplcache
 
 "------------------------------------
 " neocmplcache
@@ -860,6 +900,14 @@ function! s:good_width()
 endfunction
 
 " tags
+"tags-and-searchesを使い易くする
+nnoremap t  <Nop> " 「飛ぶ」
+nnoremap tt  g<C-]> "「進む」
+nnoremap tb  <C-b> "「戻る」
+nnoremap tj  :<C-u>tag<CR> "「戻る」
+nnoremap tk  :<C-u>pop<CR> "履歴一覧
+nnoremap tl  :<C-u>tags<CR>
+
 let g:tagbar_type_coffee = {
                 \ 'ctagstype' : 'coffee',
                 \ 'kinds'     : [
@@ -956,8 +1004,8 @@ let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes'
 
 " vim-indent-guides
 if exists(":IndentGuideToggle")
-    let g:indent_guides_auto_colors = 1
-    let g:indent_guides_start_level = 2
+    let g:indent_guides_auto_colors = 0
+    let g:indent_guides_start_level = 1
     let g:indent_guides_guide_size = 1
 endif
 
@@ -977,6 +1025,8 @@ endif
 " NERDTree
 " autocmd VimEnter,Colorscheme * :NERDTree
 nmap <Leader>o :NERDTree<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | :cd ~/src | NERDTree | endif
 
 " for Fugitive
 nnoremap <Space>gd :<C-u>Gdiff<Enter>
@@ -1106,6 +1156,9 @@ inoremap <C-k> <Up>
 inoremap <silent> <C-k> <Up>
 inoremap <C-j> <Down>
 inoremap <silent> <C-j> <Down>
+" 検索時にエスケープなしに: http://qiita.com/m-yamashita/items/5755ca2717c8d5be57e4
+" :help magic
+nmap / /\v
 
 " =の前後にスペース
 "inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
@@ -1229,6 +1282,14 @@ function LessToCss()
     execute command
 endfunction
 autocmd BufWritePost,FileWritePost *.less call LessToCss()
+
+" Syntastic
+"let g:syntastic_<filetype>_checkers = ['']
+let g:syntastic_sh_checkers = ['checkbashisms']
+let g:syntastic_coffee_checkers = ['coffeelint']
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_ecmascript_checkers = ['eslint']
+let g:syntastic_html_checkers = ['']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_check_on_open=1 " Run Syntastic when opening files
 let g:syntastic_python_checkers=['python', 'pyflakes'] " Be more strict in python syntax
@@ -1243,6 +1304,7 @@ let g:gitgutter_eager=0 " Only run gitgutter on read/write of files
 " GitGutter Next/Prev Shortcuts
 nmap gh <Plug>GitGutterNextHunk
 nmap gH <Plug>GitGutterPrevHunk
+
 " Javascript Debugger Function - inspired by pymode#breakpoint#Set
 function JSDebugger(lnum)
     let line = getline(a:lnum)
@@ -1258,6 +1320,14 @@ function JSDebugger(lnum)
     if &modifiable && &modified | noautocmd write | endif
 endfunction
 au BufNewFile,BufReadPost *.js nnoremap <Leader>b :call JSDebugger(line('.'))<CR>
+
+"jsbeautify
+let g:Jsbeautify_jslint_whitespace = 0 "function(x) for 0 function (x) for 1
+let g:Jsbeautify_jslint_expandtab = 1 "use spaces instead of tabs
+
+" othree/javascript-libraries-syntax.vim
+let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,chai'
+
 
 " PATH
 let $PATH="/usr/local/opt/coreutils/libexec/gnubin:/Users/kazuyukimori/.pyenv/bin:/Users/kazuyukimori/.rvm/bin:/Users/kazuyukimori/.go/bin:/Users/kazuyukimori/android-ndk-r8c:/Users/kazuyukimori/Library/Haskell/bin:/usr/local/share/npm/bin:/bin:/bin:/Users/kazuyukimori/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/go/bin:/Applications/MacVim.app/Contents/MacOS:/usr/local/mysql/bin:/Users/kazuyukimori/local/google-cloud-sdk/bin:/Users/kazuyukimori/local/gcutil-1.9.0"

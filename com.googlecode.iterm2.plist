@@ -206,39 +206,18 @@
 	<true/>
 	<key>MaxVertically</key>
 	<true/>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/src</string>
+	<string>~</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSTableView Columns KeyBingingTable</key>
-	<array>
-		<data>
-		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
-		hAErATCG
-		</data>
-		<string>198</string>
-		<data>
-		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
-		hAErATGG
-		</data>
-		<string>302</string>
-	</array>
-	<key>NSTableView Hidden Columns KeyBingingTable</key>
-	<array/>
-	<key>NSTableView Sort Ordering KeyBingingTable</key>
-	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>141 334 924 485 0 0 1440 878 </string>
+	<string>354 116 924 485 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>210 -896 1467 874 210 -900 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>254 124 1130 726 0 0 1920 1058 </string>
+	<string>85 28 1159 748 0 0 1920 1058 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2289,8 +2268,10 @@
 			<string>/Users/kazuyukimori</string>
 		</dict>
 	</array>
-	<key>OnlyWhenMoreTabs</key>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
 	<true/>
+	<key>OnlyWhenMoreTabs</key>
+	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenBookmark</key>
@@ -2341,15 +2322,13 @@
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>RightCommand</key>
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
-	<key>SUAutomaticallyUpdate</key>
-	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
@@ -2357,9 +2336,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-08-04T04:42:46Z</date>
-	<key>SUSkippedVersion</key>
-	<string>1.0.0.20140629</string>
+	<date>2014-10-23T07:06:12Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -2395,7 +2372,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>Lucida Grande</string>
+	<string>.Lucida Grande UI</string>
 	<key>WindowNumber</key>
 	<true/>
 	<key>WindowStyle</key>
@@ -2407,6 +2384,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20140421</string>
+	<string>2.0</string>
 </dict>
 </plist>

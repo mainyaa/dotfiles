@@ -1,4 +1,6 @@
-#!//usr/bin/env bash
+#!/bin/sh
+
+set -eu
 
 function export_first_path_if_exists() {
     test -d "$1" && export PATH="$1:$PATH"
@@ -16,6 +18,7 @@ function mv_old_if_exists() {
     test -f $1 && mv $1 $1.old 
 }
 
+# dotfiles
 mkdir -p ~/src
 git clone git@github.com:mainyaa/dotfiles.git ~/src/dotfiles
 cd ~/src/dotfiles
@@ -39,11 +42,13 @@ ln -s ~/src/dotfiles/.editorconfig ~/
 ln -s ~/src/dotfiles/.gemrc ~/
 ln -s ~/src/dotfiles/.gitconfig ~/
 ln -s ~/src/dotfiles/.gitconfig_mac ~/
+ln -s ~/src/dotfiles/.git_template ~/
 ln -s ~/src/dotfiles/.tmux.conf ~/
 ln -s ~/src/dotfiles/.gitignore_global ~/
 ln -s ~/src/dotfiles/irbrc ~/.irbrc
 ln -s ~/src/dotfiles/pryrc ~/.pryrc
 
+# vim
 mkdir -p ~/txtb
 mkdir -p ~/_vim/autoload
 mkdir -p ~/_vim/bundle
@@ -59,17 +64,10 @@ mkdir -p ~/_vim/dict
 wget https://github.com/cooldaemon/myhome/blob/master/.vim/dict/javascript.dict
 mv javascript.dict ~/_vim/dict/
 
-vim +BundleInstall +qall
-sudo npm install -g grunt-cli
-sudo npm install -g coffee
-sudo npm install -g js2coffee
-sudo npm install -g typescript
-sudo npm install -g tslint
-sudo npm install -g jslint
-sudo npm install -g jshint
-sudo npm install -g jstags
-
 mkdir -p ~/bin
+curl https://sdk.cloud.google.com | bash
 curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/bin/diff-highlight
 chmod +x ~/bin/diff-highlight
 
+# vim
+vim +BundleInstall +qall

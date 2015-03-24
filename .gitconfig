@@ -86,7 +86,7 @@
   # diff
     d = diff                          # diff unstaged changes
     dc = diff --cached                # diff staged changes
-    di = diff --word-diff             # diff unstaged changes
+    di = diff                         # diff unstaged changes
     dic = diff --cached               # diff staged changes
     last = diff HEAD^                 # diff last committed change
 
@@ -193,3 +193,5 @@
 [ghq]
     root = ~/.ghq
     root = ~/.go/src
+[init]
+	templatedir = ~/.git_template

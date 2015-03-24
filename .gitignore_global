@@ -1,58 +1,4 @@
-### /.gitignore-boilerplates/Global/osx.gitignore
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Icon must ends with two \r.
-Icon
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
-
-### /.gitignore-boilerplates/Global/vim.gitignore
-
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-*.un~
-Session.vim
-.netrwhist
-*~
-
-
-### /.gitignore-boilerplates/Global/linux.gitignore
-
-*~
-
-
-### /.gitignore-boilerplates/Global/tags.gitignore
-
-# Ignore tags created by etags, ctags, gtags (GNU global) and cscope
-TAGS
-!TAGS/
-tags
-!tags/
-gtags.files
-GTAGS
-GRTAGS
-GPATH
-cscope.files
-cscope.out
-cscope.in.out
-cscope.po.out
-
-### /.gitignore-boilerplates/Global/Vagrant.gitignore
-
-.vagrant/
-
-
-
-### /.gitignore-boilerplates/Global/Windows.gitignore
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/windows.gitignore
 
 # Windows image file caches
 Thumbs.db
@@ -69,3 +15,176 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+
+# Windows shortcuts
+*.lnk
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/linux.gitignore
+
+*~
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/windows.gitignore
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/osx.gitignore
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/emacs.gitignore
+
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/vim.gitignore
+
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/tags.gitignore
+
+# Ignore tags created by etags, ctags, gtags (GNU global) and cscope
+TAGS
+!TAGS/
+tags
+!tags/
+gtags.files
+GTAGS
+GRTAGS
+GPATH
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out
+
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/svn.gitignore
+
+.svn/
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/Vagrant.gitignore
+
+.vagrant/
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/Xcode.gitignore
+
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.xcuserstate
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/Mercurial.gitignore
+
+/.hg/*
+*/.hg/*
+.hgignore
+
+
+### https://raw.github.com/github/gitignore/557c62cd54524fe6f7559cab042d91553bb0755e/Global/NetBeans.gitignore
+
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+
+

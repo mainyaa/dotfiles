@@ -32,7 +32,7 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
   #antigen-bundle ssh-agent
   antigen-bundle vagrant # vagrant zsh completion
   antigen-bundle vundle  # vim vundle alias
-  antigen-bundle mvn     # maven completion
+  #antigen-bundle mvn     # maven completion
   antigen-bundle npm     # npm completion
   antigen-bundle bower   # bower completion
   antigen-bundle copydir # Mac clipborad copy current directory
@@ -49,7 +49,7 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
   antigen-bundle urltools    # urlencode
   antigen-bundle xcode       # 
   antigen-bundle profiles    # custom profile for the local machine and each domain
-  antigen-bundle z           # z command
+  #antigen-bundle z           # z command
   antigen-bundle command-not-found
   antigen-bundle common-aliases # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
 

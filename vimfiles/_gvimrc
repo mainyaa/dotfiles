@@ -1,9 +1,12 @@
 syntax enable
 colorscheme Dark
+"set guioptions+=a "yでクリップボードにyank
+"set clipboard+=unnamed "pでクリップボードの中身をペースト
+" http://shinodogg.oops.jp/mythang/?p=1468
 let &guifont='SourceCodePro-Light'
 set transparency=10
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 " Vim外にいるときはVimを透けさせる
 augroup hack234
