@@ -55,6 +55,9 @@ brew install flow
 brew install cmake
 brew install qt
 brew install golang
+# vcs
+brew install svn
+brew install hg
 # utils
 brew install ag
 brew install ack

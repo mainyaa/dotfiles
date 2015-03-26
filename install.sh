@@ -49,7 +49,7 @@ ln -s ~/src/dotfiles/irbrc ~/.irbrc
 ln -s ~/src/dotfiles/pryrc ~/.pryrc
 
 # vim
-mkdir -p ~/txtb
+mkdir -p ~/.txtb
 mkdir -p ~/_vim/autoload
 mkdir -p ~/_vim/bundle
 git clone https://github.com/gmarik/vundle.git ~/_vim/vundle.git
@@ -65,9 +65,16 @@ wget https://github.com/cooldaemon/myhome/blob/master/.vim/dict/javascript.dict
 mv javascript.dict ~/_vim/dict/
 
 mkdir -p ~/bin
-curl https://sdk.cloud.google.com | bash
-curl https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/bin/diff-highlight
+curl -L https://sdk.cloud.google.com | bash
+curl -L https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/bin/diff-highlight
 chmod +x ~/bin/diff-highlight
 
 # vim
 vim +BundleInstall +qall
+
+# nodebrew
+curl -L git.io/nodebrew | perl - setup
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+nodebrew install-binary io@1.6
+nodebrew use io@1.6
+

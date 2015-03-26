@@ -42,51 +42,6 @@ class people::mainyaa {
   #include osx
 
   
-  # homebrew でインストールするもの
-  package {
-    [
-      'tmux',
-      'reattach-to-user-namespace',
-      'tree',
-      'pidof',
-      'ctags',
-      'gdbm',
-      'maven',
-      'pcre',
-      'direnv',
-      'grunt',
-      'python',
-      'pythonbrew',
-      'spark',
-      'trash',
-      'yuicompressor',
-      'git',
-      'gibo',
-      'ag',
-      'node',
-      'phantomjs',
-      'readline',
-      'spidermonkey',
-      'z',
-      'ibevent',
-      'nspr',
-      'pkg-config',
-      'sbt',
-      'sqlite',
-      'watch',
-      'libtool',
-      'oniguruma',
-      'protobuf',
-      'scala',
-      'tig',
-      'wget',
-      'llvm',
-      'optipng',
-      'pstree',
-      'serf',
-      'zsh-completions',
-      'xz'
-    ]:
   }
 
   package {
@@ -140,7 +95,7 @@ class people::mainyaa {
   $dotfiles = "${src}/dotfiles"
   $home_local   = "${home}/local"
   $home_bin     = "${home}/bin"
-  $dust_vim_backup   = "${home}/txtb"
+  $dust_vim_backup   = "${home}/.txtb"
   file {$dust:
     ensure => directory
   }
@@ -167,6 +122,13 @@ class people::mainyaa {
 
   # git-cloneしたら install.sh を走らせる
   exec { "sh ${dotfiles}/install.sh":
+    cwd => $dotfiles,
+    creates => "${home}/.zshrc",
+    require => Repository[$dotfiles],
+  }
+
+  # git-cloneしたら install_mac.sh を走らせる
+  exec { "sh ${dotfiles}/install_mac.sh":
     cwd => $dotfiles,
     creates => "${home}/.zshrc",
     require => Repository[$dotfiles],
