@@ -19,5 +19,5 @@ pip-review --auto
 gem update
 
 # vim
-vim +PluginUpdate +qall
+vi +PluginUpdate +qall
 
