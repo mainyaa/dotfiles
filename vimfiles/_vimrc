@@ -1,181 +1,203 @@
 
 
 "--------------------------------------------------
-" Bundle
-" :BundleInstall
+" Plugin
+" :PluginInstall
 "--------------------------------------------------
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/_vim/vundle.git/
-call vundle#rc()
-let g:bundle_dir = expand('$HOME/_vim/bundle', 1)
+set rtp+=~/_vim/Vundle.vim/
+call vundle#begin('~/_vim/bundle')
+let g:vundle_default_git_proto = 'git'
 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 " ruby
-"Bundle 'tpope/vim-rails'
+"Plugin 'tpope/vim-rails'
 " python
-Bundle 'pyflakes.vim'
-Bundle 'vim-scripts/Pydiction'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'django.vim'
-Bundle 'django_templates.vim'
-Bundle 'Django-helper-utils'
+Plugin 'pyflakes.vim'
+Plugin 'vim-scripts/Pydiction'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'django.vim'
+Plugin 'django_templates.vim'
+Plugin 'Django-helper-utils'
 " java
-Bundle 'java.vim'
-Bundle 'javacomplete'
-"Bundle 'git://github.com/koron/java-helper-vim'
-"Bundle 'jcommenter.vim'
-Bundle 'git://github.com/moznion/jcommenter.vim'
-"Bundle 'pwicks86/eclim-for-vundle'
+Plugin 'java.vim'
+Plugin 'javacomplete'
+"Plugin 'git://github.com/koron/java-helper-vim'
+"Plugin 'jcommenter.vim'
+Plugin 'git://github.com/moznion/jcommenter.vim'
+"Plugin 'pwicks86/eclim-for-vundle'
 " scala
-Bundle 'Scala-Java-Edit'
-Bundle 'scala.vim'
+Plugin 'Scala-Java-Edit'
+Plugin 'scala.vim'
 " cpp
-Bundle 'cpp.vim'
-Bundle 'vim-cpp-auto-include'
-Bundle 'Cppcheck-compiler'
+Plugin 'cpp.vim'
+Plugin 'vim-cpp-auto-include'
+Plugin 'Cppcheck-compiler'
 " c#
-Bundle 'vim-scripts/aspnetcs'
+Plugin 'vim-scripts/aspnetcs'
 " js
-Bundle "pangloss/vim-javascript"
-Bundle 'walm/jshint.vim'
-Bundle 'xer0x/jsbeautify'
-"Bundle 'tyok/js-mask'
-Bundle 'leshill/vim-json'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'othree/javascript-libraries-syntax.vim'
-"Bundle 'nkzawa/js-inspector.vim'
+Plugin "pangloss/vim-javascript"
+Plugin 'walm/jshint.vim'
+Plugin 'xer0x/jsbeautify'
+"Plugin 'tyok/js-mask'
+Plugin 'leshill/vim-json'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'web-intent'
+"Plugin 'nkzawa/js-inspector.vim'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
 " typescript
-Bundle 'leafgarland/typescript-vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'mhartington/vim-typings'
+Plugin 'Quramy/tsuquyomi'
 " coffeescript
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'kchmck/vim-coffee-script'
+" ActionScript
+Plugin "actionscript.vim"
 " haskell
-Bundle 'haskell.vim'
-Bundle 'eagletmt/ghcmod-vim'
+Plugin 'haskell.vim'
+Plugin 'eagletmt/ghcmod-vim'
 " groovy
-Bundle 'groovy.vim'
-" Bundle 'groovyindent'
-Bundle 'tfnico/vim-gradle'
+Plugin 'groovy.vim'
+" Plugin 'groovyindent'
+Plugin 'tfnico/vim-gradle'
 " go
-Bundle 'Go-Syntax'
-Bundle 'go.vim'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'Blackrush/vim-gocode'
-Bundle 'fatih/vim-go'
+Plugin 'Go-Syntax'
+Plugin 'go.vim'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'Blackrush/vim-gocode'
+Plugin 'fatih/vim-go'
 " Docker
-Bundle 'ekalinin/Dockerfile.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 " Lisp
-Bundle 'amdt/vim-niji'
+Plugin 'amdt/vim-niji'
 " HTML/CSS
-Bundle 'vim-scripts/HTML-AutoCloseTag'
-Bundle 'ZenCoding.vim'
-Bundle 'css3-syntax-plus'
+Plugin 'vim-scripts/HTML-AutoCloseTag'
+Plugin 'ZenCoding.vim'
+Plugin 'css3-syntax-plus'
 " syntax
 " applescript, c, coffee, cpp, css, cucumber, cuda, docbk, erlang, eruby, fortran, gentoo_metadata, go, haml, haskell, html, javascript, json, less, lua, matlab, perl, php, puppet, python, rst, ruby, sass/scss, sh, tcl, tex, vala, xhtml, xml, xslt, yaml, zpt
-Bundle 'Syntastic'
-"Bundle 'actionscript.vim'
+Plugin 'Syntastic'
+Plugin 'roktas/syntastic-more'
+"Plugin 'actionscript.vim'
 " TOML
-Bundle 'cespare/vim-toml'
+Plugin 'cespare/vim-toml'
 " server
-Bundle 't9md/vim-chef'
-Bundle 'httplog'
+Plugin 't9md/vim-chef'
+Plugin 'httplog'
+Plugin 'git://fedorapeople.org/home/fedora/wwoods/public_git/vim-scripts.git'
 " shell
-Bundle 'Shougo/vimshell.vim'
-Bundle 'sh.vim'
-Bundle 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'sh.vim'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
 " API Blueprint
-Bundle 'kylef/apiblueprint.vim'
+Plugin 'kylef/apiblueprint.vim'
 " util
-Bundle 'recover.vim'
-Bundle 't9md/vim-choosewin'
+Plugin 'recover.vim'
+Plugin 't9md/vim-choosewin'
+Plugin 'kana/vim-niceblock'
 " =の位置を揃える
-Bundle 'Align'
-Bundle 'AutoAlign'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'write.vim'
-Bundle 'YankRing.vim'
-Bundle 'm4i/YankRingSync'
-Bundle 'kana/vim-fakeclip'
-Bundle 'airblade/vim-rooter/'
-"Bundle 'rodjek/vim-puppet'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Shougo/vimfiler'
-Bundle 'Shougo/neocomplcache.vim'
-"Bundle 'sjbach/lusty'
-"Bundle 'gmarik/snipmate.vim'   " errorが起こる
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'godlygeek/tabular'
-Bundle 'tabpagecd'
-"Bundle 'Raimondi/delimitMate'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-"Bundle 'wincent/Command-T'
-Bundle 'pdurbin/vim-tsv'
-"Bundle 'Lokaltog/vim-powerline'
-Bundle 'itchyny/lightline.vim'
-Bundle 'itchyny/landscape.vim'
-Bundle 'sickill/vim-pasta'
-"Bundle 'ervandew/supertab'
-Bundle 'tpope/vim-endwise'
-Bundle 'scrooloose/syntastic'
-Bundle 'AutoComplPop'
-Bundle 'thinca/vim-ft-help_fold'
-Bundle 'savevers.vim'
+Plugin 'Align'
+Plugin 'AutoAlign'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'write.vim'
+Plugin 'YankRing.vim'
+Plugin 'm4i/YankRingSync'
+Plugin 'kana/vim-fakeclip'
+Plugin 'airblade/vim-rooter/'
+"Plugin 'rodjek/vim-puppet'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Shougo/vimfiler'
+" snnipet
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'honza/vim-snippets'
+Plugin 'rcmdnk/vim-octopress-snippets'
+"Plugin 'sjbach/lusty'
+"Plugin 'gmarik/snipmate.vim'   " errorが起こる
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'godlygeek/tabular'
+Plugin 'tabpagecd'
+"Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+"Plugin 'wincent/Command-T'
+Plugin 'pdurbin/vim-tsv'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/landscape.vim'
+Plugin 'sickill/vim-pasta'
+"Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-endwise'
+Plugin 'scrooloose/syntastic'
+Plugin 'AutoComplPop'
+Plugin 'thinca/vim-ft-help_fold'
+Plugin 'savevers.vim'
 " command
-Bundle 'quickrun.vim'
-Bundle 'Shougo/vimproc' " Aynchronous execution plugin for Vim
-"Bundle 'git://git.wincent.com/command-t.git'
+Plugin 'quickrun.vim'
+Plugin 'Shougo/vimproc.vim' " Aynchronous execution plugin for Vim
+"Plugin 'git://git.wincent.com/command-t.git'
 " git
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
+Plugin 'hotwatermorning/auto-git-diff'
+" VimDiff(histogram argorihtm)
+Plugin 'lambdalisue/vim-unified-diff'
 " move
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'camelcasemotion'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'camelcasemotion'
 " coverrage
-Bundle 'gcov.vim'
-Bundle 'GCov-plugin'
+Plugin 'gcov.vim'
+Plugin 'GCov-plugin'
 " color
-Bundle 'AnsiEsc.vim'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'Low-Contrast-Color-Schemes'
-Bundle 'CSApprox'
-Bundle 'tomasr/molokai'
+Plugin 'AnsiEsc.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'Low-Contrast-Color-Schemes'
+Plugin 'CSApprox'
+Plugin 'tomasr/molokai'
 " search
-Bundle 'smartchr'
-Bundle 'eregex.vim'
-Bundle 'The-NERD-tree'
-Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-"Bundle 'ag.vim'
-Bundle 'nerdtree-ack'
+Plugin 'smartchr'
+Plugin 'eregex.vim'
+Plugin 'The-NERD-tree'
+Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
+"Plugin 'ag.vim'
+Plugin 'nerdtree-ack'
 " IME
-"Bundle 'fuenor/im_control.vim'
+"Plugin 'fuenor/im_control.vim'
 " TextMate's like
-"Bundle 'vim-scripts/snippetsEmu'
+"Plugin 'vim-scripts/snippetsEmu'
 " tag jump
-Bundle 'majutsushi/tagbar'
-Bundle 'matchit.zip'
-Bundle 'kien/ctrlp.vim'
-Bundle 'ctags.vim'
-Bundle 'soramugi/auto-ctags.vim'
-Bundle 'gtags.vim'
-Bundle 'wesleyche/SrcExpl'
-Bundle 'terryma/vim-multiple-cursors'
+Plugin 'majutsushi/tagbar'
+Plugin 'matchit.zip'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ctags.vim'
+Plugin 'soramugi/auto-ctags.vim'
+Plugin 'gtags.vim'
+Plugin 'wesleyche/SrcExpl'
+Plugin 'terryma/vim-multiple-cursors'
 " unite.vim
-Bundle 'unite.vim'
-"Bundle 'unite-yarm'
-Bundle 'unite-gem'
-Bundle 'unite-scriptenames'
-Bundle 'unite-locate'
-Bundle 'unite-font'
-Bundle 'unite-colorscheme'
-"Bundle 'git://github.com/kmnk/vim-unite-giti'
+Plugin 'unite.vim'
+"Plugin 'unite-yarm'
+Plugin 'unite-gem'
+Plugin 'unite-scriptenames'
+Plugin 'unite-locate'
+Plugin 'unite-font'
+Plugin 'unite-colorscheme'
+"Plugin 'git://github.com/kmnk/vim-unite-git'
 " keymap
-Bundle 'kana/vim-submode'
+Plugin 'kana/vim-submode'
 " MacApp
-Bundle 'rizzatti/dash.vim'
+Plugin 'rizzatti/dash.vim'
 
-filetype plugin indent on
+" develop plugins
+Plugin 'vim-ecmascript-syntax', {'pinned': 1}
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 "--------------------------------------------------
 " Default settings
@@ -222,8 +244,11 @@ au BufRead *access_log* setf httplog
 au BufNewFile,BufRead *.tmpl  setf tmpl
 au BufNewFile,BufRead *.as  setf actionscript
 au BufNewFile,BufReadPost *.apib setl shiftwidth=4 expandtab
+au BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
 autocmd BufRead,BufNewFile *.es setfiletype javascript
+autocmd BufRead,BufNewFile *.ts setfiletype typescript
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+autocmd BufRead,BufNewFile *.as setfiletype actionscript
 
 "--------------------------------------------------
 " CoffeeScirpt
@@ -435,48 +460,66 @@ source ~/dotfiles/.vimrc.completion.neocomplcache
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 1
 " Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#min_syntax_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Enable heavy features.
 " Use camel case completion.
-"let g:neocomplcache_enable_camel_case_completion = 1
+"let g:neocomplete#enable_camel_case_completion = 1
 " Use underbar completion.
-"let g:neocomplcache_enable_underbar_completion = 1
+"let g:neocomplete#enable_underbar_completion = 1
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
+let g:neocomplete#dictionary_filetype_lists = {
                 \ 'default' : '',
                 \ 'vimshell' : $HOME.'/_vimshell_hist',
                 \ 'scheme' : $HOME.'/.gosh_completions'
                 \ }
 
 " Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 " Or set this.
-"let g:neocomplcache_enable_cursor_hold_i = 1
+"let g:neocomplete#enable_cursor_hold_i = 1
 " Or set this.
-"let g:neocomplcache_enable_insert_char_pre = 1
+"let g:neocomplete#enable_insert_char_pre = 1
 
 " AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 set completeopt+=longest
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_disable_auto_complete = 1
+let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#disable_auto_complete = 1
+
+" Neosnippet
+if s:neobundle_enabled && ! empty(neobundle#get("neosnippet"))
+  imap <C-s> <Plug>(neosnippet_expand_or_jump)
+  smap <C-s> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-s> <Plug>(neosnippet_expand_target)
+  let g:neosnippet#enable_snipmate_compatibility = 1
+  let g:neosnippet#disable_runtime_snippets = {'_' : 1}
+  let g:neosnippet#snippets_directory = []
+  if ! empty(neobundle#get("vim-octopress-snippets"))
+    let g:neosnippet#snippets_directory += ['~/.vim/bundle/vim-octopress-snippets/neosnippets')]
+  endif
+  let g:neosnippet#snippets_directory += ['~/bundle/neosnippet-snippets/neosnippets')]
+  if ! empty(neobundle#get("vim-snippets"))
+    let g:neosnippet#snippets_directory += ['~/bundle/vim-snippets/snippets')]
+  endif
+endif
+
 inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
@@ -487,16 +530,17 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplete#omni_patterns')
+    let g:neocomplete#omni_patterns = {}
 endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.typescript = '\h\w*\|[^. \t]\.\w*'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " 自動補完してEnterを入力すると、インデントがおかしくなる問題の修正
 inoremap pumvisible() ? neocomplcache#close_popup().“\X\” : “\X\”
@@ -523,9 +567,24 @@ set patchmode=.clean
 let savevers_types = "*"
 let savevers_dirs = &backupdir
 let versdiff_no_resize=1
+
+" lambdalisue/vim-unified-diff
+"set diffexpr=unified_diff#diffexpr()
+"set patchexpr=unified_diff#diffexpr()
+"set diffopt='icase,iwhite'
+
+" vimdiffの色設定
+highlight DiffAdd    cterm=bold ctermfg=252 ctermbg=22
+highlight DiffDelete cterm=bold ctermfg=252 ctermbg=52
+highlight DiffChange cterm=bold ctermfg=252 ctermbg=0
+highlight DiffText   cterm=bold ctermfg=252 ctermbg=17
+
 nmap <silent> <F5> :VersDiff -<CR>
 nmap <silent> <F6> :VersDiff +<CR>
 nmap <silent> <F8> :VersDiff -c<CR>
+
+
+
 
 "--------------------------------------------------
 " auto save
@@ -907,6 +966,8 @@ nnoremap tb  <C-b> "「戻る」
 nnoremap tj  :<C-u>tag<CR> "「戻る」
 nnoremap tk  :<C-u>pop<CR> "履歴一覧
 nnoremap tl  :<C-u>tags<CR>
+nnoremap tv :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap th :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 let g:tagbar_type_coffee = {
                 \ 'ctagstype' : 'coffee',
@@ -1172,6 +1233,14 @@ if exists(":M")
     "  nnoremap / :M/
     "  nnoremap ,/ /
 endif
+" コマンド履歴は打ち間違えるから移動
+:nnoremap <Leader>: <Esc>q:
+:nnoremap <Leader>/ <Esc>q/
+:nnoremap <Leader>? <Esc>q?
+
+:nnoremap q: <Nop>
+:nnoremap q/ <Nop>
+:nnoremap q? <Nop>
 
 " 縦分割をする際、新しいウィンドウを右側に作る
 set splitright
@@ -1185,6 +1254,7 @@ nnoremap ss :vsplit<ENTER><C-]>
 let mapleader = ","
 " キーバーインド一覧
 nmap <C-t> :help index.txt<CR>
+nmap <C-Y> :erb map
 nmap <Leader>h :help index.txt<CR>
 " Mapping Unite commands
 nnoremap <Leader>/ :Unite grep:.<CR>
@@ -1296,6 +1366,8 @@ let g:syntastic_sh_checkers = ['checkbashisms']
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_ecmascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_ruby_checkers = ['ruby-lint', 'rubocop']
 let g:syntastic_html_checkers = ['']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_check_on_open=1 " Run Syntastic when opening files
@@ -1335,9 +1407,43 @@ let g:Jsbeautify_jslint_expandtab = 1 "use spaces instead of tabs
 " othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,chai'
 
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+set autoread
+set updatetime=50
+
+let s:system = exists('g:loaded_vimproc') ? 'vimproc#system_bg' : 'system'
+
 
 " PATH
 let $PATH="/usr/local/opt/coreutils/libexec/gnubin:/Users/kazuyukimori/.pyenv/bin:/Users/kazuyukimori/.rvm/bin:/Users/kazuyukimori/.go/bin:/Users/kazuyukimori/android-ndk-r8c:/Users/kazuyukimori/Library/Haskell/bin:/usr/local/share/npm/bin:/bin:/bin:/Users/kazuyukimori/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/go/bin:/Applications/MacVim.app/Contents/MacOS:/usr/local/mysql/bin:/Users/kazuyukimori/local/google-cloud-sdk/bin:/Users/kazuyukimori/local/gcutil-1.9.0"
 let g:ackprg="/usr/local/bin/ack -H --nocolor --nogroup --column"
 let g:agrg="/usr/local/bin/ag  --column"
 
+augroup vim-auto-typescript
+    autocmd!
+    " 適当なタイミングで再読み込み
+    autocmd CursorHold   *.ts :checktime
+    autocmd CursorMoved  *.ts :checktime
+    
+    " 書き込み時に js に出力する
+    autocmd BufWritePost *.ts :call {s:system}("tsc main.ts")
+augroup END
+
+
+if exists('b:did_ftplugin_typescript')
+    finish
+endif
+let b:did_ftplugin_typescript = 1
+
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
+
+if exists('*TSScompleteFunc') && &omnifunc ==# ''
+  setlocal omnifunc=TSScompleteFunc
+endif

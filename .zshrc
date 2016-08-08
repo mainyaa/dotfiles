@@ -32,7 +32,7 @@ setopt prompt_subst
 autoload -U colors && colors
 
 # PCRE 互換の正規表現を使う
-setopt re_match_pcre
+#setopt re_match_pcre
 
 # カッコの対応などを自動的に補完
 setopt auto_param_keys
@@ -216,3 +216,9 @@ alias v.lssitepackages='lssitepackages'
 # rvm
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+eval "$(rbenv init -)"
+
+
+# tabtab source for yo package
+# uninstall by removing these lines or running `tabtab uninstall yo`
+[[ -f /Users/kazuyukimori/.nodebrew/node/v6.0.0/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh ]] && . /Users/kazuyukimori/.nodebrew/node/v6.0.0/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh

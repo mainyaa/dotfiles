@@ -13,7 +13,11 @@ export MANPATH=$MANPATH:$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman
 
 #export JDK_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_11.jdk/Contents/Home/
+export JDK_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
+export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
+export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
+export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
 export CLASSPATH=.:$JDK_HOME/lib
 
 export PYENV_ROOT="${HOME}/.pyenv"
@@ -23,7 +27,7 @@ export PYENV_ROOT="${HOME}/.pyenv"
 #export M2=$MAVEN_HOME/bin
 export M2_REPO=$HOME/.m2/repository
 # Maven文字化け対策
-export _JAVA_OPTIONS="-Dfile.encoding=UTF-8"
+#export _JAVA_OPTIONS="-Dfile.encoding=UTF-8"
 
 #export MANPATH=/opt/local/man:$MANPATH
 #export LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
@@ -42,10 +46,10 @@ export APPENGINE_HOME=/Applications/GoogleAppEngineLauncher.app/Contents/Resourc
 export GRADLE_OPTS="-Dorg.gradle.daemon=true"
 
 # android settings
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/23.0.2/
-export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/23.0.2/
-export ANDROID_NDK=/usr/local/Cellar/android-ndk/r10
-export ANDROID_NDK_ROOT=/usr/local/Cellar/android-ndk/r10
+export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
+export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
+export ANDROID_NDK=/usr/local/Cellar/android-ndk/r11b
+export ANDROID_NDK_HOME=/usr/local/Cellar/android-ndk/r11b
 
 #AWS settings
 export AWS_IAM_HOME=$HOME/local/IAMCli-1.5.0
@@ -85,6 +89,11 @@ export NACL_EXE_STDERR=DEBUG_ONLY:dev://postmessage
 # Docker env
 export DOCKER_HOST=tcp://localhost:2375
 
+# Alexa env
+# https://developer.amazon.com/public/solutions/alexa/alexa-voice-service/docs/reference-implementation-guide
+export LD_LIBRARY_PATH=$HOME/Applications/VLC.app/Contents/MacOS/lib
+export VLC_PLUGIN_PATH=$HOME/Applications/VLC.app/Contents/MacOS/plugins
+
 #export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 export_path_if_exists /usr/local/bin
 export_path_if_exists /usr/local/sbin
@@ -103,7 +112,8 @@ export_path_if_exists $APPENGINE_HOME
 export_path_if_exists $GOROOT/bin
 export_path_if_exists $GOPATH/bin
 export_path_if_exists /usr/local/opt/coreutils/libexec/gnubin
-export_path_if_exists $HOME/.gem/ruby/2.0.0/bin
+export_path_if_exists $HOME/.gem/ruby/2.2.0/bin
+export_path_if_exists $HOME/.rvm/gems/ruby-2.0.0-p598/bin/
 # add first PATH
 export_first_path_if_exists $HOME/.rvm/bin
 export_first_path_if_exists $HOME/.pyenv/bin

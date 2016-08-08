@@ -9,6 +9,7 @@ npm install -g yoeman
 npm install -g coffeelint
 npm install -g js2coffee
 npm install -g typescript
+npm install -g typescript-tools
 npm install -g tslint
 npm install -g jslint
 npm install -g jshint
