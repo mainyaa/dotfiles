@@ -35,6 +35,8 @@ Plugin 'scala.vim'
 Plugin 'cpp.vim'
 Plugin 'vim-cpp-auto-include'
 Plugin 'Cppcheck-compiler'
+Plugin 'justmao945/vim-clang'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 " c#
 Plugin 'vim-scripts/aspnetcs'
 " js

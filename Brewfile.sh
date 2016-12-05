@@ -17,7 +17,7 @@ brew install ed --default-names --force
 brew install findutils --default-names --force
 brew install gawk --force
 brew install gnu-indent --default-names --force
-brew install gnu-sed --default-names --force
+brew install gnu-sed --force
 brew install gnu-tar --default-names --force
 brew install gnu-which --default-names --force
 brew install gnutls --default-names --force
@@ -38,6 +38,8 @@ brew install m4 --force
 brew install make --force
 brew install nano --force
 brew install zsh --force
+brew install zsh-syntax-highlighting --force
+brew install zsh-history-substring-search --force
 
 # core --force
 brew install coreutils --force

@@ -12,8 +12,8 @@ export APPENGINE_HOME=/Applications/GoogleAppEngineLauncher.app/Contents/Resourc
 export MYSQL_PATH=/usr/local/mysql/bin
 export CLOUD_SDK_HOME=$HOME/google-cloud-sdk
 source /usr/local/share/zsh/site-functions/_aws
-export AWS_RDS_HOME=$HOME/local/RDSCli-1.15.001
-export AWS_CREDENTIAL_FILE=$AWS_RDS_HOME/.credential
+#export AWS_RDS_HOME=$HOME/local/RDSCli-1.15.001
+#export AWS_CREDENTIAL_FILE=$AWS_RDS_HOME/.credential
 export GNUBIN_HOME=HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
 export FLEXPATH=$HOME/local/flex_sdk_4.6
 

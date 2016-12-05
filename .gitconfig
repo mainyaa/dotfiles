@@ -1,7 +1,7 @@
 [user]
     autocrlf = false
-    name = mainyaa
-    email = mainya@gmail.com
+	name = mainyaa
+	email = mainya@gmail.com
 
 [alias]
     co = checkout
@@ -15,7 +15,7 @@
 
 [core]
     editor = /usr/bin/vim
-    excludesfile = ~/.gitignore_global
+	excludesfile = /Users/kazuyukimori/.gitignore_global
 
 [browse-remote "github.com"]
     top = https://{host}/{path}

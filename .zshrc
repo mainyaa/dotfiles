@@ -12,7 +12,11 @@ function source_if_exists() {
 function eval_if_exists() {
     test -f $(which $1) && eval "$2"
 }
-source_if_exists $HOME/.oh-my-zsh/
+# Antigen
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+source_if_exists $HOME/.zshrc.antigen
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/Cellar/zsh-history-substring-search/1.0.0/zsh-history-substring-search.zsh
 source_if_exists $BOXEN/env.sh
 # Platform-specific things
 case $( uname -s ) in
@@ -56,8 +60,6 @@ setopt print_eight_bit
 autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# Antigen
-source_if_exists $HOME/.zshrc.antigen
 
 # ホスト名とユーザ名の先頭 4文字をとりだす。全部だと長いので。
 h2=`expr $HOST : '\(....\).*'`
@@ -78,7 +80,7 @@ esac
 #PROMPT='%{$fg[magenta]%}[%c] %{$reset_color%}'
 #RPROMPT='${time} %{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}'
 
-PROMPT='%{${col}%}${u2}@${h2}%{$reset_color%}:%{$fg[white]%}%c$(git_prompt_info)%{$fg_bold[blue]%}ヾ(๑╹◡╹)ﾉ %#%{$reset_color%} '
+PROMPT='%{${col}%}${u2}@${h2}%{$reset_color%}:%{$fg[white]%}%c $(git_prompt_info)%{$fg_bold[blue]%}ヾ(๑╹◡╹)ﾉ %#%{$reset_color%} '
 RPROMPT=''
 
 # Aliases

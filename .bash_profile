@@ -26,3 +26,9 @@ source '/private/tmp/google-cloud-sdk/path.bash.inc'
 # The next line enables bash completion for gcloud.
 source '/private/tmp/google-cloud-sdk/completion.bash.inc'
 eval "$(rbenv init -)"
+
+# added by Miniconda2 4.1.11 installer
+export PATH="/Users/kazuyukimori/miniconda2/bin:$PATH"
+
+# added by Anaconda3 4.2.0 installer
+export PATH="/Users/kazuyukimori/anaconda3/bin:$PATH"
