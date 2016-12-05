@@ -40,14 +40,13 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 " c#
 Plugin 'vim-scripts/aspnetcs'
 " js
-Plugin "pangloss/vim-javascript"
+Plugin 'pangloss/vim-javascript'
 Plugin 'walm/jshint.vim'
 Plugin 'xer0x/jsbeautify'
 "Plugin 'tyok/js-mask'
 Plugin 'leshill/vim-json'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'web-intent'
 "Plugin 'nkzawa/js-inspector.vim'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
@@ -58,7 +57,7 @@ Plugin 'Quramy/tsuquyomi'
 " coffeescript
 Plugin 'kchmck/vim-coffee-script'
 " ActionScript
-Plugin "actionscript.vim"
+Plugin 'actionscript.vim'
 " haskell
 Plugin 'haskell.vim'
 Plugin 'eagletmt/ghcmod-vim'
@@ -109,7 +108,7 @@ Plugin 'write.vim'
 Plugin 'YankRing.vim'
 Plugin 'm4i/YankRingSync'
 Plugin 'kana/vim-fakeclip'
-Plugin 'airblade/vim-rooter/'
+Plugin 'airblade/vim-rooter'
 "Plugin 'rodjek/vim-puppet'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/vimfiler'

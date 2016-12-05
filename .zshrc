@@ -80,7 +80,7 @@ esac
 #PROMPT='%{$fg[magenta]%}[%c] %{$reset_color%}'
 #RPROMPT='${time} %{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}'
 
-PROMPT='%{${col}%}${u2}@${h2}%{$reset_color%}:%{$fg[white]%}%c $(git_prompt_info)%{$fg_bold[blue]%}ヾ(๑╹◡╹)ﾉ %#%{$reset_color%} '
+PROMPT='%{${col}%}${u2}@${h2}%{$reset_color%}:%{$fg[white]%}%c$(git_prompt_info)%{$fg_bold[blue]%}ヾ(๑╹◡╹)ﾉ %#%{$reset_color%} '
 RPROMPT=''
 
 # Aliases
