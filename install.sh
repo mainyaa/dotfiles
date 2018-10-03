@@ -72,9 +72,3 @@ chmod +x ~/bin/diff-highlight
 # vim
 vim +BundleInstall +qall
 
-# nodebrew
-curl -L git.io/nodebrew | perl - setup
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-nodebrew install-binary io@1.6
-nodebrew use io@1.6
-

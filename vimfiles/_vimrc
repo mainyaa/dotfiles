@@ -7,7 +7,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/_vim/Vundle.vim/
+set rtp+=~/_vim/vundle.git/
 call vundle#begin('~/_vim/bundle')
 let g:vundle_default_git_proto = 'git'
 

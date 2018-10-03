@@ -7,9 +7,9 @@
     helper = osxkeychain
 
 [pager]
-    log = ~/bin/diff-highlight | less
-    show = ~/bin/diff-highlight | less
-    diff = ~/bin/diff-highlight | less
+    log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+    show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+    diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 
 [merge]
     tool = p4merge
