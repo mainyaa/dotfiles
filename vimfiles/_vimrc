@@ -15,12 +15,12 @@ Plugin 'VundleVim/Vundle.vim'
 " ruby
 "Plugin 'tpope/vim-rails'
 " python
-Plugin 'pyflakes.vim'
+"Plugin 'pyflakes.vim'
 Plugin 'vim-scripts/Pydiction'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'django.vim'
-Plugin 'django_templates.vim'
-Plugin 'Django-helper-utils'
+"Plugin 'django.vim'
+"Plugin 'django_templates.vim'
+"Plugin 'Django-helper-utils'
 " java
 Plugin 'java.vim'
 Plugin 'javacomplete'
@@ -66,10 +66,10 @@ Plugin 'groovy.vim'
 " Plugin 'groovyindent'
 Plugin 'tfnico/vim-gradle'
 " go
-Plugin 'Go-Syntax'
-Plugin 'go.vim'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'Blackrush/vim-gocode'
+"Plugin 'Go-Syntax'
+"Plugin 'go.vim'
+"Plugin 'jnwhiteh/vim-golang'
+"Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'fatih/vim-go'
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
@@ -134,7 +134,8 @@ Plugin 'itchyny/landscape.vim'
 Plugin 'sickill/vim-pasta'
 "Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-endwise'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'w0rp/ale'
 Plugin 'AutoComplPop'
 Plugin 'thinca/vim-ft-help_fold'
 Plugin 'savevers.vim'
@@ -157,7 +158,7 @@ Plugin 'GCov-plugin'
 Plugin 'AnsiEsc.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'Low-Contrast-Color-Schemes'
-Plugin 'CSApprox'
+"Plugin 'CSApprox'
 Plugin 'tomasr/molokai'
 " search
 Plugin 'smartchr'
@@ -250,6 +251,7 @@ autocmd BufRead,BufNewFile *.es setfiletype javascript
 autocmd BufRead,BufNewFile *.ts setfiletype typescript
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 autocmd BufRead,BufNewFile *.as setfiletype actionscript
+autocmd BufRead,BufNewFile *.go setfiletype go
 
 "--------------------------------------------------
 " CoffeeScirpt
@@ -418,6 +420,14 @@ if $GOROOT != ''
 endif
 "golint
 exe "set rtp+=" . globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
+"vim-go
+"let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 ""Vundleの設定
 "set rtp+=~/vimfiles/bundle/vundle/
@@ -453,7 +463,7 @@ cnoremap <C-n> <Down>
 cnoremap <Down>  <C-n>
 
 " 補完にneocomplcacheを使う
-source ~/dotfiles/.vimrc.completion.neocomplcache
+"source ~/src/dotfiles/.vimrc.completion.neocomplcache
 
 "------------------------------------
 " neocmplcache
@@ -504,23 +514,6 @@ set completeopt+=longest
 let g:neocomplete#enable_auto_select = 1
 let g:neocomplete#disable_auto_complete = 1
 
-" Neosnippet
-if s:neobundle_enabled && ! empty(neobundle#get("neosnippet"))
-  imap <C-s> <Plug>(neosnippet_expand_or_jump)
-  smap <C-s> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-s> <Plug>(neosnippet_expand_target)
-  let g:neosnippet#enable_snipmate_compatibility = 1
-  let g:neosnippet#disable_runtime_snippets = {'_' : 1}
-  let g:neosnippet#snippets_directory = []
-  if ! empty(neobundle#get("vim-octopress-snippets"))
-    let g:neosnippet#snippets_directory += ['~/.vim/bundle/vim-octopress-snippets/neosnippets')]
-  endif
-  let g:neosnippet#snippets_directory += ['~/bundle/neosnippet-snippets/neosnippets')]
-  if ! empty(neobundle#get("vim-snippets"))
-    let g:neosnippet#snippets_directory += ['~/bundle/vim-snippets/snippets')]
-  endif
-endif
-
 inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
@@ -537,7 +530,7 @@ endif
 let g:neocomplete#omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.typescript = '\h\w*\|[^. \t]\.\w*'
+"let g:neocomplete#sources#omni#input_patterns.typescript = '\h\w*\|[^. \t]\.\w*'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
@@ -996,18 +989,18 @@ let s:ctags_opts = '
                 \ --regex-coffee=/^[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+):[^->\n]*$/\1/f,static field/
                 \ --regex-coffee=/^[ \t]*(([A-Za-z][A-Za-z0-9_.]*)+):[^->\n]*$/\1/f,field/
                 \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?/\3/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){0}/\8/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){1}/\8/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){2}/\8/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){3}/\8/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){4}/\8/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){5}/\8/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){6}/\8/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){7}/\8/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){8}/\8/f,field/
-                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?){9}/\8/f,field/'
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{0}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{1}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{2}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{3}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{4}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{5}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{6}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{7}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{8}/\8/f,field/
+                \ --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?(,[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?{9}/\8/f,field/'
 
-let $CTAGS = substitute(s:ctags_opts, '\v\\([nst]\)', '\\\\\1', 'g')
+let $CTAGS = substitute(s:ctags_opts, '\v\([nst]\)', '\\\\\1', 'g')
 if executable('coffeetags')
     let g:tagbar_type_coffee = {
                     \ 'ctagsbin' : 'coffeetags',
@@ -1374,6 +1367,8 @@ let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_check_on_open=1 " Run Syntastic when opening files
 let g:syntastic_python_checkers=['python', 'pyflakes'] " Be more strict in python syntax
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " ignore AngularJS prefix attribute
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 let g:pymode_folding=0 " Turn off python-mode folding
 let g:pymode_lint_write=0 " we have two lint plugins...

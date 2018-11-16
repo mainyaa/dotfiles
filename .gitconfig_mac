@@ -1,7 +1,7 @@
 
 
 [core]
-    editor = /Applications/MacVim.app/Contents/MacOS/mvim -f
+    editor = /Applications/MacVim.app/Contents/MacOS/Vim -f
 
 [credential]
     helper = osxkeychain

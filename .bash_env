@@ -46,10 +46,12 @@ export APPENGINE_HOME=/Applications/GoogleAppEngineLauncher.app/Contents/Resourc
 export GRADLE_OPTS="-Dorg.gradle.daemon=true"
 
 # android settings
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
-export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
-export ANDROID_NDK=/usr/local/Cellar/android-ndk/r11b
-export ANDROID_NDK_HOME=/usr/local/Cellar/android-ndk/r11b
+ANDROID_SDK_VERSION=$(brew list android-sdk | head -n 1 | cut -d '/' -f 6)
+ANDROID_NDK_VERSION=$(brew list android-ndk | head -n 1 | cut -d '/' -f 6)
+export ANDROID_HOME=/usr/local/Cellar/android-sdk/$ANDROID_SDK_VERSION
+export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/$ANDROID_SDK_VERSION
+export ANDROID_NDK=/usr/local/Cellar/android-ndk/$ANDROID_NDK_VERSION
+export ANDROID_NDK_HOME=/usr/local/Cellar/android-ndk/$ANDROID_NDK_VERSION
 
 #AWS settings
 export AWS_IAM_HOME=$HOME/local/IAMCli-1.5.0
@@ -60,7 +62,7 @@ export NPM_PATH=/usr/local/share/npm
 export HASKELL_PATH=$HOME/Library/Haskell
 
 # go settings
-export GOROOT=/usr/local/Cellar/go/1.7.1/libexec
+export GOROOT=/usr/local/Cellar/go/$(brew list go | head -n 1 | cut -d '/' -f 6)/libexec
 export GOPATH=$HOME/.go
 
 # python settings

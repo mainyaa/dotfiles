@@ -1,5 +1,4 @@
 ZSH=$HOME/.oh-my-zsh
-BOXEN=/opt/boxen
 function export_first_path_if_exists() {
     test -d "$1" && export PATH="$1:$PATH"
 }
@@ -14,18 +13,17 @@ function eval_if_exists() {
 }
 # Antigen
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
-source_if_exists $HOME/.zshrc.antigen
+source $HOME/.zshrc.antigen
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/Cellar/zsh-history-substring-search/1.0.0/zsh-history-substring-search.zsh
-source_if_exists $BOXEN/env.sh
 # Platform-specific things
 case $( uname -s ) in
     Darwin )
-        source_if_exists $HOME/.bash_mac ;;
+        source $HOME/.bash_mac ;;
     Linux )
-        source_if_exists $HOME/.bash_linux ;;
+        source $HOME/.bash_linux ;;
 esac
-source_if_exists $HOME/.bash_env
+source $HOME/.bash_env
 
 # Options
 setopt noclobber # don't accidentally overwrite existing files
@@ -163,7 +161,7 @@ fi
 alias dl='docker ps -l -q'
 
 # http://www.direnv.net/
-#eval_if_exists direnv "$(direnv hook zsh)"
+eval_if_exists direnv "$(direnv hook zsh)"
 
 # https://github.com/zsh-users/zaw#usage
 #eval_if_exists $HOME/local/zaw/zaw.zsh ". $HOME/local/zaw/zaw.zsh"
@@ -198,22 +196,6 @@ function color_maven() {
 
 alias mvn=color_maven
 
-# Virtualenv
-#
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-# virtualenv aliases
-# http://blog.doughellmann.com/2010/01/virtualenvwrapper-tips-and-tricks.html
-alias v='workon'
-alias v.deactivate='deactivate'
-alias v.mk='mkvirtualenv --no-site-packages'
-alias v.mk_withsitepackages='mkvirtualenv'
-alias v.rm='rmvirtualenv'
-alias v.switch='workon'
-alias v.add2virtualenv='add2virtualenv'
-alias v.cdsitepackages='cdsitepackages'
-alias v.cd='cdvirtualenv'
-alias v.lssitepackages='lssitepackages'
 
 # rvm
 
@@ -224,3 +206,12 @@ eval "$(rbenv init -)"
 # tabtab source for yo package
 # uninstall by removing these lines or running `tabtab uninstall yo`
 [[ -f /Users/kazuyukimori/.nodebrew/node/v6.0.0/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh ]] && . /Users/kazuyukimori/.nodebrew/node/v6.0.0/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh
+
+#if (which zprof > /dev/null) ;then
+#  zprof | less
+#fi
+
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+  zcompile ~/.zshrc
+fi
+

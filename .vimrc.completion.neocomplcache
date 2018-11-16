@@ -1,0 +1,115 @@
+"------------------------------------
+" neocomplete.vim
+"------------------------------------
+" NeoCompleteを有効にする
+let g:neocomplete#enable_at_startup = 1
+" 補完が自動で開始される文字数
+let g:neocomplete#auto_completion_start_length = 3
+" smart case有効化。大文字が入力されるまで大文字小文字の区別を無視する
+let g:neocomplete#enable_smart_case = 1
+" camle caseを有効化。大文字を区切りとしたワイルドカードのように振る舞う
+let g:neocomplete#enable_camel_case_completion = 1
+" _(アンダーバー)区切りの補完を有効化
+let g:neocomplete#enable_underbar_completion = 1
+" シンタックスをキャッシュするときの最小文字長を3に
+let g:neocomplete#min_syntax_length = 3
+" -入力による候補番号の表示
+let g:neocomplete#enable_quick_match = 1
+" 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
+let g:neocomplete#enable_auto_select = 1
+"ポップアップメニューで表示される候補の数。初期値は100
+let g:neocomplete#max_list = 20
+
+" Define dictionary.
+let g:neocomplete#dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'java' : $HOME.'/.vim/dict/java.dict',
+    \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
+    \ 'coffee' : $HOME.'/.vim/dict/javascript.dict',
+    \ 'vim' : $HOME.'/.vim/dict/vim.dict'
+    \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" C-nでneocomplete補完
+inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
+" C-pでkeyword補完
+inoremap <expr><C-p>  pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
+function! s:my_cr_function()
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <C-r>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
+
+" buffer開いたらneoconでcache
+autocmd BufReadPost,BufEnter,BufWritePost :NeoCompleteBufferMakeCache <buffer>
+
+" FileType毎のOmni補完を設定
+autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+autocmd FileType coffee     setlocal omnifunc=jscomplete#CompleteJS
+autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
+autocmd FileType c          setlocal omnifunc=ccomplete#Complete
+autocmd FileType ruby       setlocal omnifunc=rubycomplete#Complete
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_overwrite_completefunc = 1
+" C
+let g:neocomplete#force_omni_input_patterns.c =
+  \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+" C++
+let g:neocomplete#force_omni_input_patterns.cpp =
+  \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+" Golang
+let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.\?'
+
+"インクルード文のパターンを指定
+let g:neocomplete#include_patterns = {
+  \ 'ruby'       : '^\s*require',
+  \ 'javascript' : '^\s*require',
+  \ 'coffee'     : '^\s*require',
+  \ }
+
+"インクルード先のファイル名の解析パターン
+let g:neocomplete#include_exprs = {
+  \ 'ruby' : substitute(v:fname,'::','/','g')
+  \ }
+
+" ファイルを探す際に、この値を末尾に追加したファイルも探す。
+let g:neocomplete#include_suffixes = {
+  \ 'ruby'       : '.rb',
+  \ 'javascript' : '.js',
+  \ 'coffee'     : '.coffee',
+  \ }
+
+
+"---------------------------------------------
+" NeoSnippet
+"---------------------------------------------
+" ユーザー定義スニペット保存ディレクトリ
+let g:neosnippet#snippets_directory = $HOME.'/.vim/snippets'
+
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif

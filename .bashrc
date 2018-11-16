@@ -330,9 +330,6 @@ fi
 # pythonbrew
 source_if_exists $HOME/.pythonbrew/etc/bashrc
 
-# Import virtualenvwrapper
-source_if_exists ~/.virtualenvwrapper_bashrc
-
 export PYENV_ROOT="${HOME}/.pyenv"
 if [ -d "${PYENV_ROOT}" ]; then
     export PATH=${PYENV_ROOT}/bin:$PATH
@@ -378,3 +375,4 @@ source '/private/tmp/google-cloud-sdk/completion.bash.inc'
 export NVM_DIR="/Users/kazuyukimori/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 export NODE_PATH=/usr/local/lib/node_modules:/Users/kazuyukimori/.nodebrew/node/v6.0.0/lib/node_modules
+
