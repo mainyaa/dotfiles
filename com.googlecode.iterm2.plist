@@ -230,6 +230,8 @@
 	<true/>
 	<key>NSNavLastRootDirectory</key>
 	<string>~</string>
+	<key>NSNavPanelExpandedSizeForOpenMode</key>
+	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -266,18 +268,20 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>3329 110 445 103 0 0 3840 2138 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>163 404 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>640 675 400 129 0 0 1680 1028 </string>
+	<string>520 561 400 129 0 0 1440 878 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>530 478 620 392 0 0 1680 1028 </string>
+	<string>416 1549 620 392 -554 1050 2560 1058 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 456 0 0 1680 1028 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 100 937 512 0 0 1920 1058 </string>
+	<string>-132 1176 796 486 -554 1050 2560 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>85 20 1290 900 0 0 1680 1028 </string>
+	<string>-407 1182 1290 878 -554 1050 2560 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>304 4 1290 877 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
@@ -2342,6 +2346,8 @@
 	<integer>0</integer>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
+	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
+	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>BC010967-2FAE-4B14-98BC-5BEB4605B2D4</string>
 	<key>NoSyncNeverRemindPrefsChangesCopy</key>
@@ -2422,7 +2428,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-09-27T01:02:00Z</date>
+	<date>2019-06-06T04:44:52Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -2474,6 +2482,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.2</string>
+	<string>3.2.9</string>
 </dict>
 </plist>
