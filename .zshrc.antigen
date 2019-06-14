@@ -1,4 +1,6 @@
 #!/bin/zsh
+# https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#common-aliases
+# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
 
 ANTIGEN=$HOME/.antigen/
 # Antigneがなければ落としてくる
@@ -13,17 +15,29 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
   #
   if [ "$OSTYPE"="darwin16.0" ]; then
     antigen bundle osx
+    antigen bundle ssh-agent
+    antigen bundle vscode
+    antigen bundle terminalapp # Set Apple Terminal.app resume directory
+    antigen bundle brew     # adds completion for the brew command
+  fi
+  if [ "$OSTYPE"="linux-gnu" ]; then
+    antigen bundle systemd
+    antigen bundle sudo        # Defined shortcut keys: [Esc] [Esc]
   fi
 
   antigen bundle git      # Enables the zsh completion from git
   antigen bundle git-extras# Enables the zsh completion from git
   antigen bundle git-flow # Support for git-flow completion
-  antigen bundle brew     # adds completion for the brew command
   #antigen bundle coffee   # Completion plugin for CoffeeScript.
   #antigen bundle cp       # ?
   antigen bundle dircycle # This is a small zle trick that lets you cycle your directory stack left or right using Ctrl+Shift+Left/Right
   antigen bundle gnu-utils
   antigen bundle history
+  antigen bundle aws
+  antigen bundle docker
+  antigen bundle autopep8
+  antigen bundle colorize # ccat command
+  #antigne bundle common-aliases # https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#common-aliases
   #antigen bundle history-substring-search # Press the UP/DOWN arrow key to select the nearest command 
   #antigen bundle iwhois # iwhois servers using CNAMES via whois.geek.nz
 #   To enabled agent forwarding support add the following to
@@ -41,11 +55,9 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
   antigen bundle dirpersist  # Make the dirstack more persistant for .zlogout
   #antigen bundle docker      # Docker autocompletion
   #antigen bundle emoji-clock # emoji-clock command
-  antigen bundle sudo        # Defined shortcut keys: [Esc] [Esc]
   antigen bundle fasd        # [v] [o] short hand command
   #antigen bundle nyan        # telnet nayncat!
   #antigen bundle systemadmin # aliases psmem hist10
-  antigen bundle terminalapp # Set Apple Terminal.app resume directory
   antigen bundle python      # aliase only?
   #antigen bundle urltools    # urlencode
   #antigen bundle xcode       # 
@@ -55,11 +67,12 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
   antigen bundle common-aliases # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
 
   #antigen bundle sharat87/autoenv
+  antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle zsh-users/zsh-completions src
   antigen bundle zsh-users/zsh-history-substring-search
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle tetsujin/zsh-function-mysql
-  antigen bundle autojump # Enables autojump if installed with homebrew
+  #antigen bundle autojump # Enables autojump if installed with homebrew
   #antigen bundle ruby
   #antigen bundle rbenv
   #antigen bundle bundler
@@ -75,7 +88,7 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
   antigen theme candy
 
   antigen apply
-  unalias rm
+  #unalias rm
 
 
 fi

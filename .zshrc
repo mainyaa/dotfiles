@@ -12,10 +12,9 @@ function eval_if_exists() {
     test -f $(which $1) && eval "$2"
 }
 # Antigen
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 source $HOME/.zshrc.antigen
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/Cellar/zsh-history-substring-search/1.0.0/zsh-history-substring-search.zsh
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/local/Cellar/zsh-history-substring-search/1.0.0/zsh-history-substring-search.zsh
 # Platform-specific things
 case $( uname -s ) in
     Darwin )
