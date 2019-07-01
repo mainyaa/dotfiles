@@ -67,9 +67,9 @@ if [[ -f $ANTIGEN/antigen.zsh ]]; then
   antigen bundle common-aliases # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
 
   #antigen bundle sharat87/autoenv
-  antigen bundle zsh-users/zsh-syntax-highlighting
+  #antigen bundle zsh-users/zsh-syntax-highlighting
+  #antigen bundle zsh-users/zsh-history-substring-search
   antigen bundle zsh-users/zsh-completions src
-  antigen bundle zsh-users/zsh-history-substring-search
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle tetsujin/zsh-function-mysql
   #antigen bundle autojump # Enables autojump if installed with homebrew

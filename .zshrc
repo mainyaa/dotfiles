@@ -12,9 +12,11 @@ function eval_if_exists() {
     test -f $(which $1) && eval "$2"
 }
 # Antigen
-source $HOME/.zshrc.antigen
+bindkey '\e[A' history-substring-search-up
+bindkey '\e[B' history-substring-search-down
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/local/Cellar/zsh-history-substring-search/1.0.0/zsh-history-substring-search.zsh
+source /usr/local/Cellar/zsh-history-substring-search/1.0.1/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.zshrc.antigen
 # Platform-specific things
 case $( uname -s ) in
     Darwin )
@@ -196,15 +198,9 @@ function color_maven() {
 alias mvn=color_maven
 
 
-# rvm
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-eval "$(rbenv init -)"
-
-
-# tabtab source for yo package
-# uninstall by removing these lines or running `tabtab uninstall yo`
-[[ -f /Users/kazuyukimori/.nodebrew/node/v6.0.0/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh ]] && . /Users/kazuyukimori/.nodebrew/node/v6.0.0/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh
+if type "kubectl" > /dev/null 2>&1; then
+    source <(kubectl completion $(basename $SHELL))
+fi
 
 #if (which zprof > /dev/null) ;then
 #  zprof | less
@@ -213,4 +209,20 @@ eval "$(rbenv init -)"
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
 fi
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="$HOME/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

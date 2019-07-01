@@ -46,12 +46,12 @@ export APPENGINE_HOME=/Applications/GoogleAppEngineLauncher.app/Contents/Resourc
 export GRADLE_OPTS="-Dorg.gradle.daemon=true"
 
 # android settings
-ANDROID_SDK_VERSION=$(brew list android-sdk | head -n 1 | cut -d '/' -f 6)
-ANDROID_NDK_VERSION=$(brew list android-ndk | head -n 1 | cut -d '/' -f 6)
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/$ANDROID_SDK_VERSION
-export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/$ANDROID_SDK_VERSION
-export ANDROID_NDK=/usr/local/Cellar/android-ndk/$ANDROID_NDK_VERSION
-export ANDROID_NDK_HOME=/usr/local/Cellar/android-ndk/$ANDROID_NDK_VERSION
+#ANDROID_SDK_VERSION=$(brew list android-sdk | head -n 1 | cut -d '/' -f 6)
+#ANDROID_NDK_VERSION=$(brew list android-ndk | head -n 1 | cut -d '/' -f 6)
+#export ANDROID_HOME=/usr/local/Cellar/android-sdk/$ANDROID_SDK_VERSION
+#export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/$ANDROID_SDK_VERSION
+#export ANDROID_NDK=/usr/local/Cellar/android-ndk/$ANDROID_NDK_VERSION
+#export ANDROID_NDK_HOME=/usr/local/Cellar/android-ndk/$ANDROID_NDK_VERSION
 
 #AWS settings
 export AWS_IAM_HOME=$HOME/local/IAMCli-1.5.0
@@ -62,8 +62,8 @@ export NPM_PATH=/usr/local/share/npm
 export HASKELL_PATH=$HOME/Library/Haskell
 
 # go settings
-export GOROOT=/usr/local/Cellar/go/$(brew list go | head -n 1 | cut -d '/' -f 6)/libexec
-export GOPATH=$HOME/.go
+#export GOROOT=/usr/local/Cellar/go/$(brew list go | head -n 1 | cut -d '/' -f 6)/libexec
+#export GOPATH=$HOME/.go
 
 # python settings
 export VIRTUALENVWRAPPER_PYTHON=/Users/kazuyukimori/miniconda2/bin/python
@@ -95,7 +95,7 @@ export NACL_EXE_STDERR=DEBUG_ONLY:dev://postmessage
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 
 # Docker env
-export DOCKER_HOST=tcp://localhost:2375
+#export DOCKER_HOST=tcp://localhost:2375
 
 # Alexa env
 # https://developer.amazon.com/public/solutions/alexa/alexa-voice-service/docs/reference-implementation-guide
@@ -117,8 +117,8 @@ export_path_if_exists $NPM_PATH/bin
 export_path_if_exists $APPENGINE_HOME
 #export_path_if_exists $DEPOT_TOOLS_HOME
 #export_path_if_exists $NACL_SDK_ROOT/tools
-export_path_if_exists $GOROOT/bin
-export_path_if_exists $GOPATH/bin
+#export_path_if_exists $GOROOT/bin
+#export_path_if_exists $GOPATH/bin
 export_path_if_exists /usr/local/opt/coreutils/libexec/gnubin
 export_path_if_exists $HOME/.gem/ruby/2.2.0/bin
 export_path_if_exists $HOME/.rvm/gems/ruby-2.0.0-p598/bin/

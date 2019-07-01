@@ -81,6 +81,7 @@ brew install cmigemo --force
 brew install colordiff --force
 brew install direnv --force
 brew install gibo --force
+brew install git --force
 brew install git-flow --force
 #brew install gitgs --force
 #brew install grunt --force
@@ -183,6 +184,10 @@ brew cask install slack --force
 brew cask install visual-studio-code --force
 brew cask install atom --force
 
+# sshfs
+brew cask install osxfuse --force
+brew install sshfs --force
+
 # font
 brew cask install font-source-code-pro --force
 brew cask install font-roboto --force
@@ -195,3 +200,4 @@ brew install peco --force
 
 brew clean --force
 
+sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight

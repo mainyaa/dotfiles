@@ -71,4 +71,5 @@ chmod +x ~/bin/diff-highlight
 
 # vim
 vim +BundleInstall +qall
+cd ~/_vim/bundle/vimproc.vim & make
 
