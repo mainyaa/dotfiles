@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eu
+set -ux
 
 function export_first_path_if_exists() {
     test -d "$1" && export PATH="$1:$PATH"
@@ -71,5 +71,7 @@ chmod +x ~/bin/diff-highlight
 
 # vim
 vim +BundleInstall +qall
-cd ~/_vim/bundle/vimproc.vim & make
+cd ~/_vim/bundle/vimproc.vim
+make
+cd ~
 
