@@ -12,7 +12,7 @@ function eval_if_exists() {
     test -f $(which $1) && eval "$2"
 }
 function sleep() {
-    for i in {0..$1}; do
+    for i in {$1..0}; do
         printf '\r%2d' $i
         /bin/sleep 1
     done
