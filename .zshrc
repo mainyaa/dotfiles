@@ -11,6 +11,13 @@ function source_if_exists() {
 function eval_if_exists() {
     test -f $(which $1) && eval "$2"
 }
+function sleep() {
+    for i in {0..$1}; do
+        printf '\r%2d' $i
+        /bin/sleep 1
+    done
+    printf '\n'
+}
 # Antigen
 bindkey '\e[A' history-substring-search-up
 bindkey '\e[B' history-substring-search-down
