@@ -131,50 +131,10 @@ function trash() {
   done
 }
 
-# https://github.com/mooz/percol
-function ppgrep() {
-    if [[ $1 == "" ]]; then
-        PERCOL=percol
-    else
-        PERCOL="percol --query $1"
-    fi
-    ps aux | eval $PERCOL | awk '{ print $2 }'
-}
-
-function ppkill() {
-    if [[ $1 =~ "^-" ]]; then
-        QUERY=""            # options only
-    else
-        QUERY=$1            # with a query
-        [[ $# > 0 ]] && shift
-    fi
-    ppgrep $QUERY | xargs kill $*
-}
 function exists { which $1 &> /dev/null }
-
-if exists percol; then
-    function percol_select_history() {
-        local tac
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
-        CURSOR=$#BUFFER         # move cursor
-        zle -R -c               # refresh
-    }
-
-    zle -N percol_select_history
-    bindkey '^T' percol_select_history
-fi
-
-# docker
-alias dl='docker ps -l -q'
 
 # http://www.direnv.net/
 eval_if_exists direnv "$(direnv hook zsh)"
-
-# https://github.com/zsh-users/zaw#usage
-#eval_if_exists $HOME/local/zaw/zaw.zsh ". $HOME/local/zaw/zaw.zsh"
-#bindkey '^R' zaw-history
-bindkey "^G" zaw
 
 # https://github.com/builddoctor/maven-antsy-color/
 # thanks to:  http://blog.blindgaenger.net/colorize_maven_output.html
@@ -202,20 +162,16 @@ function color_maven() {
     return $PIPESTATUS
 }
 
-alias mvn=color_maven
+#alias mvn=color_maven
 
-
-if type "kubectl" > /dev/null 2>&1; then
-    source <(kubectl completion $(basename $SHELL))
-fi
-
-#if (which zprof > /dev/null) ;then
-#  zprof | less
-#fi
-
+# https://github.com/zsh-users/zaw#usage
+#eval_if_exists $HOME/local/zaw/zaw.zsh ". $HOME/local/zaw/zaw.zsh"
+#bindkey '^R' zaw-history
+bindkey "^G" zaw
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
 fi
+
 
 
 # >>> conda initialize >>>
