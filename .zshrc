@@ -13,7 +13,7 @@ function eval_if_exists() {
 }
 function sleep() {
     for i in {$1..0}; do
-        printf '\r%2d' $i
+        printf '\r%d  ' $i
         /bin/sleep 1
     done
     printf '\n'
