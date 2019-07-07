@@ -18,9 +18,9 @@ function mv_old_if_exists() {
     test -f $1 && mv $1 $1.old 
 }
 
-# dotfiles
+echo "### dotfiles"
 mkdir -p ~/src
-git clone git@github.com:mainyaa/dotfiles.git ~/src/dotfiles
+[ -d ~/src/dotfiles ] && git clone git@github.com:mainyaa/dotfiles.git ~/src/dotfiles
 cd ~/src/dotfiles
 
 [ -f ~/.zshrc ] && mv ~/.zshrc ~/.zshrc.old
@@ -48,7 +48,8 @@ ln -s ~/src/dotfiles/.gitignore_global ~/
 ln -s ~/src/dotfiles/irbrc ~/.irbrc
 ln -s ~/src/dotfiles/pryrc ~/.pryrc
 
-# vim
+echo "### vim"
+mkdir -p ~/.txta
 mkdir -p ~/.txtb
 mkdir -p ~/_vim/autoload
 mkdir -p ~/_vim/bundle
@@ -65,13 +66,19 @@ wget https://github.com/cooldaemon/myhome/blob/master/.vim/dict/javascript.dict
 mv javascript.dict ~/_vim/dict/
 
 mkdir -p ~/bin
-curl -L https://sdk.cloud.google.com | bash
+#curl -L https://sdk.cloud.google.com | bash
 curl -L https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > ~/bin/diff-highlight
 chmod +x ~/bin/diff-highlight
 
 # vim
 vim +BundleInstall +qall
-cd ~/_vim/bundle/vimproc.vim
-make
+
+if [ -d ~/_vim/bundle/vimproc.vim ]; then
+    cd ~/_vim/bundle/vimproc.vim
+    make
+fi
+
+
+
 cd ~
 

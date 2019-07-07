@@ -63,7 +63,7 @@ export HASKELL_PATH=$HOME/Library/Haskell
 
 # go settings
 #export GOROOT=/usr/local/Cellar/go/$(brew list go | head -n 1 | cut -d '/' -f 6)/libexec
-#export GOPATH=$HOME/.go
+export GOPATH=$HOME/.go
 
 # python settings
 export VIRTUALENVWRAPPER_PYTHON=/Users/kazuyukimori/miniconda2/bin/python

@@ -1,0 +1,23 @@
+
+
+[core]
+    editor = vim
+
+[credential]
+    helper =credential-store
+
+[pager]
+    log = ~/diff-highlight | less
+    show = ~/diff-highlight | less
+    diff = ~/diff-highlight | less
+
+[merge]
+    tool = vimdiff
+    summary = true
+    verbosity = 1
+    ff = false
+    conflictstyle = diff3
+
+[mergetool]
+    keepBackup = false
+

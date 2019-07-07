@@ -13,8 +13,10 @@
 
 [merge]
     tool = p4merge
-    # from 1.7.6
+    summary = true
+    verbosity = 1
     ff = false
+    conflictstyle = diff3
 
 [mergetool]
     keepBackup = false

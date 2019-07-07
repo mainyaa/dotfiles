@@ -1,7 +1,7 @@
 [user]
     autocrlf = false
-	name = mainyaa
-	email = mainya@gmail.com
+    name = mainyaa
+    email = mainya@gmail.com
 
 [alias]
     co = checkout
@@ -15,7 +15,7 @@
 
 [core]
     editor = /usr/bin/vim
-	excludesfile = /Users/kazuyukimori/.gitignore_global
+    excludesfile = /Users/kazuyukimori/.gitignore_global
 
 [browse-remote "github.com"]
     top = https://{host}/{path}
@@ -32,7 +32,7 @@
 
 [interactive]
     singlekey = true
-	diffFilter = diff-highlight
+    diffFilter = diff-highlight
 
 [github.com]
     username = mainyaa
@@ -152,6 +152,7 @@
     summary = true
     verbosity = 1
     ff = false
+    conflictstyle = diff3
 
 [branch]
     autosetupmerge = true
@@ -168,7 +169,7 @@
   # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
   # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
-	compactionHeuristic = true
+    compactionHeuristic = true
 
 [rerere]
   # Remember my merges
@@ -179,30 +180,29 @@
     autocorrect = 1
 
 
-# from 1.7.10
-[include]
-    path = .gitconfig_local
 
-[include]
-    path = .gitconfig_mac
-
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [ghq]
     root = ~/.ghq
     root = ~/.go/src
 [init]
-	templatedir = ~/.git_template
+    templatedir = ~/.git_template
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
 [http]
-	cookiefile = /Users/kazuyukimori/.gitcookies
+    cookiefile = /Users/kazuyukimori/.gitcookies
+    # from 1.7.10
+
+
+
+
+
+#[include]
+#    path = .gitconfig_linux
+
+[include]
+    path = .gitconfig_mac
