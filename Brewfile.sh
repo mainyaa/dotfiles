@@ -46,6 +46,7 @@ brew install gdbm --force
 brew install gpatch --force
 brew install m4 --force
 brew install make --force
+brew install moreutils --force
 brew install nano --force
 brew install reattach-to-user-namespace --force
 brew install tmux --force
