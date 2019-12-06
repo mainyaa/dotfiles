@@ -1,7 +1,8 @@
+---
+:backtrace: false
+:bulk_threshold: 1000
+:sources:
+- https://rubygems.org/
 :update_sources: true
 :verbose: true
-:sources:
-- http://gems.rubyforge.org/
-- http://gemcutter.org
-- http://gems.github.com/
-gem: --no-rdoc --no-ri --user-install
+gem: "--no-rdoc --no-ri --user-install"

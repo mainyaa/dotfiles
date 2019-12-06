@@ -46,3 +46,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+[[ -s "/Users/kazuyukimori/.gvm/scripts/gvm" ]] && source "/Users/kazuyukimori/.gvm/scripts/gvm"

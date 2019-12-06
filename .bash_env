@@ -11,14 +11,6 @@ source_if_exists "$HOME/google-cloud-sdk/path.zsh.inc"
 
 export MANPATH=$MANPATH:$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman
 
-#export JDK_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
-export JDK_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
-export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
-export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
-export CLASSPATH=.:$JDK_HOME/lib
 
 export PYENV_ROOT="${HOME}/.pyenv"
 
@@ -63,7 +55,8 @@ export HASKELL_PATH=$HOME/Library/Haskell
 
 # go settings
 #export GOROOT=/usr/local/Cellar/go/$(brew list go | head -n 1 | cut -d '/' -f 6)/libexec
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/go
+export GO111MODULE=on
 
 # python settings
 export VIRTUALENVWRAPPER_PYTHON=/Users/kazuyukimori/miniconda2/bin/python
@@ -107,8 +100,6 @@ export_path_if_exists /usr/local/bin
 export_path_if_exists /usr/local/sbin
 #export PATH=/opt/local/bin:/opt/local/sbin:$PATH # MacPorts
 export_path_if_exists $HOME/bin
-export_path_if_exists $MAVEN_HOME/bin
-export_path_if_exists $JDK_HOME/bin
 export_path_if_exists $GAE_SDK_HOME/bin
 export_path_if_exists $NODEBREW_PATH/bin
 export_path_if_exists $NPM_PATH/bin

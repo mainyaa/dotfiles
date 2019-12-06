@@ -120,6 +120,7 @@ tramp
 *.un~
 Session.vim
 .netrwhist
+*.clean
 *~
 
 

@@ -2,7 +2,7 @@
 set -ux
 
 echo "### brew tap"
-brew tap homebrew/versions --force
+brew tap homebrew/cask-versions --force
 brew tap homebrew/dupes --force
 brew tap telemachus/homebrew-desc --force
 brew install brew-desc --force

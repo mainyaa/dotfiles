@@ -75,6 +75,12 @@ Plugin 'fatih/vim-go'
 Plugin 'ekalinin/Dockerfile.vim'
 " Lisp
 Plugin 'amdt/vim-niji'
+" Dart
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'thosakwe/vim-flutter'
+" Elm
+Plugin 'ElmCast/elm-vim'
+Plugin 'dense-analysis/ale'
 " HTML/CSS
 Plugin 'vim-scripts/HTML-AutoCloseTag'
 Plugin 'ZenCoding.vim'
@@ -141,13 +147,15 @@ Plugin 'thinca/vim-ft-help_fold'
 Plugin 'savevers.vim'
 " command
 Plugin 'quickrun.vim'
-Plugin 'Shougo/vimproc.vim' " Aynchronous execution plugin for Vim
+"Plugin 'Shougo/vimproc.vim' " Aynchronous execution plugin for Vim
 "Plugin 'git://git.wincent.com/command-t.git'
 " git
 Plugin 'tpope/vim-fugitive'
 Plugin 'hotwatermorning/auto-git-diff'
 " VimDiff(histogram argorihtm)
 Plugin 'lambdalisue/vim-unified-diff'
+" paste mode
+Plugin 'ConradIrwin/vim-bracketed-paste'
 " move
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'camelcasemotion'
