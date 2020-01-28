@@ -183,7 +183,7 @@ brew cask install macs-fan-control --force
 brew cask install mono-mre --force
 brew cask install mou --force
 brew cask install mucommander --force
-brew cask install p4merge --force
+brew cask install p4v --force
 #brew cask install porthole --force
 brew cask install sauce --force
 brew cask install sketch --force
