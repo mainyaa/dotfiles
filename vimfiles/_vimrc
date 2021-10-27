@@ -12,6 +12,8 @@ call vundle#begin('~/_vim/bundle')
 let g:vundle_default_git_proto = 'git'
 
 Plugin 'VundleVim/Vundle.vim'
+" language-server
+Plugin 'prabirshrestha/vim-lsp'
 " ruby
 "Plugin 'tpope/vim-rails'
 " python
@@ -39,6 +41,8 @@ Plugin 'justmao945/vim-clang'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 " c#
 Plugin 'vim-scripts/aspnetcs'
+" Rust
+Plugin 'rust-lang/rust.vim'
 " js
 Plugin 'pangloss/vim-javascript'
 Plugin 'walm/jshint.vim'
@@ -1450,4 +1454,13 @@ setlocal shiftwidth=4
 
 if exists('*TSScompleteFunc') && &omnifunc ==# ''
   setlocal omnifunc=TSScompleteFunc
+endif
+
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript', 'typescriptreact'],
+        \ })
 endif

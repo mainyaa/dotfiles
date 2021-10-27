@@ -25,6 +25,7 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 export ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk
 export RUBY_HOME=$HOME/.gem/ruby/2.3.0
 export FLUTTER_HOME=$HOME/src/flutter
+export CARGO_HOME=$HOME/.cargo
 
 #export JDK_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
@@ -65,5 +66,6 @@ export_path_if_exists $AWS_RDS_HOME/bin
 export_path_if_exists $ANDROID_SDK_ROOT/bin
 export_path_if_exists $ANDROID_NDK_ROOT/bin
 export_path_if_exists $CONDA_HOME/bin
+export_path_if_exists $CARGO_HOME/bin
 
 

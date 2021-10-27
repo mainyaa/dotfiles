@@ -318,3 +318,4 @@ if [[ "$PS1" ]]; then
 fi
 
 
+source "$HOME/.cargo/env"

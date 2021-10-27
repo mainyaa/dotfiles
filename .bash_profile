@@ -48,3 +48,4 @@ unset __conda_setup
 
 
 [[ -s "/Users/kazuyukimori/.gvm/scripts/gvm" ]] && source "/Users/kazuyukimori/.gvm/scripts/gvm"
+source "$HOME/.cargo/env"
